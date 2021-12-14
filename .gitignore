@@ -1,5 +1,7 @@
-*
+/*
 !init.vim
 !spell/
-!spell/*
 !.gitignore
+!plugins/
+!general/
+!keymapping/
