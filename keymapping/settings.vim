@@ -26,3 +26,5 @@ nnoremap g* g*zz
 nnoremap g# g#zz
 nnoremap <C-j> <C-e>
 nnoremap <C-k> <C-y>
+
+vnoremap * y/\V<C-R>=escape(@",'/\')<CR><CR>
