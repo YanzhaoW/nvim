@@ -28,3 +28,24 @@ nnoremap <C-j> <C-e>
 nnoremap <C-k> <C-y>
 
 vnoremap * y/\V<C-R>=escape(@",'/\')<CR><CR>
+
+"keymapping for barbar:
+nnoremap <silent>    <leader>, :BufferPrevious<CR>
+nnoremap <silent>    <leader>. :BufferNext<CR>
+" Re-order to previous/next
+nnoremap <silent>    <leader>< :BufferMovePrevious<CR>
+nnoremap <silent>    <leader>> :BufferMoveNext<CR>
+" Goto buffer in position...
+nnoremap <silent>    <leader>1 :BufferGoto 1<CR>
+nnoremap <silent>    <leader>2 :BufferGoto 2<CR>
+nnoremap <silent>    <leader>3 :BufferGoto 3<CR>
+nnoremap <silent>    <leader>4 :BufferGoto 4<CR>
+nnoremap <silent>    <leader>5 :BufferGoto 5<CR>
+nnoremap <silent>    <leader>6 :BufferGoto 6<CR>
+nnoremap <silent>    <leader>7 :BufferGoto 7<CR>
+nnoremap <silent>    <leader>8 :BufferGoto 8<CR>
+nnoremap <silent>    <leader>9 :BufferLast<CR>
+" Pin/unpin buffer
+nnoremap <silent>    <leader>p :BufferPin<CR>
+" Close buffer
+nnoremap <silent>    <leader>c :BufferClose<CR>

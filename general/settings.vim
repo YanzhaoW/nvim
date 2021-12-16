@@ -8,6 +8,8 @@ set backspace=indent,eol,start
 set scrolloff=4
 set hidden
 set cmdheight=1
+set mouse+=a
+set inccommand=nosplit
 
 set nocompatible
 filetype off
