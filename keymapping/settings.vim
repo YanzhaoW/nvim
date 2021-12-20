@@ -48,4 +48,4 @@ nnoremap <silent>    <leader>9 :BufferLast<CR>
 " Pin/unpin buffer
 nnoremap <silent>    <leader>p :BufferPin<CR>
 " Close buffer
-nnoremap <silent>    <leader>c :BufferClose<CR>
+nnoremap <silent>    <leader>cc :BufferClose<CR>

@@ -35,8 +35,8 @@ call plug#end()
 source $HOME/.config/nvim/plugins/onedark.vim
 source $HOME/.config/nvim/plugins/treesitter.vim
 source $HOME/.config/nvim/plugins/barbar.vim
-source $HOME/.config/nvim/plugins/cmp.vim
 
+luafile $HOME/.config/nvim/plugins/cmp.lua
 luafile $HOME/.config/nvim/plugins/project.lua
 luafile $HOME/.config/nvim/plugins/lsp.lua
 
