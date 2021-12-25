@@ -49,3 +49,17 @@ nnoremap <silent>    <leader>9 :BufferLast<CR>
 nnoremap <silent>    <leader>p :BufferPin<CR>
 " Close buffer
 nnoremap <silent>    <leader>cc :BufferClose<CR>
+
+"keymapping for cmp:
+function Cmp_toggle()
+        if g:cmp_disable_enable_toggle is v:true
+                let g:cmp_disable_enable_toggle = v:false
+                :echom "autocomplete is OFF"
+        else
+                let g:cmp_disable_enable_toggle = v:true
+                :echom "autocomplete is ON"
+        endif
+endfunction
+
+nnoremap <silent> <expr> <C-Space> Cmp_toggle()
+inoremap <silent> <C-Space> <C-o>:call Cmp_toggle()<CR>
