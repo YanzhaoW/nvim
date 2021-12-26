@@ -1,9 +1,7 @@
 set number
 " set number relativenumber
-syntax on
 set expandtab
 set incsearch
-set nospell
 set backspace=indent,eol,start
 set scrolloff=4
 set hidden
@@ -11,8 +9,7 @@ set cmdheight=1
 set mouse+=a
 set inccommand=nosplit
 
-set nocompatible
-filetype off
+filetype plugin indent on
 
 "automatically deletes all trailing whitespace and newlines at end of file on
 "save
@@ -23,6 +20,6 @@ set splitright
 let g:airline#extensions#whitespace#enabled = 0
 
 "set languagetool
-autocmd FileType text setlocal spell spelllang=en_us,de_de
-autocmd FileType text set spellcapcheck=
-
+autocmd FileType text,tex setlocal spell spelllang=en_us,de_de
+autocmd FileType text,tex set spellcapcheck=
+au BufNewFile,BufRead * syntax spell toplevel
