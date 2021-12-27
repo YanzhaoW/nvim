@@ -2,7 +2,7 @@ vim.opt.completeopt = {'menuone', 'noinsert', 'noselect'}
 -- Setup nvim-cmp.
 local cmp = require'cmp'
 
-vim.g.cmp_disable_enable_toggle = true
+vim.g.cmp_disable_enable_toggle = false
 
 cmp.setup({
         -- completion = {

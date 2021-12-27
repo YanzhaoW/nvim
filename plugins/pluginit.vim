@@ -12,6 +12,7 @@ Plug 'dpelle/vim-languagetool'
 Plug 'tpope/vim-commentary'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'joshdick/onedark.vim'
+Plug 'rhysd/vim-clang-format'
 
 "lsp
 Plug 'neovim/nvim-lspconfig'
@@ -36,6 +37,8 @@ call plug#end()
 source $HOME/.config/nvim/plugins/onedark.vim
 source $HOME/.config/nvim/plugins/treesitter.vim
 source $HOME/.config/nvim/plugins/barbar.vim
+source $HOME/.config/nvim/plugins/clangformat.vim
+
 
 luafile $HOME/.config/nvim/plugins/cmp.lua
 luafile $HOME/.config/nvim/plugins/project.lua
