@@ -13,6 +13,7 @@ Plug 'tpope/vim-commentary'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'joshdick/onedark.vim'
 Plug 'rhysd/vim-clang-format'
+Plug 'dstein64/vim-startuptime'
 
 "lsp
 Plug 'neovim/nvim-lspconfig'
