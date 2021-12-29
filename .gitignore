@@ -5,3 +5,5 @@
 !plugins/
 !general/
 !keymapping/
+!lua/
+!init.lua

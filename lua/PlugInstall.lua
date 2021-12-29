@@ -1,0 +1,55 @@
+local fn = vim.fn
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+if fn.empty(fn.glob(install_path)) > 0 then
+    Packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+end
+
+return require('packer').startup(function(use)
+    -- My plugins here
+    use 'wbthomason/packer.nvim'
+    use 'tpope/vim-surround'
+    use 'tpope/vim-fugitive'
+    use 'tpope/vim-commentary'
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = {'kyazdani42/nvim-web-devicons', opt = true}
+    }
+    use 'navarasu/onedark.nvim'
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+    }
+    use {
+        'rhysd/vim-clang-format',
+        ft = {'cpp', 'c'}
+    }
+    use 'dstein64/vim-startuptime'
+    -- lsp plugins
+    use 'neovim/nvim-lspconfig'
+    use 'williamboman/nvim-lsp-installer'
+    use 'tamago324/nlsp-settings.nvim'
+    use 'ahmedkhalf/project.nvim'
+
+    --bufferline
+    use {
+        'romgrk/barbar.nvim',
+        requires = {'kyazdani42/nvim-web-devicons'}
+    }
+
+    -- "cmp
+    use {
+        "hrsh7th/nvim-cmp",
+        requires = {
+            "hrsh7th/cmp-buffer", "hrsh7th/cmp-nvim-lsp", 'hrsh7th/cmp-cmdline', 'hrsh7th/cmp-path',
+            'saadparwaiz1/cmp_luasnip', 'L3MON4D3/LuaSnip'
+        }
+    }
+
+    -- Automatically set up your configuration after cloning packer.nvim
+    -- Put this at the end after all plugins
+    if Packer_bootstrap then
+        require('packer').sync()
+    end
+end)
+
+
