@@ -8,33 +8,22 @@ return require('packer').startup(function(use)
     -- My plugins here
     use 'wbthomason/packer.nvim'
     use 'tpope/vim-surround'
-    use 'tpope/vim-fugitive'
+    use {'tpope/vim-fugitive'}
     use 'tpope/vim-commentary'
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = {'kyazdani42/nvim-web-devicons', opt = true}
-    }
+    use {'nvim-lualine/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
     use 'navarasu/onedark.nvim'
-    use {
-        'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
-    }
-    use {
-        'rhysd/vim-clang-format',
-        ft = {'cpp', 'c'}
-    }
-    use 'dstein64/vim-startuptime'
+    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+    use {'rhysd/vim-clang-format', opt=true, ft = {'cpp', 'c'}}
+    use {'dstein64/vim-startuptime', opt=true, cmd = {'StartupTime'}}
+    use {'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} }}
     -- lsp plugins
-    use 'neovim/nvim-lspconfig'
-    use 'williamboman/nvim-lsp-installer'
-    use 'tamago324/nlsp-settings.nvim'
-    use 'ahmedkhalf/project.nvim'
+    use {'neovim/nvim-lspconfig'}
+    use {'williamboman/nvim-lsp-installer'}
+    use {'tamago324/nlsp-settings.nvim'}
+    use {'ahmedkhalf/project.nvim'}
 
     --bufferline
-    use {
-        'romgrk/barbar.nvim',
-        requires = {'kyazdani42/nvim-web-devicons'}
-    }
+    use {'romgrk/barbar.nvim', requires = {'kyazdani42/nvim-web-devicons'}}
 
     -- "cmp
     use {

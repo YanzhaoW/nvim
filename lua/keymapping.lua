@@ -35,7 +35,16 @@ map('n', 'g*', 'g*zz')
 map('n', 'g#', 'g#zz')
 map('n', '<C-j>', '<C-e>')
 map('n', '<C-k>', '<C-y>')
---barbar:
+
+--keybindings for telescope:
+map('n', '<leader>ff', [[<cmd>lua require('telescope.builtin').find_files()<CR>]])
+map('n', '<leader>fg', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]])
+map('n', '<leader>fb', [[<cmd>lua require('telescope.builtin').buffers()<CR>]])
+-- map('n', '<leader>fe', [[<cmd>lua require('telescope.builtin').file_browser()<CR>]])
+map('n', '<leader>fh', [[<cmd>lua require('telescope.builtin').help_tags()<CR>]])
+
+
+--keybindings for barbar:
 --jumping and reordering of buffers
 map('n', '<leader>,', ':BufferPrevious<CR>')
 map('n', '<leader>,', ':BufferNext<CR>')
