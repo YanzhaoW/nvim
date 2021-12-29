@@ -36,6 +36,12 @@ map('n', 'g#', 'g#zz')
 map('n', '<C-j>', '<C-e>')
 map('n', '<C-k>', '<C-y>')
 
+--keybindings for nvimtree:
+map('n', '<C-x>', ':NvimTreeToggle<CR>')
+map('n', '<leader>x', ':NvimTreeFocus<CR>')
+map('i', '<C-x>', '<ESC>:NvimTreeToggle<CR>')
+map('v', '<C-x>', '<ESC>:NvimTreeToggle<CR>')
+
 --keybindings for telescope:
 map('n', '<leader>ff', [[<cmd>lua require('telescope.builtin').find_files()<CR>]])
 map('n', '<leader>fg', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]])
@@ -47,7 +53,7 @@ map('n', '<leader>fh', [[<cmd>lua require('telescope.builtin').help_tags()<CR>]]
 --keybindings for barbar:
 --jumping and reordering of buffers
 map('n', '<leader>,', ':BufferPrevious<CR>')
-map('n', '<leader>,', ':BufferNext<CR>')
+map('n', '<leader>.', ':BufferNext<CR>')
 map('n', '<leader><', ':BufferMovePrevious<CR>')
 map('n', '<leader>>', ':BufferMoveNext<CR>')
 -- Goto buffer in position
