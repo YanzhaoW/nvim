@@ -1,5 +1,3 @@
-require 'keymapping'
-require 'optset'
 require 'PlugInstall'
 
 -- load plugin settings:
@@ -13,3 +11,8 @@ require 'plugs/project_config'
 require 'plugs/lsp_config'
 require 'plugs/telescope_config'
 require 'plugs/nvimtree_config'
+require 'plugs/nvimlastplace_config'
+
+
+require 'keymapping'
+require 'optset'

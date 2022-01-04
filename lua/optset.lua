@@ -15,11 +15,13 @@ vim.opt.splitright = true
 vim.opt.cursorline = true
 
 vim.cmd('filetype plugin indent on')
+-- vim.cmd('hi! MatchParen gui=reverse,bold guibg=reverse')
 vim.cmd([[
 augroup spellgroup
 autocmd!
-autocmd FileType text,tex setlocal spell spelllang=en_us,de_de
-autocmd FileType text,tex set spellcapcheck=
-au BufNewFile,BufRead * syntax spell toplevel
+autocmd FileType text,tex,markdown setlocal spell spelllang=en_us,de_de
+autocmd FileType text,tex,markdown set spellcapcheck=
+au FileType markdown hi! MatchParen gui=bold guifg='#8f96a3'
+au BufNewFile,BufRead tex syntax spell toplevel
 augroup END
 ]])
