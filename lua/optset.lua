@@ -17,11 +17,12 @@ vim.opt.cursorline = true
 vim.cmd('filetype plugin indent on')
 -- vim.cmd('hi! MatchParen gui=reverse,bold guibg=reverse')
 vim.cmd([[
-augroup spellgroup
+augroup usergroup
 autocmd!
 autocmd FileType text,tex,markdown setlocal spell spelllang=en_us,de_de
 autocmd FileType text,tex,markdown set spellcapcheck=
 au FileType markdown hi! MatchParen gui=bold guifg='#8f96a3'
 au BufNewFile,BufRead tex syntax spell toplevel
+autocmd FileType cpp :lua vim.api.nvim_buf_set_option(0, "commentstring", "// %s")
 augroup END
 ]])
