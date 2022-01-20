@@ -71,6 +71,9 @@ map('n', '<leader>p', ':BufferPin<CR>')
 -- Close buffer
 map('n', '<leader>cc', ':BufferClose<CR>')
 
+--clangd mapping
+map('n', '<leader>oo', ':ClangdSwitchSourceHeader')
+map('n', '<leader>of', ':ClangdFormat')
 
 -- keymapping for cmp:
 _G.cmp_toggle = function()
