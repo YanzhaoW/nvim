@@ -13,6 +13,7 @@ vim.opt.showmode = false
 vim.opt.conceallevel = 0
 vim.opt.splitright = true
 vim.opt.cursorline = true
+vim.o.pumheight = 15
 
 vim.cmd('filetype plugin indent on')
 -- vim.cmd('hi! MatchParen gui=reverse,bold guibg=reverse')
