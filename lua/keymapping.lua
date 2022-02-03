@@ -18,6 +18,10 @@ map('i', 'jk', '<Esc>')
 map('v', '*', [[y/\V<C-R>=escape(@",'/\')<CR><CR>]])
 
 ----normal mode keymapping:
+
+--unbind default keys:
+map('n', 'J', '<Nop>')
+
 map('n', '<C-h>', '<C-w>h')
 map('n', '<C-l>', '<C-w>l')
 map('n', '<leader>w', ':w<Enter>')
