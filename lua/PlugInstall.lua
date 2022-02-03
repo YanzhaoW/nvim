@@ -9,7 +9,7 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
     use 'tpope/vim-surround'
     use 'tpope/vim-fugitive'
-    use 'terrortylor/nvim-comment'
+    use 'numToStr/comment.nvim'
     use 'kyazdani42/nvim-web-devicons'
     use 'nvim-lualine/lualine.nvim'
     use 'navarasu/onedark.nvim'
