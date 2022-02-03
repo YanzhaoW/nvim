@@ -14,14 +14,14 @@ map('t', '<Esc>', [[<C-\><C-n>]])
 map('i', 'jk', '<Esc>')
 
 ----visual mode keymapping:
-map('v', 'J', '<Nop>')
+map('v', 'J', 'j')
 -- search selected string
 map('v', '*', [[y/\V<C-R>=escape(@",'/\')<CR><CR>]])
 
 ----normal mode keymapping:
 
 --unbind default keys:
-map('n', 'J', '<Nop>')
+map('n', 'J', 'j')
 
 map('n', '<C-h>', '<C-w>h')
 map('n', '<C-l>', '<C-w>l')
