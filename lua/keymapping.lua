@@ -14,6 +14,7 @@ map('t', '<Esc>', [[<C-\><C-n>]])
 map('i', 'jk', '<Esc>')
 
 ----visual mode keymapping:
+map('v', 'J', '<Nop>')
 -- search selected string
 map('v', '*', [[y/\V<C-R>=escape(@",'/\')<CR><CR>]])
 
