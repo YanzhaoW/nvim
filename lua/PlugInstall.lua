@@ -13,6 +13,7 @@ return require('packer').startup(function(use)
     use 'kyazdani42/nvim-web-devicons'
     use 'nvim-lualine/lualine.nvim'
     use 'navarasu/onedark.nvim'
+    -- use "akinsho/toggleterm.nvim"
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use {'rhysd/vim-clang-format', opt=true, ft = {'cpp', 'c'}}
     use {'dstein64/vim-startuptime', opt=true, cmd = {'StartupTime'}}
