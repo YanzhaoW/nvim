@@ -22,17 +22,18 @@ return require('packer').startup(function(use)
         'kyazdani42/nvim-tree.lua',
         -- config = function() require'nvim-tree'.setup {} end
     }
-    use "ethanholz/nvim-lastplace"
-    use "shatur/neovim-session-manager"
+    use 'ethanholz/nvim-lastplace'
+    use 'rmagatti/auto-session'
+    use 'rmagatti/session-lens'
 
     -- lsp plugins
-    use {'neovim/nvim-lspconfig'}
-    use {'williamboman/nvim-lsp-installer'}
-    use {'tamago324/nlsp-settings.nvim'}
-    use {'ahmedkhalf/project.nvim'}
+    use 'neovim/nvim-lspconfig'
+    use 'williamboman/nvim-lsp-installer'
+    use 'tamago324/nlsp-settings.nvim'
+    use 'ahmedkhalf/project.nvim'
 
     --bufferline
-    use {'romgrk/barbar.nvim'}
+    use 'romgrk/barbar.nvim'
 
     -- "cmp
     use {
