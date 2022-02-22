@@ -23,8 +23,7 @@ return require('packer').startup(function(use)
         -- config = function() require'nvim-tree'.setup {} end
     }
     use "ethanholz/nvim-lastplace"
-    use { "shatur/neovim-session-manager", config = function() require('session_manager').setup({
-    session_dir=vim.fn.stdpath('data').."/sessions/"}) end }
+    use "shatur/neovim-session-manager"
 
     -- lsp plugins
     use {'neovim/nvim-lspconfig'}
