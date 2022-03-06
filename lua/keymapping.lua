@@ -10,6 +10,12 @@ end
 
 map('t', '<Esc>', [[<C-\><C-n>]])
 
+---- command keymapping:
+vim.cmd('cnoremap <C-b> <Left>')
+vim.cmd('cnoremap <C-f> <Right>')
+vim.cmd('cnoremap <C-a> <Home>')
+vim.cmd('cnoremap <C-e> <End>')
+
 ----insert mode keymapping:
 map('i', 'jk', '<Esc>')
 
