@@ -100,3 +100,11 @@ end
 
 map('n', '<C-Space>', ':call v:lua.cmp_toggle()<CR>')
 map('i', '<C-Space>', '<C-o>:call v:lua.cmp_toggle()<CR>')
+
+
+if (vim.fn.has('macunix') == 1) then
+    map('n', '<C-y>', '"*y')
+    map('n', '<C-y><C-y>', '"*yy')
+    map('n', '<C-p>', [["*p]])
+    map('n', '<leader>p', [["*P]])
+end
