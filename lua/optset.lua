@@ -38,3 +38,17 @@ if (vim.fn.has('clipboard') == 0) then
     ]])
 end
     
+-- if (vim.fn.has('macunix') == 1) then
+--     vim.g.clipboard = {
+--         name = "xclip",
+--         copy = {
+--             ["+"] = "xclip -sel clip -i",
+--             ["*"] = "pbcopy",
+--         },
+--         paste = {
+--             ["+"] = "xclip -sel clip -o",
+--             ["*"] = "pbpaste",
+--         },
+--         cache_enabled = true 
+--     }
+-- end
