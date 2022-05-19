@@ -14,7 +14,7 @@ return require('packer').startup(function(use)
     use 'nvim-lualine/lualine.nvim'
     use 'navarasu/onedark.nvim'
     -- use "akinsho/toggleterm.nvim"
-   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+    use {'nvim-treesitter/nvim-treesitter'}
     use {'rhysd/vim-clang-format', opt=true, ft = {'cpp', 'c'}}
     use {'dstein64/vim-startuptime', opt=true, cmd = {'StartupTime'}}
     use {'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} }}
