@@ -29,18 +29,11 @@ autocmd FileType cpp :lua vim.api.nvim_buf_set_option(0, "commentstring", "// %s
 augroup END
 ]])
 
--- if (vim.fn.has('macunix') == 1) then
---     vim.g.clipboard = {
---         name = "xclip",
---         copy = {
---             ["+"] = "xclip -sel clip -i",
---             ["*"] = "pbcopy",
---         },
---         paste = {
---             ["+"] = "xclip -sel clip -o",
---             ["*"] = "pbpaste",
---         },
---         cache_enabled = true 
---     }
--- end
-
+if (vim.fn.has('clipboard') == 0) then
+    vim.cmd([[
+    augroup OSCYank
+    autocmd!
+    autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankReg "' | endif
+    augroup END
+    ]])
+end

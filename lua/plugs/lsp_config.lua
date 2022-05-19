@@ -56,6 +56,7 @@ lsp_installer.on_server_ready(function(server)
   -- Specify the default options which we'll use to setup all servers
   local opts = {
     on_attach = on_attach,
+    capabilities = capabilities
   }
 
   if enhance_server_opts[server.name] then

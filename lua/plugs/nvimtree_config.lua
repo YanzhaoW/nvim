@@ -20,10 +20,10 @@ require'nvim-tree'.setup{
     view = {
         side = 'right'
     },
-    auto_close = true,
     update_focused_file = {
         enable = true,
         update_cwd = false,
         ignore_list = {}
     }
 }
+vim.cmd([[autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif]])
