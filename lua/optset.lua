@@ -38,10 +38,10 @@ if (vim.fn.has('clipboard') == 0) then
     ]])
 end
     
-if (vim.fn.exists('g:GuiLoaded')) then
-    vim.cmd([[set guicursor=]])
-    -- vim.cmd([[set guicursor+=i:blinkwait10]])
-end
+-- if (vim.fn.exists('g:GuiLoaded') == 0) then
+--     vim.cmd([[set guicursor=]])
+--     -- vim.cmd([[set guicursor+=i:blinkwait10]])
+-- end
 -- if (vim.fn.has('macunix') == 1) then
 --     vim.g.clipboard = {
 --         name = "xclip",
