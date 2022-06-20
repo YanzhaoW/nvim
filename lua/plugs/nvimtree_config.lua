@@ -15,14 +15,13 @@ require("nvim-web-devicons").setup {
 
 
 
-vim.cmd([[let g:nvim_tree_special_files = { }]])
 require'nvim-tree'.setup{
     view = {
         side = 'right'
     },
     update_focused_file = {
         enable = true,
-        update_cwd = false,
+        update_cwd = true,
         ignore_list = {}
     }
 }

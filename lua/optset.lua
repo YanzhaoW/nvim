@@ -29,7 +29,9 @@ autocmd FileType cpp :lua vim.api.nvim_buf_set_option(0, "commentstring", "// %s
 augroup END
 ]])
 
-if (vim.fn.has('clipboard') == 0) then
+-- if (vim.fn.has('clipboard') == 0 or lua os.getenv("TMUX")~=nil) then
+--
+if (os.getenv("DISPLAY") == nil) then
     vim.cmd([[
     augroup OSCYank
     autocmd!
