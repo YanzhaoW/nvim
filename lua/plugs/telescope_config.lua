@@ -1,7 +1,7 @@
 local actions = require("telescope.actions")
 require('telescope').setup{
     defaults = {
-        initial_mode ='normal'
+        initial_mode ='insert'
     },
     pickers = {
         buffers = {
