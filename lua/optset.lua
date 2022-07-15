@@ -31,7 +31,7 @@ augroup END
 
 -- if (vim.fn.has('clipboard') == 0 or lua os.getenv("TMUX")~=nil) then
 --
-if (os.getenv("DISPLAY") == nil) then
+if (os.getenv("LC_MAC") == '1') then
     vim.cmd([[
     augroup OSCYank
     autocmd!
