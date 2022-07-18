@@ -39,12 +39,3 @@ vim.cmd([[
     augroup END
     ]])
 -- end
-
-gc = vim.opt.guicursor
-print(gc)
-if(type(gc) == 'table') then
-    print("is a table", gc.getn())
-    for index,data in ipairs(gc) do
-        print("index: ", index)
-    end
-end
