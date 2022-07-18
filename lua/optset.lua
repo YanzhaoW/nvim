@@ -31,11 +31,20 @@ augroup END
 
 -- if (vim.fn.has('clipboard') == 0 or lua os.getenv("TMUX")~=nil) then
 --
-if (os.getenv("LC_MAC") == '1') then
-    vim.cmd([[
+-- if (os.getenv("LC_MAC") == '1') then
+vim.cmd([[
     augroup OSCYank
     autocmd!
     autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankReg "' | endif
     augroup END
     ]])
+-- end
+
+gc = vim.opt.guicursor
+print(gc)
+if(type(gc) == 'table') then
+    print("is a table", gc.getn())
+    for index,data in ipairs(gc) do
+        print("index: ", index)
+    end
 end
