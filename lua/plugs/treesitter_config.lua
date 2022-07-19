@@ -1,5 +1,6 @@
 require'nvim-treesitter.configs'.setup{
     ensure_installed = {"c", "cpp", "lua", "python", "latex", "cmake", "make", "markdown", "proto", "r"},
+    auto_install = true,
     sync_install = false,
     highlight = {
         enable = true,
@@ -8,7 +9,7 @@ require'nvim-treesitter.configs'.setup{
     incremental_selection = { enable = true },
     textobjects = { enable = true },
     indent = {
-        enable = true,
-        disable = {"python"},
+        enable = false,
+        -- disable = {"python", "cpp", "c"},
     },
 }
