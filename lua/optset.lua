@@ -13,8 +13,12 @@ vim.opt.showmode = false
 vim.opt.conceallevel = 0
 vim.opt.splitright = true
 vim.opt.cursorline = true
-vim.o.pumheight = 15
-vim.o.clipboard = "unnamedplus"
+vim.opt.termguicolors = true
+vim.opt.pumheight = 15
+vim.opt.clipboard = "unnamedplus"
+vim.opt.ignorecase = true
+
+vim.g.oscyank_silent = true
 
 vim.cmd('filetype plugin indent on')
 -- vim.cmd('hi! MatchParen gui=reverse,bold guibg=reverse')
@@ -26,11 +30,25 @@ autocmd FileType text,tex,markdown set spellcapcheck=
 au FileType markdown hi! MatchParen gui=bold guifg='#8f96a3'
 au BufNewFile,BufRead tex syntax spell toplevel
 autocmd FileType cpp :lua vim.api.nvim_buf_set_option(0, "commentstring", "// %s")
+autocmd User TelescopePreviewerLoaded setlocal wrap
 augroup END
 ]])
 
--- if (vim.fn.has('clipboard') == 0 or lua os.getenv("TMUX")~=nil) then
---
+if (os.getenv("TMUX")~=nil) then
+    vim.g.clipboard = {
+        name = 'myClipboard',
+        copy = {
+            ["+"] = {'tmux', 'load-buffer', '-'},
+            ["*"] = {'tmux', 'load-buffer', '-'},
+        },
+        paste = {
+            ["+"] = {'tmux', 'save-buffer', '-'},
+            ["*"] = {'tmux', 'save-buffer', '-'},
+        },
+        cache_enabled = true,
+    }
+end
+
 -- if (os.getenv("LC_MAC") == '1') then
 vim.cmd([[
     augroup OSCYank

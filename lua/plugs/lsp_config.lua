@@ -73,3 +73,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
                 signs = false,
         }
 )
+
+--clangd mapping
+map('n', '<leader>oo', ':ClangdSwitchSourceHeader<CR>')
+map('n', '<leader>of', ':ClangdFormat<CR>')

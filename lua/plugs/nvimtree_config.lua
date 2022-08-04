@@ -19,6 +19,8 @@ require'nvim-tree'.setup{
     view = {
         side = 'right'
     },
+    respect_buf_cwd = true,
+    update_cwd = true,
     hijack_directories = {
         auto_open = false,
     },
@@ -26,5 +28,14 @@ require'nvim-tree'.setup{
         enable = true,
         update_cwd = true,
         ignore_list = {},
-    }
+    },
+    git = {
+        ignore = false,
+    },
 }
+
+--keybindings for nvimtree:
+map('n', '<C-x>', ':NvimTreeToggle<CR>')
+map('n', '<leader>x', ':NvimTreeFocus<CR>')
+map('i', '<C-x>', '<ESC>:NvimTreeToggle<CR>')
+map('v', '<C-x>', '<ESC>:NvimTreeToggle<CR>')

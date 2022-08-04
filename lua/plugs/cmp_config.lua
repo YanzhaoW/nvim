@@ -44,6 +44,20 @@ cmp.setup({
 
 })
 
+-- keymapping for cmp:
+_G.cmp_toggle = function()
+    if vim.g.cmp_disable_enable_toggle == true then
+        vim.g.cmp_disable_enable_toggle = false
+        print('autocomplete is OFF')
+    else
+        vim.g.cmp_disable_enable_toggle = true
+        print('autocomplete is ON')
+    end
+end
+
+map('n', 'tc', ':call v:lua.cmp_toggle()<CR>')
+-- map('i', '<C-Space>', '<C-o>:call v:lua.cmp_toggle()<CR>')
+
 cmp.setup.cmdline {
   mapping = cmp.mapping.preset.cmdline({
   })
