@@ -31,6 +31,8 @@ map('n', 'J', 'j')
 
 map('n', '<C-h>', '<C-w>h')
 map('n', '<C-l>', '<C-w>l')
+map('n', '<C-j>', '<C-w>j')
+map('n', '<C-k>', '<C-w>k')
 map('n', '<leader>w', ':w<Enter>')
 map('n', '<leader>q', ':q<Enter>')
 map('n', '<leader>h', ':noh<Enter>')
@@ -44,12 +46,7 @@ map('n', '*', '*zz')
 map('n', '#', '#zz')
 map('n', 'g*', 'g*zz')
 map('n', 'g#', 'g#zz')
-map('n', '<C-j>', '<C-e>')
-map('n', '<C-k>', '<C-y>')
-
-
-
-
+map ('n', '<leader>bb', '<C-^>')
 
 
 
