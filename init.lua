@@ -14,6 +14,7 @@ require 'plugs/telescope_config'
 require 'plugs/nvimtree_config'
 require 'plugs/nvimlastplace_config'
 require 'plugs/nvimcomment_config'
+require 'plugs/trouble_config'
 require 'plugs/session_config'
 require 'plugs/gitsigns_config'
 

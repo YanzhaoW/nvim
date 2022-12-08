@@ -38,10 +38,8 @@ cmp.setup({
                 -- { name = 'snippy' }, -- For snippy users.
         }, {
                 { name = 'buffer' },
-        })
-
-
-
+                { name = 'treesitter'},
+        }),
 })
 
 -- keymapping for cmp:

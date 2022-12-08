@@ -36,6 +36,6 @@ require'nvim-tree'.setup{
 
 --keybindings for nvimtree:
 map('n', '<C-x>', ':NvimTreeToggle<CR>')
-map('n', '<leader>x', ':NvimTreeFocus<CR>')
+-- map('n', '<leader>x', ':NvimTreeFocus<CR>')
 map('i', '<C-x>', '<ESC>:NvimTreeToggle<CR>')
 map('v', '<C-x>', '<ESC>:NvimTreeToggle<CR>')

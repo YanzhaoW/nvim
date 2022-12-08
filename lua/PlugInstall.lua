@@ -34,6 +34,10 @@ return require('packer').startup(function(use)
     use 'williamboman/nvim-lsp-installer'
     use 'tamago324/nlsp-settings.nvim'
     use 'ahmedkhalf/project.nvim'
+    use {
+        "folke/trouble.nvim",
+        requires = "kyazdani42/nvim-web-devicons",
+    }
 
     --bufferline
     use 'romgrk/barbar.nvim'

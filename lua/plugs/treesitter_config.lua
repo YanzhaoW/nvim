@@ -9,7 +9,7 @@ require'nvim-treesitter.configs'.setup{
     incremental_selection = { enable = true },
     textobjects = { enable = true },
     indent = {
-        enable = false,
+        enable = true,
         -- disable = {"python", "cpp", "c"},
     },
 }

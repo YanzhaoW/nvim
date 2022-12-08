@@ -1,5 +1,6 @@
 local nvim_lsp = require('lspconfig')
 local lsp_installer = require('nvim-lsp-installer')
+local capabilities = require("lsp.capability")
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -49,6 +50,9 @@ local enhance_server_opts = {
                 }
             }
         }
+    end,
+    ["clangd"] = function(opts)
+        opts.settings = require("lsp.clangd")
     end,
 }
 
