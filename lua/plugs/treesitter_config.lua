@@ -10,6 +10,6 @@ require'nvim-treesitter.configs'.setup{
     textobjects = { enable = true },
     indent = {
         enable = true,
-        -- disable = {"python", "cpp", "c"},
+        disable = {"python", "cpp", "c"},
     },
 }
