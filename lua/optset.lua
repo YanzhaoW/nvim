@@ -17,7 +17,8 @@ vim.opt.termguicolors = true
 vim.opt.pumheight = 15
 vim.opt.clipboard = "unnamedplus"
 vim.opt.ignorecase = true
-vim.opt.spelloptions=noplainbuffer
+vim.opt.spelloptions= 'noplainbuffer'
+
 
 vim.g.oscyank_silent = true
 
@@ -71,3 +72,4 @@ vim.cmd([[
     augroup END
     ]])
 -- end
+

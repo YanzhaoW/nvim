@@ -12,10 +12,12 @@ return require('packer').startup(function(use)
     use 'lewis6991/gitsigns.nvim'
     use 'numToStr/comment.nvim'
     use 'kyazdani42/nvim-web-devicons'
+    use 'nvim-lua/lsp-status.nvim'
     use 'nvim-lualine/lualine.nvim'
     use 'navarasu/onedark.nvim'
     -- use "akinsho/toggleterm.nvim"
-    use {'nvim-treesitter/nvim-treesitter'}
+    use 'nvim-treesitter/nvim-treesitter'
+    use 'nvim-treesitter/playground'
     use {'rhysd/vim-clang-format', opt=true, ft = {'cpp', 'c'}}
     use {'dstein64/vim-startuptime', opt=true, cmd = {'StartupTime'}}
     use {'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} }}

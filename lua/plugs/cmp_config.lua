@@ -53,7 +53,7 @@ _G.cmp_toggle = function()
     end
 end
 
-map('n', 'tc', ':call v:lua.cmp_toggle()<CR>')
+vim.keymap.set('n', 'tc', ':call v:lua.cmp_toggle()<CR>', {noremap = true, silent = true})
 -- map('i', '<C-Space>', '<C-o>:call v:lua.cmp_toggle()<CR>')
 
 cmp.setup.cmdline {

@@ -5,33 +5,33 @@ local capabilities = require("lsp.capability")
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(_, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+    local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-  -- Enable completion triggered by <c-x><c-o>
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+    -- Enable completion triggered by <c-x><c-o>
+    buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  -- Mappings.
-  local opts = { noremap=true, silent=true }
+    -- Mappings.
+    local opts = { noremap=true, silent=true, buffer = 0 }
+    -- local opts = { buffer = 0 }
 
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  -- buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  -- buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-  -- buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-  -- buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-  buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-  buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-  buf_set_keymap('n', '<space>l', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
-  buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+    -- vim.keymap.set('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+    -- vim.keymap.set('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+    -- vim.keymap.set('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+    -- vim.keymap.set('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+    vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, opts)
+    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
+    vim.keymap.set('n', 'ga', vim.lsp.buf.code_action, opts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+    vim.keymap.set('n', '<space>e',  vim.diagnostic.open_float, opts)
+    vim.keymap.set('n', '[d',  vim.diagnostic.goto_prev, opts)
+    vim.keymap.set('n', ']d',  vim.diagnostic.goto_next, opts)
+    vim.keymap.set('n', '<space>l',  vim.diagnostic.setloclist, opts)
+    vim.keymap.set('n', '<space>f',  vim.lsp.buf.formatting, opts)
 
 end
 
@@ -57,25 +57,25 @@ local enhance_server_opts = {
 }
 
 lsp_installer.on_server_ready(function(server)
-  -- Specify the default options which we'll use to setup all servers
-  local opts = {
-    on_attach = on_attach,
-    capabilities = capabilities
-  }
+    -- Specify the default options which we'll use to setup all servers
+    local opts = {
+        on_attach = on_attach,
+        capabilities = capabilities
+    }
 
-  if enhance_server_opts[server.name] then
-    -- Enhance the default opts with the server-specific ones
-    enhance_server_opts[server.name](opts)
-  end
+    if enhance_server_opts[server.name] then
+        -- Enhance the default opts with the server-specific ones
+        enhance_server_opts[server.name](opts)
+    end
 
-  server:setup(opts)
+    server:setup(opts)
 end)
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-        vim.lsp.diagnostic.on_publish_diagnostics, {
-                virtual_text = false,
-                signs = false,
-        }
+    vim.lsp.diagnostic.on_publish_diagnostics, {
+        virtual_text = false,
+        signs = false,
+    }
 )
 
 _G.bufferCopy = function (bufnr)
@@ -110,7 +110,6 @@ _G.bufferCopy = function (bufnr)
     end
 
 end
-map ('n', '<leader>o<Tab>', ':call v:lua.bufferCopy(0)<CR>')
---clangd mapping
-map('n', '<leader>oo', ':ClangdSwitchSourceHeader<CR>')
-map('n', '<leader>of', ':ClangdFormat<CR>')
+vim.keymap.set ('n', '<leader>o<Tab>', ':call v:lua.bufferCopy(0)<CR>', {noremap = true, silent = true})
+vim.keymap.set('n', '<leader>oo', ':ClangdSwitchSourceHeader<CR>', {noremap = true, silent = true})
+vim.keymap.set('n', '<leader>of', ':ClangdFormat<CR>', {noremap = true, silent = true})
