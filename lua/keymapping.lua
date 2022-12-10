@@ -79,3 +79,5 @@ vim.keymap.set('n', '<C-x>', ':NvimTreeToggle<CR>', {noremap = true, silent = tr
 vim.keymap.set('i', '<C-x>', '<ESC>:NvimTreeToggle<CR>', {noremap = true, silent = true})
 vim.keymap.set('v', '<C-x>', '<ESC>:NvimTreeToggle<CR>', {noremap = true, silent = true})
 
+-- cmp
+vim.keymap.set('n', 'tc', ':CmpToggle', {noremap = true, silent = true})

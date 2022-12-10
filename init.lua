@@ -7,6 +7,10 @@ require 'plugs/lualine_config'
 require 'plugs/treesitter_config'
 require 'plugs/barbar_config'
 require 'plugs/clangformat_config'
+
+
+
+
 require 'plugs/cmp_config'
 require 'plugs/project_config'
 require 'plugs/lsp_config'
@@ -19,3 +23,4 @@ require 'plugs/session_config'
 require 'plugs/gitsigns_config'
 
 require 'optset'
+require 'autocmds'
