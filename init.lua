@@ -6,10 +6,6 @@ require 'plugs/onedark_config'
 require 'plugs/lualine_config'
 require 'plugs/treesitter_config'
 require 'plugs/barbar_config'
-require 'plugs/clangformat_config'
-
-
-
 
 require 'plugs/cmp_config'
 require 'plugs/project_config'

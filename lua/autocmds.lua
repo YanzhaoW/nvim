@@ -8,19 +8,17 @@
 --     end
 -- end
 
--- local cppgroup = vim.api.nvim_create_augroup("c++ autocmd", {clear = true})
+local autoformat = vim.api.nvim_create_augroup("autoformat", { clear = true })
 
--- vim.api.nvim_create_autocmd(
---     {"BufWritePre"},
---     {
---         group = cppgroup,
---         callback = function(opts)
---             if vim.bo[opts.buf].filetype == "cpp" then
---                 clangformat()
---             end
---         end,
---     }
--- )
+vim.api.nvim_create_autocmd(
+    { "BufWritePre" },
+    {
+        group = autoformat,
+        callback = function()
+            vim.lsp.buf.format({ async = false })
+        end,
+    }
+)
 
 -- cmp:
 local cmp_toggle = function()
@@ -36,7 +34,7 @@ end
 vim.api.nvim_buf_create_user_command(0, "CmpToggle", cmp_toggle, {})
 
 vim.api.nvim_create_autocmd(
-    {"filetype"},
+    { "filetype" },
     {
         pattern = "cpp, python, lua",
         callback = function(_)

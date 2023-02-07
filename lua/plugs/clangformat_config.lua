@@ -11,5 +11,5 @@ elseif(vim.fn.executable('clang-format-13') == 1) then
 elseif(vim.fn.executable('clang-format') == 1) then
     vim.g['clang_format#command']='clang-format'
 end
-vim.g['clang_format#auto_format']=0
-vim.g['clang_format#auto_format_on_insert_leave'] = 1
+vim.g['clang_format#auto_format']=1
+vim.g['clang_format#auto_format_on_insert_leave'] = 0
