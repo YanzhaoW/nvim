@@ -11,7 +11,7 @@ local on_attach = function(_, bufnr)
     buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
     -- Mappings.
-    local opts = { noremap=true, silent=true, buffer = 0 }
+    local opts = { noremap = true, silent = true, buffer = 0 }
     -- local opts = { buffer = 0 }
 
     -- See `:help vim.lsp.*` for documentation on any of the below functions
@@ -26,12 +26,12 @@ local on_attach = function(_, bufnr)
     vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, opts)
     vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
     vim.keymap.set('n', 'ga', vim.lsp.buf.code_action, opts)
-    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-    vim.keymap.set('n', '<space>e',  vim.diagnostic.open_float, opts)
-    vim.keymap.set('n', '[d',  vim.diagnostic.goto_prev, opts)
-    vim.keymap.set('n', ']d',  vim.diagnostic.goto_next, opts)
-    vim.keymap.set('n', '<space>l',  vim.diagnostic.setloclist, opts)
-    vim.keymap.set('n', '<space>f',  vim.lsp.buf.formatting, opts)
+    -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+    vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+    vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+    vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+    vim.keymap.set('n', '<space>l', vim.diagnostic.setloclist, opts)
+    vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, opts)
 
 end
 
@@ -73,12 +73,12 @@ end)
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
-        virtual_text = false,
-        signs = false,
-    }
+    virtual_text = false,
+    signs = false,
+}
 )
 
-_G.bufferCopy = function (bufnr)
+_G.bufferCopy = function(bufnr)
     local util = require 'lspconfig.util'
     local winid = vim.fn.winnr()
     if winid == 1 then
@@ -110,6 +110,6 @@ _G.bufferCopy = function (bufnr)
     end
 
 end
-vim.keymap.set ('n', '<leader>o<Tab>', ':call v:lua.bufferCopy(0)<CR>', {noremap = true, silent = true})
-vim.keymap.set('n', '<leader>oo', ':ClangdSwitchSourceHeader<CR>', {noremap = true, silent = true})
-vim.keymap.set('n', '<leader>of', ':ClangdFormat<CR>', {noremap = true, silent = true})
+vim.keymap.set('n', '<leader>o<Tab>', ':call v:lua.bufferCopy(0)<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>oo', ':ClangdSwitchSourceHeader<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>of', ':ClangdFormat<CR>', { noremap = true, silent = true })
