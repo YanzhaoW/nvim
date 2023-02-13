@@ -15,18 +15,14 @@ require("lazy").setup({
     -- My plugins here
     'wbthomason/packer.nvim',
     'tpope/vim-surround',
-    'tpope/vim-fugitive',
-    'lewis6991/gitsigns.nvim',
     'numToStr/comment.nvim',
     'kyazdani42/nvim-web-devicons',
     'nvim-lua/lsp-status.nvim',
     'nvim-lualine/lualine.nvim',
     'navarasu/onedark.nvim',
-    -- "akinsho/toggleterm.nvim"
     'nvim-treesitter/nvim-treesitter',
     'nvim-treesitter/playground',
 
-    -- {'rhysd/vim-clang-format', lazy=true, ft = {'cpp', 'c'}},
     { 'dstein64/vim-startuptime', lazy = true, cmd = { 'StartupTime' } },
     { 'nvim-telescope/telescope.nvim', dependencies = { 'nvim-lua/plenary.nvim' } },
     { 'nvim-telescope/telescope-fzf-native.nvim',
@@ -38,6 +34,11 @@ require("lazy").setup({
     'rmagatti/session-lens',
     { 'karb94/neoscroll.nvim', config = function() require 'neoscroll'.setup {} end },
     'ojroques/vim-oscyank',
+
+    -- git plugins:
+    'tpope/vim-fugitive',
+    'lewis6991/gitsigns.nvim',
+    { 'akinsho/git-conflict.nvim', version = '*', config = function() require('git-conflict').setup() end },
 
     -- lsp plugins
     'neovim/nvim-lspconfig',
