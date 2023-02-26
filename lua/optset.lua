@@ -3,12 +3,12 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.incsearch = true
-vim.opt.backspace = {'indent', 'start'}
+vim.opt.backspace = { 'indent', 'start' }
 vim.opt.scrolloff = 4
 vim.opt.hidden = true
 vim.opt.cmdheight = 1
-vim.opt.mouse='a'
-vim.opt.inccommand='nosplit'
+vim.opt.mouse = 'a'
+vim.opt.inccommand = 'nosplit'
 vim.opt.showmode = false
 vim.opt.conceallevel = 0
 vim.opt.splitright = true
@@ -17,7 +17,7 @@ vim.opt.termguicolors = true
 vim.opt.pumheight = 15
 vim.opt.clipboard = "unnamedplus"
 vim.opt.ignorecase = true
-vim.opt.spelloptions= 'noplainbuffer'
+vim.opt.spelloptions = 'noplainbuffer'
 
 
 vim.g.oscyank_silent = true
@@ -38,38 +38,28 @@ vim.cmd('filetype plugin indent on')
 
 local my_augroup = vim.api.nvim_create_augroup("mygroup", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "text", "tex", "markdown" }, -- disable spellchecking for these filetypes
-  command = "setlocal spell spelllang=en_us,de_de | set spellcapcheck= | syntax spell toplevel",
-  group = my_augroup,
+    pattern = { "text", "tex", "markdown" }, -- disable spellchecking for these filetypes
+    command = "setlocal spell spelllang=en_us,de_de | set spellcapcheck= | syntax spell toplevel",
+    group = my_augroup,
 })
 
 vim.api.nvim_create_autocmd("User", {
-  pattern = { "TelescopePreviewerLoaded" }, -- disable spellchecking for these filetypes
-  command = "setlocal wrap",
-  group = my_augroup,
+    pattern = { "TelescopePreviewerLoaded" }, -- disable spellchecking for these filetypes
+    command = "setlocal wrap",
+    group = my_augroup,
 })
 
-if (os.getenv("TMUX")~=nil) then
+if (os.getenv("TMUX") ~= nil) then
     vim.g.clipboard = {
         name = 'myClipboard',
         copy = {
-            ["+"] = {'tmux', 'load-buffer', '-'},
-            ["*"] = {'tmux', 'load-buffer', '-'},
+            ["+"] = { 'tmux', 'load-buffer', '-' },
+            ["*"] = { 'tmux', 'load-buffer', '-' },
         },
         paste = {
-            ["+"] = {'tmux', 'save-buffer', '-'},
-            ["*"] = {'tmux', 'save-buffer', '-'},
+            ["+"] = { 'tmux', 'save-buffer', '-' },
+            ["*"] = { 'tmux', 'save-buffer', '-' },
         },
         cache_enabled = true,
     }
 end
-
--- if (os.getenv("LC_MAC") == '1') then
-vim.cmd([[
-    augroup OSCYank
-    autocmd!
-    autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankReg "' | endif
-    augroup END
-    ]])
--- end
-
