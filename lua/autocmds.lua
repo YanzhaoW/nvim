@@ -50,8 +50,8 @@ vim.api.nvim_create_autocmd(
         group = osc,
         callback = function()
             local event = vim.v.event
-            if event.operator == 'y' and event.regname == '+' then
-                vim.fn.OSCYankString(vim.fn.getreg("+"))
+            if event.operator == 'y' and event.regname == '' then
+                vim.fn.OSCYankString(vim.fn.getreg('"'))
             end
         end,
     }
