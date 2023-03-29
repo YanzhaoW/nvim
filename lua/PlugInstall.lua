@@ -13,7 +13,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     -- My plugins here
-    'wbthomason/packer.nvim',
     'tpope/vim-surround',
     'numToStr/comment.nvim',
     'kyazdani42/nvim-web-devicons',
@@ -65,7 +64,7 @@ require("lazy").setup({
     'tamago324/nlsp-settings.nvim',
     'mfussenegger/nvim-lint',
     'ahmedkhalf/project.nvim',
-    { "folke/trouble.nvim", dependencies = "kyazdani42/nvim-web-devicons" },
+    { "folke/trouble.nvim",    dependencies = "kyazdani42/nvim-web-devicons" },
 
     --bufferline
     'romgrk/barbar.nvim',

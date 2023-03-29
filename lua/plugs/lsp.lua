@@ -11,29 +11,7 @@ local on_attach = function(client, bufnr)
     lsp_format_modifications.attach(client, bufnr, { format_on_save = false })
     -- Enable completion triggered by <c-x><c-o>
     buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-    -- Mappings.
-    local opts = { noremap = true, silent = true, buffer = 0 }
-    -- local opts = { buffer = 0 }
-
-    -- See `:help vim.lsp.*` for documentation on any of the below functions
-    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-    -- vim.keymap.set('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-    -- vim.keymap.set('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-    -- vim.keymap.set('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-    -- vim.keymap.set('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-    vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, opts)
-    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
-    vim.keymap.set('n', 'ga', vim.lsp.buf.code_action, opts)
-    -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-    vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
-    vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-    vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-    vim.keymap.set('n', '<space>l', vim.diagnostic.setloclist, opts)
-    vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, opts)
+    require 'keymapping'.lsp()
 end
 
 require("mason-lspconfig").setup_handlers {
@@ -52,9 +30,9 @@ require("mason-lspconfig").setup_handlers {
         nvim_lsp.pyright.setup {
             on_attach = on_attach,
             capabilities = capabilities,
-            settings = {
-                root_dir = nvim_lsp.util.root_pattern('.git'),
-            }
+            -- settings = {
+            --     root_dir = nvim_lsp.util.root_pattern('.git'),
+            -- }
         }
     end,
     ["lua_ls"] = function()
