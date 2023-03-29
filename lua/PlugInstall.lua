@@ -16,7 +16,6 @@ require("lazy").setup({
     'tpope/vim-surround',
     'numToStr/comment.nvim',
     'kyazdani42/nvim-web-devicons',
-    'nvim-lua/lsp-status.nvim',
     'nvim-lualine/lualine.nvim',
     'navarasu/onedark.nvim',
     'nvim-treesitter/nvim-treesitter',
@@ -59,6 +58,7 @@ require("lazy").setup({
     -- lsp plugins
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
+    'nvim-lua/lsp-status.nvim',
     'neovim/nvim-lspconfig',
     'joechrisellis/lsp-format-modifications.nvim',
     'tamago324/nlsp-settings.nvim',
