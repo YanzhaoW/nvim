@@ -1,10 +1,9 @@
+local M = {}
 local nvim_lsp = require('lspconfig')
 -- local lsp_installer = require('nvim-lsp-installer')
 local capabilities = require("lsp.capability")
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
+M.on_attach = function(client, bufnr)
     local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
     local lsp_format_modifications = require "lsp-format-modifications"
@@ -14,52 +13,7 @@ local on_attach = function(client, bufnr)
     require 'keymapping'.lsp()
 end
 
-require("mason-lspconfig").setup_handlers {
-    -- The first entry (without a key) will be the default handler
-    -- and will be called for each installed server that doesn't have
-    -- a dedicated handler.
-    function(server_name) -- default handler (optional)
-        require("lspconfig")[server_name].setup {
-            on_attach = on_attach,
-            capabilities = capabilities
-        }
-    end,
-    -- Next, you can provide a dedicated handler for specific servers.
-    -- For example, a handler override for the `rust_analyzer`:
-    ["pyright"] = function()
-        nvim_lsp.pyright.setup {
-            on_attach = on_attach,
-            capabilities = capabilities,
-            -- settings = {
-            --     root_dir = nvim_lsp.util.root_pattern('.git'),
-            -- }
-        }
-    end,
-    ["lua_ls"] = function()
-        nvim_lsp.lua_ls.setup {
-            on_attach = on_attach,
-            capabilities = capabilities,
-            settings = {
-                -- capabilities = capabilities,
-                Lua = {
-                    diagnostics = {
-                        globals = { 'vim' }
-                    }
-                },
-            }
-        }
-    end,
 
-    ["clangd"] = function()
-        nvim_lsp.clangd.setup {
-            on_attach = on_attach,
-            capabilities = capabilities,
-            settings = {
-                settings = require("lsp.clangd")
-            }
-        }
-    end,
-}
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -102,3 +56,5 @@ end
 vim.keymap.set('n', '<leader>o<Tab>', ':call v:lua.bufferCopy(0)<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>oo', ':ClangdSwitchSourceHeader<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>of', ':ClangdFormat<CR>', { noremap = true, silent = true })
+
+return M

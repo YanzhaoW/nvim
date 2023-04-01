@@ -1,5 +1,6 @@
 require 'PlugInstall'
 require 'keymapping'
 require 'plugs'
+require 'lsp'
 require 'optset'
 require 'autocmds'
