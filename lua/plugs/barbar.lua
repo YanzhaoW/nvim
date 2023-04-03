@@ -1,9 +1,9 @@
-require'bufferline'.setup{
+require 'bufferline'.setup {
     animation = true,
     auto_hide = true,
     clickable = true,
-    tabpages= true,
-    icon_pinned = '車',
+    tabpages = true,
+    icons = {
+        pinned = { button = '車' },
+    },
 }
-
-
