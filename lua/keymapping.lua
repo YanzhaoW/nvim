@@ -108,7 +108,7 @@ function M.lsp()
     vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
     vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
     vim.keymap.set('n', '<space>l', vim.diagnostic.setloclist, opts)
-    vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, opts)
+    vim.keymap.set('n', '<space>fm', function() vim.lsp.buf.format({ async = true }) end, opts)
 end
 
 function M.cmp()
