@@ -17,7 +17,10 @@ require("lazy").setup({
     'numToStr/comment.nvim',
     'kyazdani42/nvim-web-devicons',
     'nvim-lualine/lualine.nvim',
-    'navarasu/onedark.nvim',
+    {
+        "olimorris/onedarkpro.nvim",
+        priority = 1000 -- Ensure it loads first
+    },
     'nvim-treesitter/nvim-treesitter',
     'nvim-treesitter/playground',
 
