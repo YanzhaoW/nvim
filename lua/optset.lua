@@ -23,6 +23,10 @@ vim.opt.spelloptions = 'noplainbuffer'
 vim.g.lsp_format_modifications_silence = true
 vim.g.oscyank_silent = true
 
+-- vim.api.nvim_set_hl(0, '@lsp.type.function.lua', {})
+for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
+  vim.api.nvim_set_hl(0, group, {})
+end
 vim.cmd('filetype plugin indent on')
 -- vim.cmd('hi! MatchParen gui=reverse,bold guibg=reverse')
 -- vim.cmd([[

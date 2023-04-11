@@ -1,5 +1,5 @@
 -- load plugin settings:
-require 'plugs.onedark'
+require 'plugs.colorscheme'
 require 'plugs.lualine'
 require 'plugs.treesitter'
 require 'plugs.barbar'

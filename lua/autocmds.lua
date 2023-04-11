@@ -8,17 +8,17 @@
 --     end
 -- end
 
-local autoformat = vim.api.nvim_create_augroup("autoformat", { clear = true })
+-- local autoformat = vim.api.nvim_create_augroup("autoformat", { clear = true })
 
-vim.api.nvim_create_autocmd(
-    { "BufWritePre" },
-    {
-        group = autoformat,
-        callback = function()
-            vim.lsp.buf.format({ async = false })
-        end,
-    }
-)
+-- vim.api.nvim_create_autocmd(
+--     { "BufWritePre" },
+--     {
+--         group = autoformat,
+--         callback = function()
+--             vim.lsp.buf.format({ async = false })
+--         end,
+--     }
+-- )
 
 -- cmp:
 local cmp_toggle = function()
@@ -31,7 +31,8 @@ local cmp_toggle = function()
     end
 end
 
-vim.api.nvim_buf_create_user_command(0, "CmpToggle", cmp_toggle, {})
+-- vim.api.nvim_buf_create_user_command(0, "CmpToggle", cmp_toggle, {})
+vim.api.nvim_create_user_command("CmpToggle", cmp_toggle, {})
 
 vim.api.nvim_create_autocmd(
     { "filetype" },

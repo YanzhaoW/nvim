@@ -17,10 +17,6 @@ require("lazy").setup({
     'numToStr/comment.nvim',
     'kyazdani42/nvim-web-devicons',
     'nvim-lualine/lualine.nvim',
-    {
-        "olimorris/onedarkpro.nvim",
-        priority = 1000 -- Ensure it loads first
-    },
     'nvim-treesitter/nvim-treesitter',
     'nvim-treesitter/playground',
 
@@ -45,6 +41,15 @@ require("lazy").setup({
     'rmagatti/session-lens',
     { 'karb94/neoscroll.nvim', config = function() require 'neoscroll'.setup {} end },
     'ojroques/nvim-osc52',
+
+    --colorscheme:
+    'navarasu/onedark.nvim',
+    -- {
+    --     "olimorris/onedarkpro.nvim",
+    --     priority = 1000 -- Ensure it loads first
+    -- },
+    -- { "catppuccin/nvim",       name = "catppuccin" },
+    -- 'marko-cerovac/material.nvim',
 
     -- git plugins:
     'tpope/vim-fugitive',

@@ -32,7 +32,7 @@ require('lualine').setup {
             left = "",
             right = ""
         },
-        theme = "onedark_dark"
+        theme = "onedark"
     },
     sections = {
         lualine_a = { "mode" },
