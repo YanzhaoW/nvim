@@ -56,3 +56,7 @@ vim.api.nvim_create_autocmd(
         end,
     }
 )
+
+vim.api.nvim_create_autocmd('ColorScheme', {
+  callback = require'plugs.colorscheme'.SetSemHi,
+})

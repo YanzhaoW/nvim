@@ -1,8 +1,11 @@
 --theme:
+local M = {}
 
 require('onedark').setup {
+    style = 'darker',
     transparent = true,
     diagnostics = {
+        darker = true,
         undercurl = true
     },
     code_style = {
@@ -13,149 +16,48 @@ require('onedark').setup {
         variables = 'none',
         conditionals = "italic",
     },
+    lualine = {
+        transparent = true,
+    },
 }
 
 require('onedark').load()
 
--- require("onedarkpro").setup({
---     styles = {
---         types = "NONE",
---         methods = "NONE",
---         numbers = "NONE",
---         strings = "NONE",
---         comments = "italic",
---         keywords = "bold,italic",
---         constants = "NONE",
---         functions = "italic",
---         operators = "NONE",
---         variables = "NONE",
---         parameters = "NONE",
---         conditionals = "italic",
---         virtual_text = "NONE",
---     },
---     options = {
---         cursorline = true,
---         transparency = true,
---         window_unfocused_color = true,
---     },
---     plugins = {
---         all = true,
---     },
---     highlights = {
---         CursorLineNrNC = { bg = "${color_column}", fg = "${gray}" },
---         SignColumnNC = { bg = "${color_column}", fg = "${gray}" },
---         LineNrNC = { bg = "${color_column}", fg = "${gray}" },
---         TelescopeNormal = { bg = "${bg}", fg = "${fg}" },
---         TelescopeBorder = { bg = "${bg}", fg = "${gray}" },
---     },
--- })
 
--- require("catppuccin").setup({
---     flavour = "mocha", -- latte, frappe, macchiato, mocha
---     background = {
---         -- :h background
---         light = "latte",
---         dark = "mocha",
---     },
---     transparent_background = true,
---     show_end_of_buffer = false, -- show the '~' characters after the end of buffers
---     term_colors = false,
---     dim_inactive = {
---         enabled = false,
---         shade = "dark",
---         percentage = 0.15,
---     },
---     no_italic = false, -- Force no italic
---     no_bold = false,   -- Force no bold
---     styles = {
---         comments = { "italic" },
---         conditionals = { "italic" },
---         loops = {},
---         functions = { "italic" },
---         keywords = { "bold", "italic" },
---         strings = {},
---         variables = {},
---         numbers = {},
---         booleans = {},
---         properties = {},
---         types = {},
---         operators = {},
---     },
---     color_overrides = {},
---     custom_highlights = {},
---     integrations = {
---         cmp = true,
---         gitsigns = true,
---         nvimtree = true,
---         telescope = true,
---         notify = false,
---         mini = false,
---         -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
---     },
--- })
--- require('material').setup({
+M.SetSemHi = function()
+    local links = {
+        ['@lsp.type.namespace'] = '@namespace',
+        ['@lsp.type.type'] = '@type',
+        ['@lsp.type.class'] = '@type',
+        ['@lsp.type.enum'] = '@type',
+        ['@lsp.type.interface'] = '@type',
+        ['@lsp.type.struct'] = '@structure',
+        ['@lsp.type.parameter'] = '@parameter',
+        ['@lsp.type.variable'] = '@variable',
+        ['@lsp.type.property'] = '@property',
+        ['@lsp.type.enumMember'] = '@constant',
+        ['@lsp.type.function'] = '@function',
+        ['@lsp.type.method'] = '@method',
+        ['@lsp.type.macro'] = '@macro',
+        ['@lsp.type.decorator'] = '@function',
+        ['@lsp.typemod.function.defaultLibrary'] = '@function.builtin',
+        ['@lsp.typemod.method.defaultLibrary'] = '@function.builtin',
+        ['@lsp.typemod.variable.defaultLibrary'] = '@variable.builtin',
+    }
+    for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
+        vim.api.nvim_set_hl(0, group, {})
+    end
+    for newgroup, oldgroup in pairs(links) do
+        vim.api.nvim_set_hl(0, newgroup, { link = oldgroup, default = true })
+    end
+    vim.api.nvim_set_hl(0, '@lsp.mod.readonly', { italic = true })
+    -- vim.api.nvim_set_hl(0, '@lsp.typemod.function.classScope', { fg = 'Purple' })
+    -- vim.api.nvim_set_hl(0, '@lsp.typemod.class.classScope', { fg = 'Purple' })
+    -- vim.api.nvim_set_hl(0, '@lsp.typemod.variable.classScope', { fg = 'Purple' })
+    -- vim.api.nvim_set_hl(0, '@lsp.typemod.variable.fileScope', { fg = 'Purple' })
+    -- vim.api.nvim_set_hl(0, '@lsp.typemod.variable.globalScope', { fg = 'Purple' })
+end
 
---     contrast = {
---         terminal = false, -- Enable contrast for the built-in terminal
---         sidebars = false, -- Enable contrast for sidebar-like windows ( for example Nvim-Tree )
---         floating_windows = false, -- Enable contrast for floating windows
---         cursor_line = false, -- Enable darker background for the cursor line
---         non_current_windows = false, -- Enable darker background for non-current windows
---         filetypes = {"cpp"}, -- Specify which filetypes get the contrasted (darker) background
---     },
+M.SetSemHi()
 
---     styles = { -- Give comments style such as bold, italic, underline etc.
---         comments = { italic = true },
---         strings = { --[[ bold = true ]] },
---         keywords = { italic = true, bold = true },
---         functions = { italic = true },
---         variables = {},
---         operators = {},
---         types = {},
---     },
-
---     plugins = { -- Uncomment the plugins that you use to highlight them
---         -- Available plugins:
---         -- "dap",
---         -- "dashboard",
---         "gitsigns",
---         -- "hop",
---         -- "indent-blankline",
---         -- "lspsaga",
---         -- "mini",
---         -- "neogit",
---         -- "neorg",
---         "nvim-cmp",
---         -- "nvim-navic",
---         "nvim-tree",
---         "nvim-web-devicons",
---         -- "sneak",
---         "telescope",
---         "trouble",
---         -- "which-key",
---     },
-
---     disable = {
---         colored_cursor = false, -- Disable the colored cursor
---         borders = false, -- Disable borders between verticaly split windows
---         background = true, -- Prevent the theme from setting the background (NeoVim then uses your terminal background)
---         term_colors = false, -- Prevent the theme from setting terminal colors
---         eob_lines = false -- Hide the end-of-buffer lines
---     },
-
---     high_visibility = {
---         lighter = false, -- Enable higher contrast text for lighter style
---         darker = true -- Enable higher contrast text for darker style
---     },
-
---     lualine_style = "default", -- Lualine style ( can be 'stealth' or 'default' )
-
---     async_loading = true, -- Load parts of the theme asyncronously for faster startup (turned on by default)
-
---     custom_colors = nil, -- If you want to everride the default colors, set this to a function
-
---     custom_highlights = {}, -- Overwrite highlights with your own
--- })
--- vim.cmd.colorscheme "onedark_dark"
--- vim.g.material_style = "deep ocean"
--- vim.cmd("colorscheme onedark_dark")
+return M

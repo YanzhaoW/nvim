@@ -19,14 +19,11 @@ vim.opt.pumheight = 15
 vim.opt.clipboard = "unnamedplus"
 vim.opt.ignorecase = true
 vim.opt.spelloptions = 'noplainbuffer'
+vim.opt.signcolumn = 'yes'
 
 vim.g.lsp_format_modifications_silence = true
 vim.g.oscyank_silent = true
 
--- vim.api.nvim_set_hl(0, '@lsp.type.function.lua', {})
-for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
-  vim.api.nvim_set_hl(0, group, {})
-end
 vim.cmd('filetype plugin indent on')
 -- vim.cmd('hi! MatchParen gui=reverse,bold guibg=reverse')
 -- vim.cmd([[
@@ -53,6 +50,13 @@ vim.api.nvim_create_autocmd("User", {
     command = "setlocal wrap",
     group = my_augroup,
 })
+
+-- change lsp signs:
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
 
 if (os.getenv("TMUX") ~= nil) then
     vim.g.clipboard = {

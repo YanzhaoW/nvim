@@ -1,13 +1,10 @@
 local M = {}
-local nvim_lsp = require('lspconfig')
--- local lsp_installer = require('nvim-lsp-installer')
-local capabilities = require("lsp.capability")
 
 M.on_attach = function(client, bufnr)
     local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
     local lsp_format_modifications = require "lsp-format-modifications"
-    lsp_format_modifications.attach(client, bufnr, { format_on_save = false })
+    lsp_format_modifications.attach(client, bufnr, { format_on_save = true })
     -- Enable completion triggered by <c-x><c-o>
     buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
     require 'keymapping'.lsp()
@@ -18,7 +15,7 @@ end
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
         virtual_text = false,
-        signs = false,
+        signs = true,
     }
 )
 
