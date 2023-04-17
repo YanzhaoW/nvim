@@ -33,6 +33,7 @@ M.SetSemHi = function()
         ['@lsp.type.interface'] = '@type',
         ['@lsp.type.struct'] = '@structure',
         ['@lsp.type.parameter'] = '@parameter',
+        ['@lsp.type.typeparameter'] = '@parameter',
         ['@lsp.type.variable'] = '@variable',
         ['@lsp.type.property'] = '@property',
         ['@lsp.type.enumMember'] = '@constant',
