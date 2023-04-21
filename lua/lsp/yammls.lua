@@ -9,7 +9,14 @@ M.setup = function()
         capabilities = capabilities,
         settings = {
             yaml = {
-                ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+                format = {
+                    enable = true,
+                    singleQuote = true,
+                    printWidth = 75,
+                },
+                schemas = {
+                    ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+                },
             }
         }
     }

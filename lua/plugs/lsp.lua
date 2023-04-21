@@ -5,6 +5,7 @@ M.on_attach = function(client, bufnr)
 
     local lsp_format_modifications = require "lsp-format-modifications"
     lsp_format_modifications.attach(client, bufnr, { format_on_save = true })
+    -- client.resolved_capabilities.document_formatting = true
     -- Enable completion triggered by <c-x><c-o>
     buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
     require 'keymapping'.lsp()
