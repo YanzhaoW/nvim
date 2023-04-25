@@ -9,6 +9,8 @@ require('telescope').setup{
                 n = {["<leader>d"] = actions.delete_buffer},
             },
         },
+        find_files = {
+            hidden = true,
+        },
     },
 }
-
