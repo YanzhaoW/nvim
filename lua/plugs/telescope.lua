@@ -1,7 +1,10 @@
 local actions = require("telescope.actions")
 require('telescope').setup{
     defaults = {
-        initial_mode ='insert'
+        initial_mode = 'insert',
+        file_ignore_patterns = {
+            ".git",
+        },
     },
     pickers = {
         buffers = {
