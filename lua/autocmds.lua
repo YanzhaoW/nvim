@@ -50,8 +50,9 @@ vim.api.nvim_create_autocmd(
     {
         group = osc,
         callback = function()
-            if vim.v.event.operator == 'y' and vim.v.event.regname == '' then
-                require('osc52').copy_register('"')
+            local event = vim.v.event
+            if event.operator == 'y' and event.regname == '' then
+                vim.fn.OSCYankString(vim.fn.getreg('"'))
             end
         end,
     }
