@@ -52,7 +52,7 @@ vim.api.nvim_create_autocmd(
         callback = function()
             local event = vim.v.event
             if event.operator == 'y' and event.regname == '' then
-                vim.fn.OSCYankString(vim.fn.getreg('"'))
+                require('osc52').copy_register('"')
             end
         end,
     }
