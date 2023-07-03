@@ -15,4 +15,5 @@ require("mason-lspconfig").setup_handlers {
     ["lua_ls"] = require 'lsp.lua_ls'.setup,
     ["clangd"] = require 'lsp.clangd'.setup,
     ["yamlls"] = require 'lsp.yammls'.setup,
+    ["cmake"] = require 'lsp.cmake'.setup,
 }

@@ -37,19 +37,11 @@ require("lazy").setup({
     "nvim-telescope/telescope-file-browser.nvim",
     'kyazdani42/nvim-tree.lua',
     'ethanholz/nvim-lastplace',
-    -- 'rmagatti/auto-session',
-    -- 'rmagatti/session-lens',
     { 'karb94/neoscroll.nvim', config = function() require 'neoscroll'.setup {} end },
     'ojroques/nvim-osc52',
 
     --colorscheme:
     'navarasu/onedark.nvim',
-    -- {
-    --     "olimorris/onedarkpro.nvim",
-    --     priority = 1000 -- Ensure it loads first
-    -- },
-    -- { "catppuccin/nvim",       name = "catppuccin" },
-    -- 'marko-cerovac/material.nvim',
 
     -- git plugins:
     'tpope/vim-fugitive',
