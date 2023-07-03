@@ -39,7 +39,11 @@ require('lualine').setup {
         lualine_b = { "branch", "diff",
             {
                 'diagnostics',
-                source = { 'nvim_lsp' }
+                source = { 'nvim_lsp' },
+                sections = { "error", "warn", "info", "hint" },
+                symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
+                colored = true,
+                update_in_insert = true
             } },
         lualine_c = { "filename" },
         -- lualine_c = {{"require'lsp-status'.status()"}},
