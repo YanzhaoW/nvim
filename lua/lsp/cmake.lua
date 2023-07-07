@@ -8,6 +8,9 @@ M.setup = function()
     nvim_lsp.cmake.setup {
         cmd = { "cmake-language-server" },
         filetypes = { "cmake" },
+        init_options = {
+            buildDirectory = "build",
+        },
         single_file_support = true,
         on_attach = on_attach,
         root_dir = nvim_lsp.util.root_pattern('.clangd', '.git', 'compile_commands.json', '.cmake-format'),

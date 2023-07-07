@@ -10,7 +10,7 @@ vim.keymap.set('c', '<C-a>', '<Home>', { noremap = true })
 vim.keymap.set('c', '<C-e>', '<End>', { noremap = true })
 ----insert mode keymapping:
 -- map('i', 'jk', '<Esc>')
-vim.keymap.set('i', 'jk', '<Esc>', { noremap = true, silent = true })
+-- vim.keymap.set('i', 'jk', '<Esc>', { noremap = true, silent = true })
 
 ----visual mode keymapping:
 vim.keymap.set('v', 'J', 'j', { noremap = true, silent = true })
@@ -26,9 +26,11 @@ vim.keymap.set('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-l>', '<C-w>l', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-j>', '<C-w>j', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-k>', '<C-w>k', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>w', ':w<Enter>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>q', ':q<Enter>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>h', ':noh<Enter>', { noremap = true, silent = true })
+-- vim.keymap.set('n', '<leader>w', ':w<Enter>', { noremap = true, silent = true })
+-- vim.keymap.set('n', '<leader>q', ':q<Enter>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>*', ':noh<Enter>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>ll', 'g_', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>hh', '^', { noremap = true, silent = true })
 -- moving one line down in text wrapping
 vim.keymap.set('n', 'j', [[v:count ? 'j' : 'gj']], { noremap = true, silent = true, expr = true })
 vim.keymap.set('n', 'k', [[v:count ? 'k' : 'gk']], { noremap = true, silent = true, expr = true })
