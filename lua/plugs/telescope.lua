@@ -3,7 +3,7 @@ require('telescope').setup{
     defaults = {
         initial_mode = 'insert',
         file_ignore_patterns = {
-            ".git",
+            "^.git",
         },
     },
     pickers = {
