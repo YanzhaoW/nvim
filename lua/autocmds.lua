@@ -37,7 +37,7 @@ vim.api.nvim_create_user_command("CmpToggle", cmp_toggle, {})
 vim.api.nvim_create_autocmd(
     { "filetype" },
     {
-        pattern = "cpp, python, lua",
+        pattern = { "cpp", "python", "lua", "cmake" },
         callback = function(_)
             vim.g.cmp_disable_enable_toggle = true
         end
