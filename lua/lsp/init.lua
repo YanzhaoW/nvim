@@ -11,7 +11,7 @@ require("mason-lspconfig").setup_handlers {
             capabilities = capabilities
         }
     end,
-    ["pyright"] = require 'lsp.pyright'.setup,
+    ["pylsp"] = require 'lsp.python'.setup,
     ["lua_ls"] = require 'lsp.lua_ls'.setup,
     ["clangd"] = require 'lsp.clangd'.setup,
     ["yamlls"] = require 'lsp.yammls'.setup,
