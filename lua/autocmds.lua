@@ -78,3 +78,9 @@ vim.api.nvim_create_autocmd("QuitPre", {
         end
     end
 })
+-- linters:
+vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter" }, {
+    callback = function()
+        require("lint").try_lint()
+    end,
+})
