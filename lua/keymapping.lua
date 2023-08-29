@@ -83,13 +83,33 @@ vim.keymap.set('n', '<leader>fs', ':SearchSession<CR>', { noremap = true, silent
 
 
 --keybindings for nvimtree:
-vim.keymap.set('n', '<C-x>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-t>', ':NvimTreeFocus<CR>', { noremap = true, silent = true })
 -- vim.keymap.set('n', '<leader>x', ':NvimTreeFocus<CR>')
-vim.keymap.set('i', '<C-x>', '<ESC>:NvimTreeToggle<CR>', { noremap = true, silent = true })
-vim.keymap.set('v', '<C-x>', '<ESC>:NvimTreeToggle<CR>', { noremap = true, silent = true })
+vim.keymap.set('i', '<C-t>', '<ESC>:NvimTreeFocus<CR>', { noremap = true, silent = true })
+vim.keymap.set('v', '<C-t>', '<ESC>:NvimTreeFocus<CR>', { noremap = true, silent = true })
 
 -- cmp
 vim.keymap.set('n', 'tc', ':CmpToggle<CR>', { noremap = true, silent = true })
+
+-- trouble:
+vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>",
+  {silent = true, noremap = true}
+)
+vim.keymap.set("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>",
+  {silent = true, noremap = true}
+)
+vim.keymap.set("n", "<C-x>", "<cmd>TroubleToggle document_diagnostics<cr>",
+  {silent = true, noremap = true}
+)
+vim.keymap.set("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>",
+  {silent = true, noremap = true}
+)
+vim.keymap.set("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>",
+  {silent = true, noremap = true}
+)
+vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>",
+  {silent = true, noremap = true}
+)
 
 --lsp:
 function M.lsp()
@@ -123,6 +143,17 @@ function M.cmp()
         ['<C-e>'] = cmp.mapping.abort(),
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
     }
+end
+
+function M.nvimtree(bufnr)
+    local api = require "nvim-tree.api"
+    local function opts(desc)
+        return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+    end
+    -- default mappings
+    api.config.mappings.default_on_attach(bufnr)
+    -- custom mappings
+    vim.keymap.set('n', '<C-t>', function() api.node.open.edit() end, opts('Ctrl-t'))
 end
 
 return M

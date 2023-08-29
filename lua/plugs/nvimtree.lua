@@ -7,11 +7,13 @@ require("nvim-web-devicons").setup {
             -- cterm_color = "",
             name = "C"
         }
-    };
-    default = true;
+    },
+    default = true,
 }
 
+
 require 'nvim-tree'.setup {
+    on_attach = require 'keymapping'.nvimtree,
     view = {
         side = 'right'
     },
