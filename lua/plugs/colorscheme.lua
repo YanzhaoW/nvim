@@ -21,7 +21,32 @@ require('onedark').setup {
     },
 }
 
-require('onedark').load()
+require('kanagawa').setup({
+    compile = false,  -- enable compiling the colorscheme
+    undercurl = true, -- enable undercurls
+    commentStyle = { italic = true },
+    functionStyle = {},
+    keywordStyle = { italic = true },
+    statementStyle = { bold = true },
+    typeStyle = {},
+    transparent = true,    -- do not set background color
+    dimInactive = false,   -- dim inactive window `:h hl-NormalNC`
+    terminalColors = true, -- define vim.g.terminal_color_{0,17}
+    colors = {             -- add/modify theme and palette colors
+        palette = {},
+        theme = {
+            all = {
+                float = { bg = "none", },
+                ui = { bg_gutter = "none", },
+            }
+        },
+    },
+    theme = "wave",    -- Load "wave" theme when 'background' option is not set
+    background = {     -- map the value of 'background' option to a theme
+        dark = "wave", -- try "dragon" !
+        light = "lotus"
+    },
+})
 
 
 M.SetSemHi = function()
@@ -45,9 +70,10 @@ M.SetSemHi = function()
         ['@lsp.typemod.method.defaultLibrary'] = '@function.builtin',
         ['@lsp.typemod.variable.defaultLibrary'] = '@variable.builtin',
     }
-    for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
-        vim.api.nvim_set_hl(0, group, {})
-    end
+    -- for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
+    --     print(group)
+    --     vim.api.nvim_set_hl(0, group, {})
+    -- end
     for newgroup, oldgroup in pairs(links) do
         vim.api.nvim_set_hl(0, newgroup, { link = oldgroup, default = true })
     end

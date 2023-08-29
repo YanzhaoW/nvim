@@ -42,6 +42,7 @@ require("lazy").setup({
 
     --colorscheme:
     'navarasu/onedark.nvim',
+    'rebelot/kanagawa.nvim',
 
     -- git plugins:
     'tpope/vim-fugitive',

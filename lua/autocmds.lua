@@ -59,9 +59,9 @@ vim.api.nvim_create_autocmd(
 )
 
 vim.api.nvim_create_autocmd('ColorScheme', {
-  callback = require'plugs.colorscheme'.SetSemHi,
+    callback = require 'plugs.colorscheme'.SetSemHi,
 })
--- nvim autoclose:
+
 vim.api.nvim_create_autocmd("QuitPre", {
     callback = function()
         local invalid_win = {}
@@ -77,4 +77,25 @@ vim.api.nvim_create_autocmd("QuitPre", {
             for _, w in ipairs(invalid_win) do vim.api.nvim_win_close(w, true) end
         end
     end
+})
+
+local my_augroup = vim.api.nvim_create_augroup("mygroup", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "text", "tex", "markdown" }, -- disable spellchecking for these filetypes
+    command = "setlocal spell spelllang=en_us,de_de | set spellcapcheck= | syntax spell toplevel",
+    group = my_augroup,
+})
+
+vim.api.nvim_create_autocmd("User", {
+    pattern = { "TelescopePreviewerLoaded" }, -- disable spellchecking for these filetypes
+    command = "setlocal wrap",
+    group = my_augroup,
+})
+
+vim.api.nvim_create_augroup('AutoFormatting', { clear = true })
+vim.api.nvim_create_autocmd('BufWritePre', {
+    group = 'AutoFormatting',
+    callback = function()
+        vim.lsp.buf.format({ async = false })
+    end,
 })
