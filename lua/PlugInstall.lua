@@ -56,13 +56,14 @@ require("lazy").setup({
     },
 
     -- lsp plugins
+    "jose-elias-alvarez/null-ls.nvim",
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
     'nvim-lua/lsp-status.nvim',
     'neovim/nvim-lspconfig',
     'joechrisellis/lsp-format-modifications.nvim',
     'tamago324/nlsp-settings.nvim',
-    'mfussenegger/nvim-lint',
+    -- 'mfussenegger/nvim-lint',
     'ahmedkhalf/project.nvim',
     { "folke/trouble.nvim",    dependencies = "kyazdani42/nvim-web-devicons" },
 

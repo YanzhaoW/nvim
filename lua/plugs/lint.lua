@@ -10,6 +10,7 @@ require('lint').linters_by_ft = {
     -- markdown = { 'vale', },
     -- python = { 'pylint', },
     python = { 'flake8', },
+    cmake = { 'cmakelint' },
     -- cpp = { 'clang-tidy', },
 }
 

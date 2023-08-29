@@ -20,6 +20,7 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.ignorecase = true
 vim.opt.spelloptions = 'noplainbuffer'
 vim.opt.signcolumn = 'yes'
+vim.diagnostic.config({ virtual_text = false })
 
 vim.g.lsp_format_modifications_silence = true
 vim.g.oscyank_silent = true
