@@ -92,10 +92,10 @@ vim.api.nvim_create_autocmd("User", {
     group = my_augroup,
 })
 
-vim.api.nvim_create_augroup('AutoFormatting', { clear = true })
-vim.api.nvim_create_autocmd('BufWritePre', {
-    group = 'AutoFormatting',
-    callback = function()
-        vim.lsp.buf.format({ async = false })
-    end,
-})
+-- vim.api.nvim_create_augroup('AutoFormatting', { clear = true })
+-- vim.api.nvim_create_autocmd('BufWritePre', {
+--     group = 'AutoFormatting',
+--     callback = function()
+--         vim.lsp.buf.format({ async = false })
+--     end,
+-- })
