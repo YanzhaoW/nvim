@@ -72,7 +72,7 @@ vim.keymap.set('n', '<leader>fg', function() require('telescope.builtin').live_g
     { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>fb', function() require('telescope.builtin').buffers() end,
     { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>fd', function() require('telescope.builtin').diagnostics() end,
+vim.keymap.set('n', '<leader>fd', function() require('telescope.builtin').diagnostics({ bufnr = 0 }) end,
     { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>fh', function() require('telescope.builtin').help_tags() end,
     { noremap = true, silent = true })
@@ -81,6 +81,8 @@ vim.keymap.set('n', 'gr', function() require('telescope.builtin').lsp_references
 -- session
 vim.keymap.set('n', '<leader>fs', ':SearchSession<CR>', { noremap = true, silent = true })
 
+--keybindings for symbols:
+vim.keymap.set('n', '<C-s>', ':SymbolsOutline<CR>', { noremap = true, silent = true })
 
 --keybindings for nvimtree:
 vim.keymap.set('n', '<C-t>', ':NvimTreeFocus<CR>', { noremap = true, silent = true })
@@ -93,23 +95,30 @@ vim.keymap.set('n', 'tc', ':CmpToggle<CR>', { noremap = true, silent = true })
 
 -- trouble:
 vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>",
-  {silent = true, noremap = true}
+    { silent = true, noremap = true }
 )
 vim.keymap.set("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>",
-  {silent = true, noremap = true}
+    { silent = true, noremap = true }
 )
 vim.keymap.set("n", "<C-x>", "<cmd>TroubleToggle document_diagnostics<cr>",
-  {silent = true, noremap = true}
+    { silent = true, noremap = true }
 )
 vim.keymap.set("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>",
-  {silent = true, noremap = true}
+    { silent = true, noremap = true }
 )
 vim.keymap.set("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>",
-  {silent = true, noremap = true}
+    { silent = true, noremap = true }
 )
 vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>",
-  {silent = true, noremap = true}
+    { silent = true, noremap = true }
 )
+
+-- todo:
+vim.keymap.set("n", "]t", function() require("todo-comments").jump_next() end,
+    { noremap = true, silent = true, desc = "Next todo comment" })
+vim.keymap.set("n", "[t", function() require("todo-comments").jump_prev() end,
+    { noremap = true, silent = true, desc = "Previous todo comment" })
+
 
 --lsp:
 function M.lsp()

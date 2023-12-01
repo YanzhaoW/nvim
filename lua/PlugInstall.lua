@@ -64,8 +64,19 @@ require("lazy").setup({
     'joechrisellis/lsp-format-modifications.nvim',
     'tamago324/nlsp-settings.nvim',
     -- 'mfussenegger/nvim-lint',
+
+    -- misc
     'ahmedkhalf/project.nvim',
-    { "folke/trouble.nvim",    dependencies = "kyazdani42/nvim-web-devicons" },
+    -- 'simrat39/symbols-outline.nvim',
+    { 'enddeadroyal/symbols-outline.nvim', branch = 'bugfix/symbol-hover-misplacement' },
+    { 'folke/trouble.nvim',                dependencies = 'kyazdani42/nvim-web-devicons' },
+
+    {
+        "folke/todo-comments.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        opts = {},
+    },
+
 
     --bufferline
     'romgrk/barbar.nvim',

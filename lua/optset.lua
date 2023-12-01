@@ -25,6 +25,7 @@ vim.diagnostic.config({ virtual_text = false })
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.g.lsp_format_modifications_silence = true
+vim.g.nvim_tree_disable_netrw = 0
 vim.g.oscyank_silent = true
 vim.cmd('cnoreabbrev git Git')
 
