@@ -163,6 +163,7 @@ function M.nvimtree(bufnr)
     api.config.mappings.default_on_attach(bufnr)
     -- custom mappings
     vim.keymap.set('n', '<C-t>', function() api.node.open.edit() end, opts('Ctrl-t'))
+    vim.keymap.set('n', 'd', function() api.fs.trash() end, opts('Trash'))
 end
 
 return M
