@@ -92,6 +92,13 @@ vim.api.nvim_create_autocmd("User", {
     group = my_augroup,
 })
 
+local spell_sync = function()
+    print "syncing spell files...."
+    vim.cmd("mkspell! ~/.config/nvim/spell/en ~/.config/nvim/spell/en.utf-8.add")
+end
+
+vim.api.nvim_create_user_command("SpellSync", spell_sync, {})
+
 -- vim.api.nvim_create_augroup('AutoFormatting', { clear = true })
 -- vim.api.nvim_create_autocmd('BufWritePre', {
 --     group = 'AutoFormatting',

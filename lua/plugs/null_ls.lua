@@ -19,6 +19,7 @@ local sources = {
         extra_args = { "--disable=C0116,C0115,C0114", "--max-line-length=120" }
     }),
     null_ls.builtins.formatting.isort,
+    null_ls.builtins.formatting.latexindent,
     null_ls.builtins.diagnostics.cmake_lint.with({
     }),
 }
