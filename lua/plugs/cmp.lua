@@ -29,3 +29,5 @@ cmp.setup.cmdline {
     mapping = cmp.mapping.preset.cmdline({
     })
 }
+
+require("luasnip.loaders.from_snipmate").lazy_load()

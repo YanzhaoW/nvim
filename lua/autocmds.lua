@@ -37,7 +37,7 @@ vim.api.nvim_create_user_command("CmpToggle", cmp_toggle, {})
 vim.api.nvim_create_autocmd(
     { "filetype" },
     {
-        pattern = { "cpp", "python", "lua", "cmake" },
+        pattern = { "cpp", "python", "lua", "cmake", "tex" },
         callback = function(_)
             vim.g.cmp_disable_enable_toggle = true
         end
@@ -82,7 +82,8 @@ vim.api.nvim_create_autocmd("QuitPre", {
 local my_augroup = vim.api.nvim_create_augroup("mygroup", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
     pattern = { "text", "tex", "markdown" }, -- disable spellchecking for these filetypes
-    command = "setlocal spell spelllang=en_us,de_de | set spellcapcheck= | syntax spell toplevel",
+    -- command = "setlocal spell spelllang=en_us,de_de | set spellcapcheck= | syntax spell toplevel",
+    command = "setlocal spell spelllang=en_us | set spellcapcheck= | syntax spell toplevel",
     group = my_augroup,
 })
 
@@ -94,7 +95,7 @@ vim.api.nvim_create_autocmd("User", {
 
 local spell_sync = function()
     print "syncing spell files...."
-    vim.cmd("mkspell! ~/.config/nvim/spell/en ~/.config/nvim/spell/en.utf-8.add")
+    vim.cmd("mkspell ~/.config/nvim/spell/en.utf-8.add")
 end
 
 vim.api.nvim_create_user_command("SpellSync", spell_sync, {})
