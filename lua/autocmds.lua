@@ -87,6 +87,11 @@ vim.api.nvim_create_autocmd("FileType", {
     group = my_augroup,
 })
 
+vim.api.nvim_create_autocmd("BufRead", {
+    pattern = { "*.icc" },
+    command = "setlocal filetype=cpp",
+})
+
 vim.api.nvim_create_autocmd("User", {
     pattern = { "TelescopePreviewerLoaded" }, -- disable spellchecking for these filetypes
     command = "setlocal wrap",
