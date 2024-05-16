@@ -72,3 +72,4 @@ cmake
 conda
 jupyter
 ipykernel
+nuclide
