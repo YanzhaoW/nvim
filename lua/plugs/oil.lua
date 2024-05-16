@@ -1,3 +1,3 @@
 require("oil").setup {
-    delete_to_trash = false,
+    delete_to_trash = true,
 }

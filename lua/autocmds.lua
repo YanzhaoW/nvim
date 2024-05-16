@@ -92,6 +92,11 @@ vim.api.nvim_create_autocmd("BufRead", {
     command = "setlocal filetype=cpp",
 })
 
+vim.api.nvim_create_autocmd("BufRead", {
+    pattern = { "*.mac" },
+    command = "setlocal filetype=bash",
+})
+
 vim.api.nvim_create_autocmd("User", {
     pattern = { "TelescopePreviewerLoaded" }, -- disable spellchecking for these filetypes
     command = "setlocal wrap",
