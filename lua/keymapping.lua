@@ -142,6 +142,9 @@ function M.lsp()
     vim.keymap.set('n', '<space>fm', function() vim.lsp.buf.format({ async = true }) end, opts)
 end
 
+--oil:
+vim.keymap.set("n", "-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
+
 function M.cmp()
     local cmp = require 'cmp'
     return {

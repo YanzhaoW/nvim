@@ -18,6 +18,7 @@ vim.opt.termguicolors = true
 vim.opt.pumheight = 15
 vim.opt.clipboard = "unnamedplus"
 vim.opt.ignorecase = true
+vim.opt.relativenumber = true
 vim.opt.spelloptions = 'noplainbuffer'
 vim.opt.signcolumn = 'yes'
 vim.diagnostic.config({ virtual_text = false })

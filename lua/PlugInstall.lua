@@ -15,7 +15,7 @@ require("lazy").setup({
     -- My plugins here
     'tpope/vim-surround',
     'numToStr/comment.nvim',
-    'kyazdani42/nvim-web-devicons',
+    'nvim-tree/nvim-web-devicons',
     'nvim-lualine/lualine.nvim',
     'nvim-treesitter/nvim-treesitter',
     'nvim-treesitter/playground',
@@ -69,12 +69,16 @@ require("lazy").setup({
     'ahmedkhalf/project.nvim',
     -- 'simrat39/symbols-outline.nvim',
     { 'enddeadroyal/symbols-outline.nvim', branch = 'bugfix/symbol-hover-misplacement' },
-    { 'folke/trouble.nvim',                dependencies = 'kyazdani42/nvim-web-devicons' },
+    { 'folke/trouble.nvim',                dependencies = 'nvim-tree/nvim-web-devicons' },
 
     {
         "folke/todo-comments.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
         opts = {},
+    },
+    {
+        'stevearc/oil.nvim',
+        dependencies = { "nvim-tree/nvim-web-devicons" },
     },
 
 
