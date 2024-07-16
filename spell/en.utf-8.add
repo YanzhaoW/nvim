@@ -73,3 +73,4 @@ conda
 jupyter
 ipykernel
 nuclide
+CMake

@@ -69,10 +69,17 @@ require("lazy").setup({
     'ahmedkhalf/project.nvim',
     -- 'simrat39/symbols-outline.nvim',
     { 'enddeadroyal/symbols-outline.nvim', branch = 'bugfix/symbol-hover-misplacement' },
-    { 'folke/trouble.nvim',                dependencies = 'nvim-tree/nvim-web-devicons' },
 
     {
-        "folke/todo-comments.nvim",
+        'folke/trouble.nvim',
+        cmd = 'Trouble',
+        keys = require("keymapping").trouble(),
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+        opts = {},
+    },
+
+    {
+        'folke/todo-comments.nvim',
         dependencies = { "nvim-lua/plenary.nvim" },
         opts = {},
     },
