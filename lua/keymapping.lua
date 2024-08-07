@@ -70,6 +70,8 @@ vim.keymap.set('n', '<leader>ff', function() require('telescope.builtin').find_f
     { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>fg', function() require('telescope.builtin').live_grep() end,
     { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>fG', function() require('telescope.builtin').grep_string() end,
+    { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>fb', function() require('telescope.builtin').buffers() end,
     { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>fd', function() require('telescope.builtin').diagnostics({ bufnr = 0 }) end,
