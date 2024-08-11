@@ -102,6 +102,40 @@ vim.keymap.set("n", "]t", function() require("todo-comments").jump_next() end,
 vim.keymap.set("n", "[t", function() require("todo-comments").jump_prev() end,
     { noremap = true, silent = true, desc = "Previous todo comment" })
 
+-- gitsigns:
+function M.gitsigns(bufnr)
+    local gs = require('gitsigns')
+    local opts = { noremap = true, silent = true, buffer = bufnr }
+
+    local next_hunk = function()
+        if vim.wo.diff then
+            vim.cmd.normal({ ']c', bang = true })
+        else
+            gs.nav_hunk('next')
+        end
+    end
+
+    local last_hunk = function()
+        if vim.wo.diff then
+            vim.cmd.normal({ '[c', bang = true })
+        else
+            gs.nav_hunk('prev')
+        end
+    end
+
+    vim.keymap.set('n', ']c', next_hunk, opts)
+    vim.keymap.set('n', '[c', last_hunk, opts)
+    vim.keymap.set('n', '<leader>hu', gs.reset_hunk, opts)
+    vim.keymap.set('n', '<leader>hU', gs.reset_buffer, opts)
+    vim.keymap.set('n', '<leader>hp', gs.preview_hunk, opts)
+    vim.keymap.set('n', '<leader>hb', function() gs.blame_line { full = true } end, opts)
+    vim.keymap.set('n', '<leader>hcb', ':Gitsigns change_base dev<CR>', opts)
+    vim.keymap.set('n', '<leader>hd', gs.diffthis, opts)
+    -- vim.keymap.set('n', '<leader>hD', function() gs.diffthis('~') end, opts)
+    vim.keymap.set('n', '<leader>td', gs.toggle_deleted, opts)
+    vim.keymap.set('n', '<leader>tb', gs.toggle_current_line_blame, opts)
+    vim.keymap.set('n', '<leader>ts', gs.toggle_signs, opts)
+end
 
 --lsp:
 function M.lsp()
