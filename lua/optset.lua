@@ -29,6 +29,8 @@ vim.g.lsp_format_modifications_silence = true
 vim.g.nvim_tree_disable_netrw = 0
 vim.g.oscyank_silent = true
 vim.cmd('cnoreabbrev git Git')
+vim.cmd('cnoreabbrev gcb Gcb')
+vim.cmd('cnoreabbrev gdiff Gdiff')
 vim.cmd('cnoreabbrev <expr> w\\ (getcmdtype()==\':\' && getcmdline()==# \'w\\\')? \'w\': \'w\\\'')
 
 -- change lsp signs:

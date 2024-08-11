@@ -110,6 +110,10 @@ end
 
 vim.api.nvim_create_user_command("SpellSync", spell_sync, {})
 
+vim.api.nvim_create_user_command('Gcb', function(branch) require('gitsigns').change_base(branch.args, true) end, { nargs=1 })
+
+vim.api.nvim_create_user_command('Gdiff', function(branch) require('gitsigns').diffthis(branch.args) end, { nargs=1 })
+
 -- vim.api.nvim_create_augroup('AutoFormatting', { clear = true })
 -- vim.api.nvim_create_autocmd('BufWritePre', {
 --     group = 'AutoFormatting',
