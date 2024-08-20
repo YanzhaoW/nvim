@@ -158,11 +158,13 @@ function M.lsp()
     vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
     vim.keymap.set('n', '<space>l', vim.diagnostic.setloclist, opts)
     vim.keymap.set('n', '<space>fm', function() vim.lsp.buf.format({ async = true }) end, opts)
+    vim.keymap.set('n', 'ti', ':InlayToggle<CR>', { noremap = true, silent = true })
 end
 
 --oil:
 vim.keymap.set("n", "-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
 
+-- cmp
 function M.cmp()
     local cmp = require 'cmp'
     return {
@@ -175,6 +177,7 @@ function M.cmp()
     }
 end
 
+-- nvimtree
 function M.nvimtree(bufnr)
     local api = require "nvim-tree.api"
     local function opts(desc)

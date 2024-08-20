@@ -34,6 +34,10 @@ end
 -- vim.api.nvim_buf_create_user_command(0, "CmpToggle", cmp_toggle, {})
 vim.api.nvim_create_user_command("CmpToggle", cmp_toggle, {})
 
+vim.api.nvim_create_user_command("InlayToggle", function()
+    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+end, {})
+
 vim.api.nvim_create_autocmd(
     { "filetype" },
     {
@@ -110,9 +114,10 @@ end
 
 vim.api.nvim_create_user_command("SpellSync", spell_sync, {})
 
-vim.api.nvim_create_user_command('Gcb', function(branch) require('gitsigns').change_base(branch.args, true) end, { nargs=1 })
+vim.api.nvim_create_user_command('Gcb', function(branch) require('gitsigns').change_base(branch.args, true) end,
+    { nargs = 1 })
 
-vim.api.nvim_create_user_command('Gdiff', function(branch) require('gitsigns').diffthis(branch.args) end, { nargs=1 })
+vim.api.nvim_create_user_command('Gdiff', function(branch) require('gitsigns').diffthis(branch.args) end, { nargs = 1 })
 
 -- vim.api.nvim_create_augroup('AutoFormatting', { clear = true })
 -- vim.api.nvim_create_autocmd('BufWritePre', {
