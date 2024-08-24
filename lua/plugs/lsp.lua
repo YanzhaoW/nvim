@@ -2,7 +2,6 @@ local M = {}
 
 M.on_attach = function(client, bufnr)
     local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
     -- local lsp_format_modifications = require "lsp-format-modifications"
     -- lsp_format_modifications.attach(client, bufnr, { format_on_save = true })
     -- client.resolved_capabilities.document_formatting = true
@@ -12,7 +11,7 @@ M.on_attach = function(client, bufnr)
     --     vim.g.inlay_hints_visible = true
     --     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
     -- end
-    require 'keymapping'.lsp()
+    require 'keymapping'.lsp(client, bufnr)
 end
 
 

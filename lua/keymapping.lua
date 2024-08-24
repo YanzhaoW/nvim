@@ -139,8 +139,8 @@ function M.gitsigns(bufnr)
 end
 
 --lsp:
-function M.lsp()
-    local opts = { noremap = true, silent = true, buffer = 0 }
+function M.lsp(client, bufnr)
+    local opts = { noremap = true, silent = true, buffer = bufnr }
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
@@ -157,12 +157,16 @@ function M.lsp()
     vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
     vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
     vim.keymap.set('n', '<space>l', vim.diagnostic.setloclist, opts)
-    vim.keymap.set('n', '<space>fm', function() vim.lsp.buf.format({ async = true }) end, opts)
-    vim.keymap.set('n', 'ti', ':InlayToggle<CR>', { noremap = true, silent = true })
+    vim.keymap.set('n', 'ti', ':InlayToggle<CR>', opts)
+    if client.name == 'clangd' and vim.fn.executable('clang-format') == 1 then
+        vim.keymap.set('n', '<space>fm', '<cmd>Format<cr>', opts)
+    else
+        vim.keymap.set('n', '<space>fm', function() vim.lsp.buf.format({ async = true }) end, opts)
+    end
 end
 
 --oil:
-vim.keymap.set("n", "-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- cmp
 function M.cmp()

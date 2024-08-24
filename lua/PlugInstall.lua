@@ -61,12 +61,12 @@ require("lazy").setup({
     'williamboman/mason-lspconfig.nvim',
     'nvim-lua/lsp-status.nvim',
     'neovim/nvim-lspconfig',
-    'joechrisellis/lsp-format-modifications.nvim',
     'tamago324/nlsp-settings.nvim',
     -- 'mfussenegger/nvim-lint',
 
     -- misc
     'ahmedkhalf/project.nvim',
+    'mhartington/formatter.nvim',
     -- 'simrat39/symbols-outline.nvim',
     { 'enddeadroyal/symbols-outline.nvim', branch = 'bugfix/symbol-hover-misplacement' },
 
