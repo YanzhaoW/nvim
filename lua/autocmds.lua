@@ -91,6 +91,13 @@ vim.api.nvim_create_autocmd("FileType", {
     group = my_augroup,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "qf" }, -- disable spellchecking for these filetypes
+    -- command = "setlocal spell spelllang=en_us,de_de | set spellcapcheck= | syntax spell toplevel",
+    command = "wincmd L",
+    group = my_augroup,
+})
+
 vim.api.nvim_create_autocmd("BufRead", {
     pattern = { "*.icc" },
     command = "setlocal filetype=cpp",
