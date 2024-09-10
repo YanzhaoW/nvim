@@ -13,7 +13,10 @@ require('telescope').setup {
         },
         initial_mode = 'insert',
         file_ignore_patterns = {
-            "^.git",
+            ".git/",
+            "build/",
+            ".cache/",
+            "conan/",
         },
     },
     pickers = {
