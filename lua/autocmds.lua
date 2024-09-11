@@ -100,12 +100,12 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.api.nvim_create_autocmd("FileType", {
     pattern = { "cpp", "c", "tex" },
-    callback = function() vim.opt.makeprg = 'cmake --build ./build --' end,
+    callback = function() vim.opt_local.makeprg = 'cmake --build ./build --' end,
 })
 
 vim.api.nvim_create_autocmd("FileType", {
     pattern = { "cmake" },
-    callback = function() vim.opt.makeprg = 'cmake -B ./build -S .' end,
+    callback = function() vim.opt_local.makeprg = 'cmake -B ./build -S .' end,
 })
 
 vim.api.nvim_create_autocmd("BufRead", {
