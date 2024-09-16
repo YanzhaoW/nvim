@@ -92,6 +92,19 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "markdown" }, -- disable spellchecking for these filetypes
+    callback = function()
+        vim.opt_local.tabstop = 2
+        vim.opt_local.shiftwidth = 2
+        vim.opt_local.expandtab = true
+        vim.bo.softtabstop = 2
+    end,
+    -- command = "setlocal spell spelllang=en_us,de_de | set spellcapcheck= | syntax spell toplevel",
+    -- command = "setlocal spell spelllang=en_us | set spellcapcheck= | syntax spell toplevel",
+    group = my_augroup,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
     pattern = { "qf" }, -- disable spellchecking for these filetypes
     -- command = "setlocal spell spelllang=en_us,de_de | set spellcapcheck= | syntax spell toplevel",
     command = "wincmd L",
