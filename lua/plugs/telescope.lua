@@ -1,17 +1,10 @@
 local actions = require("telescope.actions")
 require('telescope').setup {
     defaults = {
-        vimgrep_arguments = {
-            "grep",
-            "-b",
-            "-I",
-            "-n",
-            "-R",
-            "-E",
-            "-i",
-            "-s",
-        },
         initial_mode = 'insert',
+        preview = {
+            treesitter = false,
+        },
         file_ignore_patterns = {
             ".git/",
             "build/",
@@ -30,3 +23,20 @@ require('telescope').setup {
         },
     },
 }
+
+if vim.fn.executable('rg') ~= 1 then
+    require('telescope').setup {
+        defaults = {
+            vimgrep_arguments = {
+                "grep",
+                "-b",
+                "-I",
+                "-n",
+                "-R",
+                "-E",
+                "-i",
+                "-s",
+            },
+        }
+    }
+end
