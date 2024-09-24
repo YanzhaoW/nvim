@@ -163,9 +163,12 @@ function M.lsp(client, bufnr)
     vim.keymap.set('n', '<space>l', vim.diagnostic.setloclist, opts)
     vim.keymap.set('n', 'ti', ':InlayToggle<CR>', opts)
     if client.name == 'clangd' and vim.fn.executable('clang-format') == 1 then
-        vim.keymap.set('n', '<space>fm', '<cmd>Format<cr>', opts)
+        vim.keymap.set('n', '<space>fm', '<cmd>FormatWrite<cr>', opts)
     else
         vim.keymap.set('n', '<space>fm', function() vim.lsp.buf.format({ async = true }) end, opts)
+    end
+    if client.name == 'cmake' then
+        vim.keymap.set('n', '<space>fm', '<cmd>FormatWrite<cr>', opts)
     end
 end
 

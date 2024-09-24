@@ -1,5 +1,5 @@
 require("formatter").setup {
-    logging = false,
+    logging = true,
     filetype = {
         cpp = {
             function()
@@ -9,6 +9,15 @@ require("formatter").setup {
                     stdin = true,
                 }
             end
-        }
-    }
+        },
+        cmake = {
+            function()
+                return {
+                    exe = "cmake-format",
+                    args = { "-" },
+                    stdin = true,
+                }
+            end
+        },
+    },
 }
