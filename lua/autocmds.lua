@@ -48,20 +48,6 @@ vim.api.nvim_create_autocmd(
     }
 )
 
-local osc = vim.api.nvim_create_augroup("OSCYank", { clear = true })
-vim.api.nvim_create_autocmd(
-    { "TextYankPost" },
-    {
-        group = osc,
-        callback = function()
-            local event = vim.v.event
-            if event.operator == 'y' and event.regname == '' then
-                require('osc52').copy_register('"')
-            end
-        end,
-    }
-)
-
 vim.api.nvim_create_autocmd('ColorScheme', {
     callback = require 'plugs.colorscheme'.SetSemHi,
 })

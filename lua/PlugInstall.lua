@@ -37,7 +37,6 @@ require("lazy").setup({
     "nvim-telescope/telescope-file-browser.nvim",
     'kyazdani42/nvim-tree.lua',
     'ethanholz/nvim-lastplace',
-    'ojroques/nvim-osc52',
 
     --colorscheme:
     'navarasu/onedark.nvim',
@@ -45,37 +44,49 @@ require("lazy").setup({
 
     -- git plugins:
     'tpope/vim-fugitive',
-    'lewis6991/gitsigns.nvim',
     {
-        'akinsho/git-conflict.nvim',
-        version = '*',
-        config = function()
-            require(
-                'git-conflict').setup()
-        end
+        'lewis6991/gitsigns.nvim',
+        opts = { on_attach = require "keymapping".gitsigns }
     },
 
     -- lsp plugins
     "jose-elias-alvarez/null-ls.nvim",
-    'williamboman/mason.nvim',
-    'williamboman/mason-lspconfig.nvim',
+    {
+        'williamboman/mason.nvim',
+        opts = { PATH = "prepend", }
+    },
+    {
+        'williamboman/mason-lspconfig.nvim',
+        opts = {
+            ensure_installed = { "clangd", "lua_ls", "yamlls", "cmake" },
+        }
+    },
     'nvim-lua/lsp-status.nvim',
     'neovim/nvim-lspconfig',
     'tamago324/nlsp-settings.nvim',
     -- 'mfussenegger/nvim-lint',
 
     -- misc
-    'ahmedkhalf/project.nvim',
+    {
+        'akinsho/git-conflict.nvim',
+        opts = {},
+        version = '*',
+    },
+    {
+        'ahmedkhalf/project.nvim',
+        opts = { detection_methods = { "pattern", "lsp" } },
+        name = "project_nvim"
+    },
     'mhartington/formatter.nvim',
     -- 'simrat39/symbols-outline.nvim',
     { 'enddeadroyal/symbols-outline.nvim', branch = 'bugfix/symbol-hover-misplacement' },
 
     {
         'folke/trouble.nvim',
+        opts = {},
         cmd = 'Trouble',
         keys = require("keymapping").trouble(),
         dependencies = { 'nvim-tree/nvim-web-devicons' },
-        opts = {},
     },
 
     {

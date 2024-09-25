@@ -23,8 +23,6 @@ vim.opt.spelloptions = 'noplainbuffer'
 vim.opt.signcolumn = 'yes'
 vim.diagnostic.config({ virtual_text = false })
 
-vim.opt.makeprg = 'cmake --build ./build --'
-
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.g.lsp_format_modifications_silence = true
@@ -44,7 +42,7 @@ end
 
 if (os.getenv("TMUX") ~= nil) then
     vim.g.clipboard = {
-        name = 'myClipboard',
+        name = 'tmux clipboard',
         copy = {
             ["+"] = { 'tmux', 'load-buffer', '-' },
             ["*"] = { 'tmux', 'load-buffer', '-' },
@@ -54,6 +52,18 @@ if (os.getenv("TMUX") ~= nil) then
             ["*"] = { 'tmux', 'save-buffer', '-' },
         },
         cache_enabled = true,
+    }
+else
+    vim.g.clipboard = {
+        name = 'OSC 52',
+        copy = {
+            ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+            ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+        },
+        paste = {
+            ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
+            ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+        },
     }
 end
 
