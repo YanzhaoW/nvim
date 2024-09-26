@@ -37,6 +37,10 @@ require("lazy").setup({
     "nvim-telescope/telescope-file-browser.nvim",
     'kyazdani42/nvim-tree.lua',
     'ethanholz/nvim-lastplace',
+    {
+        'ojroques/nvim-osc52',
+        opts = { max_length = 0, silent = true, trim = false }
+    },
 
     --colorscheme:
     'navarasu/onedark.nvim',

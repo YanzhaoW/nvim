@@ -135,6 +135,20 @@ vim.api.nvim_create_user_command('Gcb', function(branch) require('gitsigns').cha
 
 vim.api.nvim_create_user_command('Gdiff', function(branch) require('gitsigns').diffthis(branch.args) end, { nargs = 1 })
 
+local osc = vim.api.nvim_create_augroup("OSCYank", { clear = true })
+vim.api.nvim_create_autocmd(
+    { "TextYankPost" },
+    {
+        group = osc,
+        callback = function()
+            local event = vim.v.event
+            if event.operator == 'y' and event.regname == '' then
+                require('osc52').copy_register('"')
+            end
+        end,
+    }
+)
+
 -- vim.api.nvim_create_augroup('AutoFormatting', { clear = true })
 -- vim.api.nvim_create_autocmd('BufWritePre', {
 --     group = 'AutoFormatting',
