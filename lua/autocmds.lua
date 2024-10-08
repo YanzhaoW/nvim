@@ -41,9 +41,18 @@ end, {})
 vim.api.nvim_create_autocmd(
     { "filetype" },
     {
-        pattern = { "cpp", "python", "lua", "cmake", "tex" },
-        callback = function(_)
+        pattern = { "cpp", "python", "lua", "cmake", "tex", "typescript", "javascript", "typescriptreact" },
+        callback = function(event)
             vim.g.cmp_disable_enable_toggle = true
+            -- make script
+            if event.match == "cpp" or event.match == "c" or event.match == "tex" then
+                vim.opt_local.makeprg = 'cmake --build ./build --'
+            elseif event.match == "cmake" then
+                vim.opt_local.makeprg = 'cmake -B ./build -S .'
+            elseif event.match == "typescript" or event.match == "javascript" or event.match == "typescriptreact" then
+                vim.opt_local.makeprg = 'npm run build'
+            else
+            end
         end
     }
 )
@@ -95,16 +104,6 @@ vim.api.nvim_create_autocmd("FileType", {
     -- command = "setlocal spell spelllang=en_us,de_de | set spellcapcheck= | syntax spell toplevel",
     command = "wincmd L",
     group = my_augroup,
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "cpp", "c", "tex" },
-    callback = function() vim.opt_local.makeprg = 'cmake --build ./build --' end,
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "cmake" },
-    callback = function() vim.opt_local.makeprg = 'cmake -B ./build -S .' end,
 })
 
 vim.api.nvim_create_autocmd("BufRead", {
