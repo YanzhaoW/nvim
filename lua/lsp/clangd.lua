@@ -16,15 +16,10 @@ M.setup = function()
             -- see clangd --help-hidden
             "clangd",
             "--background-index",
-            -- by default, clang-tidy use -checks=clang-diagnostic-*,clang-analyzer-*
-            -- to add more checks, create .clang-tidy file in the root directory
-            -- and add Checks key, see https://clang.llvm.org/extra/clang-tidy/
             "--clang-tidy",
-            "--clang-tidy-checks=*",
             "--all-scopes-completion",
-            -- "--completion-style=detailed",
             "--header-insertion-decorators",
-            -- "--header-insertion=iwyu",
+            "--experimental-modules-support",
             "--pch-storage=memory",
             "--completion-style=bundled",
             "--cross-file-rename",
@@ -35,6 +30,7 @@ M.setup = function()
             usePlaceholders = true,
             completeUnimported = true,
             semanticHighlighting = true,
+            fallbackFlags = { '-std=c++23' },
         },
         root_dir = nvim_lsp.util.root_pattern('.clangd', '.git', 'compile_commands.json'),
         single_file_support = true,
