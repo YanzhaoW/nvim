@@ -10,6 +10,7 @@ require('telescope').setup {
             "build/",
             ".cache/",
             "conan/",
+            "node_modules/",
         },
     },
     pickers = {

@@ -5,4 +5,11 @@ require("oil").setup {
         ["<C-l>"] = false,
         ["<C-_>"] = { "actions.select", opts = { horizontal = true }, desc = "Open the entry in a horizontal split" },
     },
+    view_options = {
+
+        sort = {
+            { "type", "asc" },
+            { "name", "asc" }
+        },
+    },
 }
