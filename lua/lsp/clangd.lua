@@ -12,6 +12,7 @@ M.setup = function()
     nvim_lsp.clangd.setup {
         on_attach = on_attach,
         capabilities = capabilities,
+        filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
         cmd = {
             -- see clangd --help-hidden
             "clangd",
