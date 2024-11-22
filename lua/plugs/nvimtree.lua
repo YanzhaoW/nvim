@@ -11,6 +11,14 @@ require("nvim-web-devicons").setup {
     default = true,
 }
 
+require("nvim-web-devicons").set_icon {
+    rst = {
+        icon = "󰷉",
+        color = "#f2f5f3",
+        name = "rts"
+    },
+}
+
 
 require 'nvim-tree'.setup {
     on_attach = require 'keymapping'.nvimtree,

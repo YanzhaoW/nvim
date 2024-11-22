@@ -80,14 +80,14 @@ vim.api.nvim_create_autocmd("QuitPre", {
 
 local my_augroup = vim.api.nvim_create_augroup("mygroup", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "text", "tex", "markdown" }, -- disable spellchecking for these filetypes
+    pattern = { "text", "tex", "markdown", "rst" }, -- disable spellchecking for these filetypes
     -- command = "setlocal spell spelllang=en_us,de_de | set spellcapcheck= | syntax spell toplevel",
     command = "setlocal spell spelllang=en_us | set spellcapcheck= | syntax spell toplevel",
     group = my_augroup,
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "markdown" }, -- disable spellchecking for these filetypes
+    pattern = { "markdown", "rst" }, -- disable spellchecking for these filetypes
     callback = function()
         vim.opt_local.tabstop = 2
         vim.opt_local.shiftwidth = 2
