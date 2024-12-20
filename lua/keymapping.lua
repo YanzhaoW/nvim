@@ -106,6 +106,13 @@ vim.keymap.set("n", "]t", function() require("todo-comments").jump_next() end,
 vim.keymap.set("n", "[t", function() require("todo-comments").jump_prev() end,
     { noremap = true, silent = true, desc = "Previous todo comment" })
 
+-- snippets
+function M.snippet()
+    local ls = require "luasnip"
+    vim.keymap.set({ "i", "s" }, "<C-j>", function() ls.jump(1) end, { noremap = true, silent = true })
+    vim.keymap.set({ "i", "s" }, "<C-k>", function() ls.jump(-1) end, { noremap = true, silent = true })
+end
+
 -- gitsigns:
 function M.gitsigns(bufnr)
     local gs = require('gitsigns')
