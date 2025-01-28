@@ -68,6 +68,7 @@ require("lazy").setup({
     'nvim-lua/lsp-status.nvim',
     'neovim/nvim-lspconfig',
     'tamago324/nlsp-settings.nvim',
+    'stevearc/conform.nvim',
     -- 'mfussenegger/nvim-lint',
 
     -- misc
@@ -81,7 +82,7 @@ require("lazy").setup({
         opts = { detection_methods = { "pattern", "lsp" } },
         name = "project_nvim"
     },
-    'mhartington/formatter.nvim',
+    -- 'mhartington/formatter.nvim',
     -- 'simrat39/symbols-outline.nvim',
     { 'enddeadroyal/symbols-outline.nvim', branch = 'bugfix/symbol-hover-misplacement' },
 
