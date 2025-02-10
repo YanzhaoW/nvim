@@ -7,7 +7,7 @@ require('telescope').setup {
         },
         file_ignore_patterns = {
             ".git/",
-            "build/",
+            "^build/",
             ".cache/",
             "conan/",
             "node_modules/",
