@@ -6,6 +6,7 @@ require("conform").setup({
 		json = { "prettier" },
 		cmake = { "cmake_format" },
 		cpp = { "clang-format" },
+		tex = { "latexindent" },
 	},
 })
 
