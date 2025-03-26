@@ -35,6 +35,10 @@ lua_snippet.add_snippets("cpp", {
 	),
 })
 
+lua_snippet.add_snippets("markdown", {
+	snippet("$$", fmt([[@f${}@f$]], { insert(1, "content") })),
+})
+
 lua_snippet.add_snippets("tex", {
 	snippet(
 		"frame",
