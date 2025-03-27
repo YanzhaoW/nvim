@@ -14,7 +14,7 @@ lua_snippet.add_snippets("cpp", {
 		fmt(
 			[[
 /** 
- * \brief {}
+ * @brief {}
  *
  * {}
  * @param {} {}
@@ -37,6 +37,7 @@ lua_snippet.add_snippets("cpp", {
 
 lua_snippet.add_snippets("markdown", {
 	snippet("$$", fmt([[@f${}@f$]], { insert(1, "content") })),
+	snippet("refeq", fmt([[@f$(\ref{{eq:{}}})@f$]], { insert(1, "label") })),
 })
 
 lua_snippet.add_snippets("tex", {
