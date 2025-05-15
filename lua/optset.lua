@@ -36,6 +36,7 @@ vim.cmd("cnoreabbrev <expr> w\\ (getcmdtype()==':' && getcmdline()==# 'w\\')? 'w
 vim.filetype.add({
 	pattern = { [".*/.*%.sshconfig"] = "sshconfig" },
 })
+vim.deprecate = function() end
 
 -- change lsp signs:
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }

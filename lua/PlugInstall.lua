@@ -54,7 +54,7 @@ require("lazy").setup({
     },
 
     -- lsp plugins
-    "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
     {
         'williamboman/mason.nvim',
         opts = { PATH = "prepend", }
