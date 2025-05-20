@@ -121,6 +121,13 @@ vim.api.nvim_create_autocmd("User", {
 	group = my_augroup,
 })
 
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(ev)
+		local client = vim.lsp.get_client_by_id(ev.data.client_id)
+		require("plugs.lsp").on_attach(client, ev.buf)
+	end,
+})
+
 local spell_sync = function()
 	print("syncing spell files....")
 	vim.cmd("mkspell ~/.config/nvim/spell/en.utf-8.add")

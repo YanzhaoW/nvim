@@ -1,14 +1,14 @@
 local on_attach = require("plugs.lsp").on_attach
 local capabilities = require("lsp.capability")
 
+require("mason-lspconfig").setup({
+    automatic_enable = true,
+	ensure_installed = { "clangd", "lua_ls", "yamlls", "cmake", "pyright" },
+})
+
 vim.lsp.config("*", {
 	root_markers = { ".git" },
 	capabilities = capabilities,
-	on_attach = on_attach,
-})
-
-require("mason-lspconfig").setup({
-	ensure_installed = { "clangd", "lua_ls", "yamlls", "cmake", "pyright" },
 })
 
 require("lsp.python").setup()

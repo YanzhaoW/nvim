@@ -3,11 +3,13 @@
 -- local capabilities = require("lsp.capability")
 -- local clangd_ext_handler = require("lsp-status").extensions.clangd.setup()
 
+local capabilities = require("lsp.capability")
 local M = {}
 
 M.setup = function()
 	vim.lsp.config.clangd = {
 		filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
+		capabilities = capabilities,
 		cmd = {
 			-- see clangd --help-hidden
 			"clangd",

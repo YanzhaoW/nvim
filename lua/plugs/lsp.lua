@@ -55,7 +55,6 @@ _G.bufferCopy = function(bufnr)
 end
 -- require('lint')
 vim.keymap.set('n', '<leader>o<Tab>', ':call v:lua.bufferCopy(0)<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>oo', ':ClangdSwitchSourceHeader<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>of', ':ClangdFormat<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>oo', ':LspClangdSwitchSourceHeader<CR>', { noremap = true, silent = true })
 
 return M
