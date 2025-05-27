@@ -2,7 +2,7 @@ local on_attach = require("plugs.lsp").on_attach
 local capabilities = require("lsp.capability")
 
 require("mason-lspconfig").setup({
-    automatic_enable = true,
+	automatic_enable = true,
 	ensure_installed = { "lua_ls", "yamlls", "cmake", "pyright" },
 })
 
@@ -16,3 +16,4 @@ require("lsp.lua_ls").setup()
 require("lsp.clangd").setup()
 require("lsp.yamlls").setup()
 require("lsp.cmake").setup()
+vim.lsp.enable("clangd")

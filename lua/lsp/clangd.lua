@@ -8,6 +8,7 @@ local M = {}
 
 M.setup = function()
 	vim.lsp.config.clangd = {
+		automatic_enable = true,
 		filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
 		capabilities = capabilities,
 		cmd = {
