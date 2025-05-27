@@ -65,12 +65,7 @@ require("lazy").setup({
 		},
 	},
 	"nvim-lua/lsp-status.nvim",
-	{
-		"neovim/nvim-lspconfig",
-		-- opts = {
-		-- 	servers = { clangd = { mason = false } },
-		-- },
-	},
+	"neovim/nvim-lspconfig",
 	"tamago324/nlsp-settings.nvim",
 	"stevearc/conform.nvim",
 	-- 'mfussenegger/nvim-lint',
