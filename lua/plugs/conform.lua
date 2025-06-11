@@ -42,3 +42,13 @@ require("conform").formatters.prettier = {
 	--     qmd = "markdown",
 	-- },
 }
+
+require("conform").formatters.black = {
+	args = {
+		"--stdin-filename",
+		"$FILENAME",
+		"--quiet",
+		"--line-length=79",
+		"-",
+	},
+}

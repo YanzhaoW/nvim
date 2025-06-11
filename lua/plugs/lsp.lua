@@ -56,5 +56,6 @@ end
 -- require('lint')
 vim.keymap.set('n', '<leader>o<Tab>', ':call v:lua.bufferCopy(0)<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>oo', ':LspClangdSwitchSourceHeader<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>oh', ':ClangdTypeHierarchy<CR>', { noremap = true, silent = true })
 
 return M

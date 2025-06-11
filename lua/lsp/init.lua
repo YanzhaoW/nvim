@@ -13,7 +13,7 @@ vim.lsp.config("*", {
 
 require("lsp.python").setup()
 require("lsp.lua_ls").setup()
-require("lsp.clangd").setup()
+-- require("lsp.clangd").setup()
 require("lsp.yamlls").setup()
 require("lsp.cmake").setup()
 vim.lsp.enable("clangd")

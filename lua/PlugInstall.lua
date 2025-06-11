@@ -68,6 +68,7 @@ require("lazy").setup({
 	"neovim/nvim-lspconfig",
 	"tamago324/nlsp-settings.nvim",
 	"stevearc/conform.nvim",
+	"p00f/clangd_extensions.nvim",
 	-- 'mfussenegger/nvim-lint',
 
 	-- misc
