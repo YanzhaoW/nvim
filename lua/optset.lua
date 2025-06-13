@@ -38,6 +38,8 @@ vim.filetype.add({
 })
 vim.deprecate = function() end
 
+vim.g._ts_force_sync_parsing = true
+
 -- change lsp signs:
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
