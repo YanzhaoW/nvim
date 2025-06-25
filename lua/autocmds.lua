@@ -54,6 +54,14 @@ vim.api.nvim_create_autocmd({ "filetype" }, {
 	end,
 })
 
+vim.api.nvim_create_autocmd({ "filetype" }, {
+	pattern = { "cpp", "python", "lua", "cmake", "tex", "typescript", "javascript", "typescriptreact", "markdown" },
+	---@diagnostic disable-next-line: unused-local
+	callback = function(event)
+		vim.treesitter.start()
+	end,
+})
+
 vim.api.nvim_create_autocmd("ColorScheme", {
 	callback = require("plugs.colorscheme").SetSemHi,
 })

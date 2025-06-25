@@ -17,8 +17,12 @@ require("lazy").setup({
 	"numToStr/comment.nvim",
 	"nvim-tree/nvim-web-devicons",
 	"nvim-lualine/lualine.nvim",
-	"nvim-treesitter/nvim-treesitter",
-	"nvim-treesitter/playground",
+	{
+		"nvim-treesitter/nvim-treesitter",
+		lazy = false,
+		branch = "main",
+		build = ":TSUpdate",
+	},
 
 	{
 		"dstein64/vim-startuptime",
@@ -34,7 +38,6 @@ require("lazy").setup({
 		build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
 	},
 	"nvim-telescope/telescope-file-browser.nvim",
-	"kyazdani42/nvim-tree.lua",
 	"ethanholz/nvim-lastplace",
 	{
 		"ojroques/nvim-osc52",
