@@ -23,6 +23,7 @@ require("lazy").setup({
 		branch = "main",
 		build = ":TSUpdate",
 	},
+	"Badhi/nvim-treesitter-cpp-tools",
 
 	{
 		"dstein64/vim-startuptime",

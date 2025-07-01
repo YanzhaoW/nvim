@@ -33,11 +33,53 @@ lua_snippet.add_snippets("cpp", {
 			}
 		)
 	),
+	snippet(
+		"doxclass",
+		fmt(
+			[[
+/** 
+ * @class {}
+ * @brief {}
+ *
+ * {}
+ */
+            ]],
+			{
+				insert(1, "class name"),
+				insert(2, "brief description"),
+				insert(3, "description"),
+			}
+		)
+	),
 })
 
 lua_snippet.add_snippets("markdown", {
 	snippet("$$", fmt([[@f${}@f$]], { insert(1, "content") })),
 	snippet("refeq", fmt([[@f$\ref{{eq:{}}}@f$]], { insert(1, "label") })),
+})
+
+lua_snippet.add_snippets("cmake", {
+	snippet(
+		"init",
+		fmt(
+			[[
+cmake_minimum_required(VERSION 3.28)
+
+project({})
+
+set(CMAKE_CXX_STANDARD 23)
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+add_executable(main main.cpp)
+target_link_library(main PRIVATE {})
+        ]],
+			{
+				insert(1, "project_name"),
+				insert(2, "dependencies"),
+			}
+		)
+	),
 })
 
 lua_snippet.add_snippets("tex", {

@@ -67,7 +67,7 @@ vim.keymap.set('n', '<leader>9', ':BufferLast<CR>', { noremap = true, silent = t
 -- Pin/unpin buffer
 vim.keymap.set('n', '<leader>p', ':BufferPin<CR>', { noremap = true, silent = true })
 -- Close buffer
-vim.keymap.set('n', '<leader>cc', ':bd<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>cc', ':BufferClose<CR>', { noremap = true, silent = true })
 
 --keybindings for telescope:
 vim.keymap.set('n', '<leader>ff', function() require('telescope.builtin').find_files() end,
