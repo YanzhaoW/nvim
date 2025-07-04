@@ -132,7 +132,7 @@ vim.api.nvim_create_autocmd("User", {
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(ev)
 		local client = vim.lsp.get_client_by_id(ev.data.client_id)
-		require("plugs.lsp").on_attach(client, ev.buf)
+		-- require("plugs.lsp").on_attach(client, ev.buf)
 	end,
 })
 
