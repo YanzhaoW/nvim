@@ -15,6 +15,7 @@ require("conform").setup({
 		cpp = { "clang-format" },
 		tex = { "latexindent" },
 		bib = { "latexindent" },
+		rst = { "docstrfmt" },
 	},
 })
 
@@ -41,6 +42,23 @@ require("conform").formatters.prettier = {
 	-- ext_parsers = {
 	--     qmd = "markdown",
 	-- },
+}
+
+-- require("conform").formatters.rstfmt = {
+-- 	command = "rstfmt",
+-- 	args = { "$FILENAME" },
+-- 	stdin = false,
+-- }
+--
+--
+require("conform").formatters.docstrfmt = {
+	meta = {
+		url = "https://github.com/LilSpazJoekp/docstrfmt",
+		description = "reStructuredText formatter.",
+	},
+	command = "docstrfmt",
+	args = { "$FILENAME" },
+    stdin = false,
 }
 
 require("conform").formatters.black = {

@@ -4,7 +4,6 @@ require("plugs.lualine")
 require("plugs.barbar")
 
 require("plugs.cmp")
-require("plugs.lsp")
 require("plugs.telescope")
 require("plugs.nvimlastplace")
 require("plugs.nvimcomment")
