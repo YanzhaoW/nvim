@@ -8,4 +8,5 @@ spell/*.sug
 !general/
 !keymapping/
 !lua/
+!lsp/
 !init.lua
