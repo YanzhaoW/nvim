@@ -132,7 +132,11 @@ vim.api.nvim_create_autocmd("User", {
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(ev)
 		local client = vim.lsp.get_client_by_id(ev.data.client_id)
-		-- require("plugs.lsp").on_attach(client, ev.buf)
+		local function buf_set_option(...)
+			vim.api.nvim_buf_set_option(ev.buf, ...)
+		end
+		buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+		require("keymapping").lsp(client, ev.buf)
 	end,
 })
 
