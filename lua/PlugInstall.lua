@@ -22,6 +22,9 @@ require("lazy").setup({
 		lazy = false,
 		branch = "main",
 		build = ":TSUpdate",
+		opts = {
+			ensure_installed = { "cmake", "cpp", "c", "lua", "markdown", "yaml", "python", "json", "rst" },
+		},
 	},
 	"jacksonhvisuals/nvim-treesitter-cpp-tools",
 
@@ -64,9 +67,6 @@ require("lazy").setup({
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
-		opts = {
-			ensure_installed = { "lua_ls", "yamlls", "cmake" },
-		},
 	},
 	"nvim-lua/lsp-status.nvim",
 	"neovim/nvim-lspconfig",
