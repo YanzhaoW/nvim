@@ -2,7 +2,7 @@ require("conform").setup({
     formatters_by_ft = {
         lua = { "stylua", lsp_format = "fallback" },
         python = { "isort", "black" },
-        markdown = { "prettier" },
+        markdown = { "prettier", lsp_format = "falback" },
         javascript = { "prettier" },
         typescript = { "prettier" },
         json = { "prettier" },
