@@ -14,6 +14,13 @@
     "millepede",
     "hugecut",
     "outlierdownweighting",
-    "derivs"
+    "derivs",
+    "Ndim",
+    "NOLINTNEXTLINE",
+    "quantiles",
+    "outliners",
+    "Xaxis",
+    "diagonalization",
+    "GMRES"
   ]
 }
