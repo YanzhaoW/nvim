@@ -56,9 +56,17 @@ vim.api.nvim_create_autocmd({ "filetype" }, {
 
 vim.api.nvim_create_autocmd({ "filetype" }, {
 	pattern = { "cpp", "python", "lua", "cmake", "tex", "typescript", "javascript", "typescriptreact", "markdown" },
-	---@diagnostic disable-next-line: unused-local
-	callback = function(event)
-		vim.treesitter.start()
+	callback = function(args)
+		local nvim_ts = require("nvim-treesitter")
+		local parsers = nvim_ts.get_installed()
+		local filetype = args.match
+		for _, parser in ipairs(parsers) do
+			if filetype == parser then
+				vim.treesitter.start()
+                return true
+			end
+		end
+		require("nvim-treesitter").install({ filetype })
 	end,
 })
 

@@ -2,7 +2,8 @@
 require("plugs.colorscheme")
 require("plugs.lualine")
 require("plugs.barbar")
-
+require("plugs.treesitter")
+require("plugs.mason")
 require("plugs.cmp")
 require("plugs.telescope")
 require("plugs.nvimlastplace")
