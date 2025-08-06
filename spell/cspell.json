@@ -21,6 +21,12 @@
     "outliners",
     "Xaxis",
     "diagonalization",
-    "GMRES"
+    "GMRES",
+    "Tamex",
+    "Digi",
+    "offspill",
+    "Ncluster",
+    "Nhitmin",
+    "stdrng"
   ]
 }

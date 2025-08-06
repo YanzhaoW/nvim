@@ -110,6 +110,12 @@ require("lazy").setup({
         "stevearc/oil.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
     },
+    {
+        "refractalize/oil-git-status.nvim",
+        dependencies = {
+            "stevearc/oil.nvim",
+        },
+    },
 
     --bufferline
     "romgrk/barbar.nvim",
