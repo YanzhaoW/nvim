@@ -64,7 +64,7 @@ require("lazy").setup({
     "nvimtools/none-ls.nvim",
 
     {
-        "williamboman/mason.nvim",
+        "mason-org/mason.nvim",
         opts = { PATH = "prepend" },
     },
     {
