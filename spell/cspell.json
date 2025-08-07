@@ -27,6 +27,7 @@
     "offspill",
     "Ncluster",
     "Nhitmin",
-    "stdrng"
+    "stdrng",
+    "CXXSTANDARD"
   ]
 }
