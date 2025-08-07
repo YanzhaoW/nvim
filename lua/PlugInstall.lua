@@ -114,6 +114,11 @@ require("lazy").setup({
 
 	--bufferline
 	"romgrk/barbar.nvim",
+	{
+		"folke/snacks.nvim",
+  --       opts=require("plugs.snacks_config"),
+		keys = require("keymapping").snacks_keybindings(),
+	},
 
 	--snippet
 	{
