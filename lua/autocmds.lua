@@ -72,7 +72,7 @@ vim.api.nvim_create_autocmd({ "filetype" }, {
 })
 
 vim.api.nvim_create_autocmd("ColorScheme", {
-	callback = require("plugs.colorscheme").SetSemHi,
+	callback = require("plugins.colorscheme").SetSemHi,
 })
 
 vim.api.nvim_create_autocmd("QuitPre", {

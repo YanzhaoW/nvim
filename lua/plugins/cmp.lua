@@ -14,7 +14,6 @@ cmp.setup({
 			require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
 		end,
 	},
-	mapping = cmp.mapping.preset.insert(require("keymapping").cmp()),
 	-- Accept currently selected item. If none selected, `select` first item.
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },

@@ -1,7 +1,6 @@
-require 'keymapping'
-require 'PlugInstall'
-require 'plugs'
+require 'plugins'
 require 'lsp'
-require 'autocmds'
-require 'optset'
+require 'keymapping'
 require 'snippets'
+require 'autocmds'
+require 'optset' -- must after autocmds

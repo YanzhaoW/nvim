@@ -85,6 +85,6 @@ M.SetSemHi = function()
     -- vim.api.nvim_set_hl(0, '@lsp.typemod.variable.globalScope', { fg = 'Purple' })
 end
 
-M.SetSemHi()
+-- M.SetSemHi()
 
 return M

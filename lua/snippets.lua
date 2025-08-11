@@ -1,3 +1,4 @@
+local M = {}
 local lua_snippet = require("luasnip")
 -- local extras = require("luasnip.extras")
 local fmt = require("luasnip.extras.fmt").fmt
@@ -138,3 +139,5 @@ lua_snippet.add_snippets("tex", {
 })
 
 require("keymapping").snippet()
+
+return M
