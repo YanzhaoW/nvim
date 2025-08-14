@@ -7,56 +7,60 @@ local function get_server_names()
     return table.concat(server_names, ", ")
 end
 
-local trouble = require("trouble")
-local symbols = trouble.statusline({
+local trouble = require "trouble"
+local symbols = trouble.statusline {
     mode = "lsp_document_symbols",
     groups = {},
     title = false,
-    filter = { range = true },
+    filter = { range = true, },
     format = "{kind_icon}{symbol.name:Normal}",
     -- The following line is needed to fix the background color
     -- Set it to the lualine section you want to use
     hl_group = "lualine_c_normal",
-})
+}
+
+local narrow_window_condition = function()
+    return vim.api.nvim_win_get_width(0) > 200
+end
 
 
-require('lualine').setup {
+require 'lualine'.setup {
     extensions = {},
     inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = { "filename" },
-        lualine_x = { "location" },
+        lualine_c = { "filename", },
+        lualine_x = { "location", },
         lualine_y = {},
-        lualine_z = {}
+        lualine_z = {},
     },
     options = {
         always_divide_middle = true,
         component_separators = {
             left = "",
-            right = ""
+            right = "",
         },
         disabled_filetypes = {},
         globalstatus = false,
         icons_enabled = true,
         section_separators = {
             left = "",
-            right = ""
+            right = "",
         },
-        theme = "onedark"
+        theme = "onedark",
     },
     sections = {
-        lualine_a = { "mode" },
+        lualine_a = { "mode", },
         lualine_b = { "branch", "diff",
             {
                 'diagnostics',
-                source = { 'nvim_lsp' },
-                sections = { "error", "warn", "info", "hint" },
-                symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
+                source = { 'nvim_lsp', },
+                sections = { "error", "warn", "info", "hint", },
+                symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ', },
                 colored = true,
-                update_in_insert = true
-            } },
-        lualine_c = { "filename", { symbols.get, cond = symbols.has } },
+                update_in_insert = true,
+            }, },
+        lualine_c = { "filename", { symbols.get, cond = narrow_window_condition, }, },
         -- lualine_c = {{"require'lsp-status'.status()"}},
         -- lualine_x = { get_server_names, "encoding", "fileformat", "filetype" },
         -- lualine_x = { get_server_names, "filetype" },
@@ -75,12 +79,12 @@ require('lualine').setup {
                     separator = ' ',
                 },
                 -- List of LSP names to ignore (e.g., `null-ls`):
-                ignore_lsp = { "null-ls" },
+                ignore_lsp = { "null-ls", },
             },
             "filetype",
         },
-        lualine_y = { "progress" },
-        lualine_z = { "location" }
+        lualine_y = { { "progress", cond = narrow_window_condition, }, },
+        lualine_z = { { "location", cond = narrow_window_condition, }, },
     },
-    tabline = {}
+    tabline = {},
 }
