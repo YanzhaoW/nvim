@@ -7,6 +7,17 @@ local function get_server_names()
     return table.concat(server_names, ", ")
 end
 
+local trouble = require("trouble")
+local symbols = trouble.statusline({
+    mode = "lsp_document_symbols",
+    groups = {},
+    title = false,
+    filter = { range = true },
+    format = "{kind_icon}{symbol.name:Normal}",
+    -- The following line is needed to fix the background color
+    -- Set it to the lualine section you want to use
+    hl_group = "lualine_c_normal",
+})
 
 
 require('lualine').setup {
@@ -45,9 +56,29 @@ require('lualine').setup {
                 colored = true,
                 update_in_insert = true
             } },
-        lualine_c = { "filename" },
+        lualine_c = { "filename", { symbols.get, cond = symbols.has } },
         -- lualine_c = {{"require'lsp-status'.status()"}},
-        lualine_x = { get_server_names, "encoding", "fileformat", "filetype" },
+        -- lualine_x = { get_server_names, "encoding", "fileformat", "filetype" },
+        -- lualine_x = { get_server_names, "filetype" },
+        lualine_x = {
+            {
+                'lsp_status',
+                icon = '', -- f013
+                symbols = {
+                    -- -- Standard unicode symbols to cycle through for LSP progress:
+                    -- spinner = { '⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏' },
+                    spinner = {},
+                    -- -- Standard unicode symbol for when LSP is done:
+                    -- done = '✓',
+                    done = '',
+                    -- Delimiter inserted between LSP names:
+                    separator = ' ',
+                },
+                -- List of LSP names to ignore (e.g., `null-ls`):
+                ignore_lsp = { "null-ls" },
+            },
+            "filetype",
+        },
         lualine_y = { "progress" },
         lualine_z = { "location" }
     },

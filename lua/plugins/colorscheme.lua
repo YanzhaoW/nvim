@@ -51,24 +51,34 @@ require('kanagawa').setup({
 
 M.SetSemHi = function()
     local links = {
-        ['@lsp.type.namespace'] = '@namespace',
-        ['@lsp.type.type'] = '@type',
-        ['@lsp.type.class'] = '@type',
-        ['@lsp.type.enum'] = '@type',
-        ['@lsp.type.interface'] = '@type',
-        ['@lsp.type.struct'] = '@structure',
-        ['@lsp.type.parameter'] = '@parameter',
-        ['@lsp.type.typeparameter'] = '@parameter',
-        ['@lsp.type.variable'] = '@variable',
-        ['@lsp.type.property'] = '@property',
-        ['@lsp.type.enumMember'] = '@constant',
-        ['@lsp.type.function'] = '@function',
-        ['@lsp.type.method'] = '@method',
-        ['@lsp.type.macro'] = '@macro',
-        ['@lsp.type.decorator'] = '@function',
-        ['@lsp.typemod.function.defaultLibrary'] = '@function.builtin',
-        ['@lsp.typemod.method.defaultLibrary'] = '@function.builtin',
-        ['@lsp.typemod.variable.defaultLibrary'] = '@variable.builtin',
+        ['@lsp.mod.globalScope'] = '@lsp.typemod.variable.global',
+        ['@lsp.typemod.variable.fileScope'] = '@lsp.typemod.variable.global',
+        ['@lsp.typemod.class.globalScope'] = '@lsp.type.class.cpp',
+        ['@lsp.typemod.namespace.globalScope'] = '@lsp.type.namespace',
+        ['@lsp.typemod.type.deduced'] = '@lsp.type.type',
+        ['@lsp.typemod.class.deduced'] = '@lsp.type.type',
+        ['@lsp.mod.defaultLibrary'] = '@type.builtin',
+        ['@lsp.typemod.type.defaultLibrary'] = '@type.builtin',
+        ['@lsp.typemod.class.defaultLibrary'] = '@type.builtin',
+        -- ['@lsp.typemod.variable.definition'] = '@type.definition',
+        --     ['@lsp.type.namespace'] = '@namespace',
+        --     ['@lsp.type.type'] = '@type',
+        --     ['@lsp.type.class'] = '@type',
+        --     ['@lsp.type.enum'] = '@type',
+        --     ['@lsp.type.interface'] = '@type',
+        --     ['@lsp.type.struct'] = '@structure',
+        --     ['@lsp.type.parameter'] = '@parameter',
+        --     ['@lsp.type.typeparameter'] = '@parameter',
+        --     ['@lsp.type.variable'] = '@variable',
+        --     ['@lsp.type.property'] = '@property',
+        --     ['@lsp.type.enumMember'] = '@constant',
+        --     ['@lsp.type.function'] = '@function',
+        --     ['@lsp.type.method'] = '@method',
+        --     ['@lsp.type.macro'] = '@macro',
+        --     ['@lsp.type.decorator'] = '@function',
+        --     ['@lsp.typemod.function.defaultLibrary'] = '@function.builtin',
+        --     ['@lsp.typemod.method.defaultLibrary'] = '@function.builtin',
+        --     ['@lsp.typemod.variable.defaultLibrary'] = '@variable.builtin',
     }
     -- for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
     --     print(group)
@@ -78,6 +88,8 @@ M.SetSemHi = function()
         vim.api.nvim_set_hl(0, newgroup, { link = oldgroup, default = true })
     end
     vim.api.nvim_set_hl(0, '@lsp.mod.readonly', { italic = true })
+    vim.api.nvim_set_hl(0, '@lsp.typemod.variable.declaration', { bold = 50 })
+    -- vim.api.nvim_set_hl(0, '@lsp.typemod.variable.fileScope', { fg='Orange' })
     -- vim.api.nvim_set_hl(0, '@lsp.typemod.function.classScope', { fg = 'Purple' })
     -- vim.api.nvim_set_hl(0, '@lsp.typemod.class.classScope', { fg = 'Purple' })
     -- vim.api.nvim_set_hl(0, '@lsp.typemod.variable.classScope', { fg = 'Purple' })
