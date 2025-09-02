@@ -50,13 +50,23 @@ vim.keymap.set("n", "j", [[v:count ? 'j' : 'gj']],
     { noremap = true, silent = true, expr = true, })
 vim.keymap.set("n", "k", [[v:count ? 'k' : 'gk']],
     { noremap = true, silent = true, expr = true, })
+-- vim.keymap.set("n", "n", "nzz", { noremap = true, silent = true, })
+-- vim.keymap.set("n", "N", "Nzz", { noremap = true, silent = true, })
+-- vim.keymap.set("n", "*", "*zz", { noremap = true, silent = true, })
+-- vim.keymap.set("n", "#", "#zz", { noremap = true, silent = true, })
+-- vim.keymap.set("n", "g*", "g*zz", { noremap = true, silent = true, })
+-- vim.keymap.set("n", "g#", "g#zz", { noremap = true, silent = true, })
+-- vim.keymap.set("n", "<C-o>", "<C-o>zz",
+--     { noremap = true, silent = true, })
+
 --centering cursor when go to positions
-vim.keymap.set("n", "n", "nzz", { noremap = true, silent = true, })
-vim.keymap.set("n", "N", "Nzz", { noremap = true, silent = true, })
-vim.keymap.set("n", "*", "*zz", { noremap = true, silent = true, })
-vim.keymap.set("n", "#", "#zz", { noremap = true, silent = true, })
-vim.keymap.set("n", "g*", "g*zz", { noremap = true, silent = true, })
-vim.keymap.set("n", "g#", "g#zz", { noremap = true, silent = true, })
+local native_key_binings = { "n", "N", "*", "#", "g*", "g#", "<C-o>", "<Tab>", "{", "}", }
+for _, key_bind in ipairs(native_key_binings) do
+    vim.keymap.set("n", key_bind, key_bind .. "zz",
+        { noremap = true, silent = true, })
+end
+
+
 vim.keymap.set("n", "<leader>bb", "<C-^>",
     { noremap = true, silent = true, })
 
@@ -65,46 +75,22 @@ vim.keymap.set("n", "<leader>bb", "<C-^>",
 M.barbar = function()
     return {
         -- Goto buffer in position
-        { "<leader>1", ":BufferGoto 1<CR>", { desc = "Go to buffer 1", }, },
-        { "<leader>2", ":BufferGoto 2<CR>", { desc = "Go to buffer 2", }, },
-        { "<leader>3", ":BufferGoto 3<CR>", { desc = "Go to buffer 3", }, },
-        { "<leader>4", ":BufferGoto 4<CR>", { desc = "Go to buffer 4", }, },
-        { "<leader>5", ":BufferGoto 5<CR>", { desc = "Go to buffer 5", }, },
-        { "<leader>6", ":BufferGoto 6<CR>", { desc = "Go to buffer 6", }, },
-        { "<leader>7", ":BufferGoto 7<CR>", { desc = "Go to buffer 7", }, },
-        { "<leader>8", ":BufferGoto 8<CR>", { desc = "Go to buffer 8", }, },
-        { "<leader>9", ":BufferLast<CR>",   { desc = "Go to last buffer", }, },
-        {
-            "<leader>,",
-            ":BufferPrevious<CR>",
-            { desc = "Go to the previous buffer", },
-        },
-        {
-            "<leader>.",
-            ":BufferNext<CR>",
-            { desc = "Go to the next buffer", },
-        },
-        {
-            "<leader>bp",
-            ":BufferPin<CR>",
-            { desc = "Pin the current buffer", },
-        },
+        { "<leader>1",  ":BufferGoto 1<CR>",       { desc = "Go to buffer 1", }, },
+        { "<leader>2",  ":BufferGoto 2<CR>",       { desc = "Go to buffer 2", }, },
+        { "<leader>3",  ":BufferGoto 3<CR>",       { desc = "Go to buffer 3", }, },
+        { "<leader>4",  ":BufferGoto 4<CR>",       { desc = "Go to buffer 4", }, },
+        { "<leader>5",  ":BufferGoto 5<CR>",       { desc = "Go to buffer 5", }, },
+        { "<leader>6",  ":BufferGoto 6<CR>",       { desc = "Go to buffer 6", }, },
+        { "<leader>7",  ":BufferGoto 7<CR>",       { desc = "Go to buffer 7", }, },
+        { "<leader>8",  ":BufferGoto 8<CR>",       { desc = "Go to buffer 8", }, },
+        { "<leader>9",  ":BufferLast<CR>",         { desc = "Go to last buffer", }, },
+        { "<leader>,",  ":BufferPrevious<CR>",     { desc = "Go to the previous buffer", }, },
+        { "<leader>.",  ":BufferNext<CR>",         { desc = "Go to the next buffer", }, },
+        { "<leader>bp", ":BufferPin<CR>",          { desc = "Pin the current buffer", }, },
         -- Close buffer
-        {
-            "<leader>cc",
-            ":BufferClose<CR>",
-            { desc = "Close the current buffer", },
-        },
-        {
-            "<leader><",
-            ":BufferMovePrevious<CR>",
-            { desc = "Move current buffer to the previous buffer", },
-        },
-        {
-            "<leader>>",
-            ":BufferMoveNext<CR>",
-            { desc = "Move current buffer to the next buffer", },
-        },
+        { "<leader>cc", ":BufferClose<CR>",        { desc = "Close the current buffer", }, },
+        { "<leader><",  ":BufferMovePrevious<CR>", { desc = "Move current buffer to the previous buffer", }, },
+        { "<leader>>",  ":BufferMoveNext<CR>",     { desc = "Move current buffer to the next buffer", }, },
     }
 end
 
@@ -114,13 +100,9 @@ function M.snacks()
     local Snacks = require "snacks"
     return {
         -- Top Pickers & Explorer
-        {
-            "<leader><space>",
-            function() Snacks.picker.smart() end,
-            desc = "Smart Find Files",
-        },
+        { "<leader><space>", function() Snacks.picker.smart() end, desc = "Smart Find Files", },
         -- { "<leader>,",       function() Snacks.picker.buffers() end,                                 desc = "Buffers" },
-        { "<leader>/", function() Snacks.picker.grep() end, desc = "Grep", },
+        { "<leader>/",       function() Snacks.picker.grep() end,  desc = "Grep", },
         {
             "<leader>:",
             function()
@@ -137,91 +119,27 @@ function M.snacks()
             end,
             desc = "Notification History",
         },
-        {
-            "<leader>fe",
-            function() Snacks.explorer() end,
-            desc = "File Explorer",
-        },
+        { "<leader>fe", function() Snacks.explorer() end,            desc = "File Explorer", },
         -- find
-        {
-            "<leader>fb",
-            function() Snacks.picker.buffers() end,
-            desc = "Buffers",
-        },
-        {
-            "<leader>ff",
-            function() Snacks.picker.files() end,
-            desc = "Find Files",
-        },
-        {
-            "<leader>fg",
-            function() Snacks.picker.git_files() end,
-            desc = "Find Git Files",
-        },
-        {
-            "<leader>fp",
-            function() Snacks.picker.projects() end,
-            desc = "Projects",
-        },
-        {
-            "<leader>fr",
-            function() Snacks.picker.recent() end,
-            desc = "Recent",
-        },
+        { "<leader>fb", function() Snacks.picker.buffers() end,      desc = "Buffers", },
+        { "<leader>ff", function() Snacks.picker.files() end,        desc = "Find Files", },
+        { "<leader>fg", function() Snacks.picker.git_files() end,    desc = "Find Git Files", },
+        { "<leader>fp", function() Snacks.picker.projects() end,     desc = "Projects", },
+        { "<leader>fr", function() Snacks.picker.recent() end,       desc = "Recent", },
         -- git
-        {
-            "<leader>gb",
-            function() Snacks.picker.git_branches() end,
-            desc = "Git Branches",
-        },
-        {
-            "<leader>gl",
-            function() Snacks.picker.git_log() end,
-            desc = "Git Log",
-        },
-        {
-            "<leader>gL",
-            function() Snacks.picker.git_log_line() end,
-            desc = "Git Log Line",
-        },
-        {
-            "<leader>gs",
-            function() Snacks.picker.git_status() end,
-            desc = "Git Status",
-        },
-        {
-            "<leader>gS",
-            function() Snacks.picker.git_stash() end,
-            desc = "Git Stash",
-        },
+        { "<leader>gb", function() Snacks.picker.git_branches() end, desc = "Git Branches", },
+        { "<leader>gl", function() Snacks.picker.git_log() end,      desc = "Git Log", },
+        { "<leader>gL", function() Snacks.picker.git_log_line() end, desc = "Git Log Line", },
+        { "<leader>gs", function() Snacks.picker.git_status() end,   desc = "Git Status", },
+        { "<leader>gS", function() Snacks.picker.git_stash() end,    desc = "Git Stash", },
         -- { "<leader>gd",      function() Snacks.picker.git_diff() end,                                desc = "Git Diff (Hunks)" },
-        {
-            "<leader>gf",
-            function() Snacks.picker.git_log_file() end,
-            desc = "Git Log File",
-        },
+        { "<leader>gf", function() Snacks.picker.git_log_file() end, desc = "Git Log File", },
         -- Grep
-        {
-            "<leader>sb",
-            function() Snacks.picker.lines() end,
-            desc = "Buffer Lines",
-        },
-        {
-            "<leader>sB",
-            function() Snacks.picker.grep_buffers() end,
-            desc = "Grep Open Buffers",
-        },
-        {
-            "<leader>sg",
-            function() Snacks.picker.grep() end,
-            desc = "Grep",
-        },
+        { "<leader>sb", function() Snacks.picker.lines() end,        desc = "Buffer Lines", },
+        { "<leader>sB", function() Snacks.picker.grep_buffers() end, desc = "Grep Open Buffers", },
+        { "<leader>sg", function() Snacks.picker.grep() end,         desc = "Grep", },
         -- search
-        {
-            '<leader>s"',
-            function() Snacks.picker.registers() end,
-            desc = "Registers",
-        },
+        { '<leader>s"', function() Snacks.picker.registers() end,    desc = "Registers", },
         {
             '<leader>s/',
             function()
@@ -230,16 +148,8 @@ function M.snacks()
             end,
             desc = "Search History",
         },
-        {
-            "<leader>sa",
-            function() Snacks.picker.autocmds() end,
-            desc = "Autocmds",
-        },
-        {
-            "<leader>sb",
-            function() Snacks.picker.lines() end,
-            desc = "Buffer Lines",
-        },
+        { "<leader>sa", function() Snacks.picker.autocmds() end, desc = "Autocmds", },
+        { "<leader>sb", function() Snacks.picker.lines() end,    desc = "Buffer Lines", },
         {
             "<leader>sc",
             function()
@@ -248,16 +158,8 @@ function M.snacks()
             end,
             desc = "Command History",
         },
-        {
-            "<leader>sC",
-            function() Snacks.picker.commands() end,
-            desc = "Commands",
-        },
-        {
-            "<leader>sd",
-            function() Snacks.picker.diagnostics() end,
-            desc = "Diagnostics",
-        },
+        { "<leader>sC", function() Snacks.picker.commands() end,    desc = "Commands", },
+        { "<leader>sd", function() Snacks.picker.diagnostics() end, desc = "Diagnostics", },
         {
             "<leader>sD",
             function()
@@ -266,71 +168,21 @@ function M.snacks()
             end,
             desc = "Buffer Diagnostics",
         },
-        {
-            "<leader>sh",
-            function() Snacks.picker.help() end,
-            desc = "Help Pages",
-        },
-        {
-            "<leader>sH",
-            function() Snacks.picker.highlights() end,
-            desc = "Highlights",
-        },
-        {
-            "<leader>si",
-            function() Snacks.picker.icons() end,
-            desc = "Icons",
-        },
-        {
-            "<leader>sj",
-            function() Snacks.picker.jumps() end,
-            desc = "Jumps",
-        },
-        {
-            "<leader>sk",
-            function() Snacks.picker.keymaps() end,
-            desc = "Keymaps",
-        },
-        {
-            "<leader>sl",
-            function() Snacks.picker.loclist() end,
-            desc = "Location List",
-        },
-        {
-            "<leader>sm",
-            function() Snacks.picker.marks() end,
-            desc = "Marks",
-        },
-        {
-            "<leader>sM",
-            function() Snacks.picker.man() end,
-            desc = "Man Pages",
-        },
-        {
-            "<leader>sp",
-            function() Snacks.picker.lazy() end,
-            desc = "Search for Plugin Spec",
-        },
-        {
-            "<leader>sq",
-            function() Snacks.picker.qflist() end,
-            desc = "Quickfix List",
-        },
-        {
-            "<leader>sR",
-            function() Snacks.picker.resume() end,
-            desc = "Resume",
-        },
-        {
-            "<leader>su",
-            function() Snacks.picker.undo() end,
-            desc = "Undo History",
-        },
-        {
-            "<leader>uC",
-            function() Snacks.picker.colorschemes() end,
-            desc = "Colorschemes",
-        },
+        { "<leader>sh", function() Snacks.picker.help() end,         desc = "Help Pages", },
+        { "<leader>sH", function() Snacks.picker.highlights() end,   desc = "Highlights", },
+        { "<leader>si", function() Snacks.picker.icons() end,        desc = "Icons", },
+        { "<leader>sj", function() Snacks.picker.jumps() end,        desc = "Jumps", },
+        { "<leader>sk", function() Snacks.picker.keymaps() end,      desc = "Keymaps", },
+        { "<leader>sl", function() Snacks.picker.loclist() end,      desc = "Location List", },
+        { "<leader>sm", function() Snacks.picker.marks() end,        desc = "Marks", },
+        { "<leader>sM", function() Snacks.picker.man() end,          desc = "Man Pages", },
+        { "<leader>sp", function() Snacks.picker.lazy() end,         desc = "Search for Plugin Spec", },
+        { "<leader>sq", function() Snacks.picker.qflist() end,       desc = "Quickfix List", },
+        { "<leader>sR", function() Snacks.picker.resume() end,       desc = "Resume", },
+        { "<leader>su", function() Snacks.picker.undo() end,         desc = "Undo History", },
+        { "<leader>uC", function() Snacks.picker.colorschemes() end, desc = "Colorschemes", },
+        -- other
+        { "<leader>bd", function() Snacks.bufdelete() end,           desc = "Delete Buffer", },
         -- LSP
         {
             "gd",
@@ -373,28 +225,11 @@ function M.snacks()
             end,
             desc = "Goto T[y]pe Definition",
         },
-        {
-            "<leader>ss",
-            function() Snacks.picker.lsp_symbols() end,
-            desc = "LSP Symbols",
-        },
+        { "<leader>ss", function() Snacks.picker.lsp_symbols() end,                            desc = "LSP Symbols", },
 
-        {
-            "<leader>fc",
-            function() Snacks.picker.files { cwd = vim.fn.stdpath "config", } end,
-            desc = "Find Config File",
-        },
-        {
-            "<leader>sS",
-            function() Snacks.picker.lsp_workspace_symbols() end,
-            desc = "LSP Workspace Symbols",
-        },
-        {
-            "<leader>sw",
-            function() Snacks.picker.grep_word() end,
-            desc = "Visual selection or word",
-            mode = { "n", "x", },
-        },
+        { "<leader>fc", function() Snacks.picker.files { cwd = vim.fn.stdpath "config", } end, desc = "Find Config File", },
+        { "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end,                  desc = "LSP Workspace Symbols", },
+        { "<leader>sw", function() Snacks.picker.grep_word() end,                              desc = "Visual selection or word", mode = { "n", "x", }, },
     }
 end
 
@@ -420,11 +255,7 @@ function M.todo()
             end,
             desc = "Todo in current folder",
         },
-        {
-            "<leader>sT",
-            function() Snacks.picker.todo_comments() end,
-            desc = "Todo",
-        },
+        { "<leader>sT", function() Snacks.picker.todo_comments() end, desc = "Todo", },
     }
 end
 
@@ -461,21 +292,17 @@ function M.gitsigns(bufnr)
     end
 
     return {
-        { "]c",         next_hunk,         { desc = "next hunk", }, },
-        { "[c",         last_hunk,         { desc = "previous hunk", }, },
-        { "<leader>hs", gs.stage_hunk,     { desc = "stage hunk", }, },
-        { "<leader>hS", gs.stage_buffer,   { desc = "stage buffer", }, },
-        { "<leader>hR", gs.reset_buffer,   { desc = "reset buffer", }, },
-        { "<leader>hr", gs.reset_hunk,     { desc = "reset hunk", }, },
-        { "<leader>hp", gs.preview_hunk,   { desc = "preview hunk", }, },
-        { "<leader>hd", gs.diffthis,       { desc = "git diff this", }, },
-        { "<leader>td", gs.toggle_deleted, { desc = "toggle detected", }, },
-        { "<leader>ts", gs.toggle_signs,   { desc = "toggle signs", }, },
-        {
-            "<leader>tb",
-            gs.toggle_current_line_blame,
-            { desc = "toggle current line blame", },
-        },
+        { "]c",         next_hunk,                    { desc = "next hunk", }, },
+        { "[c",         last_hunk,                    { desc = "previous hunk", }, },
+        { "<leader>hs", gs.stage_hunk,                { desc = "stage hunk", }, },
+        { "<leader>hS", gs.stage_buffer,              { desc = "stage buffer", }, },
+        { "<leader>hR", gs.reset_buffer,              { desc = "reset buffer", }, },
+        { "<leader>hr", gs.reset_hunk,                { desc = "reset hunk", }, },
+        { "<leader>hp", gs.preview_hunk,              { desc = "preview hunk", }, },
+        { "<leader>hd", gs.diffthis,                  { desc = "git diff this", }, },
+        { "<leader>td", gs.toggle_deleted,            { desc = "toggle detected", }, },
+        { "<leader>ts", gs.toggle_signs,              { desc = "toggle signs", }, },
+        { "<leader>tb", gs.toggle_current_line_blame, { desc = "toggle current line blame", }, },
         {
             "<leader>hb",
             function()
@@ -558,41 +385,35 @@ function M.oil()
 end
 
 function M.hover()
-    return { { "K", require "hover".hover, { desc = "hover.nvim", }, }, }
+    return {
+        {
+            "K",
+            function()
+                local api = vim.api
+                local hover_win = vim.b.hover_preview
+                if hover_win and api.nvim_win_is_valid(hover_win) then
+                    api.nvim_set_current_win(hover_win)
+                else
+                    require "hover".hover()
+                end
+            end,
+            { desc = "hover.nvim", },
+        },
+    }
 end
 
 function M.trouble()
     return {
-        {
-            "<leader>xX",
-            "<cmd>Trouble diagnostics toggle<cr>",
-            desc = "Diagnostics (Trouble)",
-        },
-        {
-            "<leader>xx",
-            "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-            desc = "Buffer Diagnostics (Trouble)",
-        },
-        {
-            "<leader>cs",
-            "<cmd>Trouble symbols toggle focus=false<cr>",
-            desc = "Symbols (Trouble)",
-        },
+        { "<leader>xX", "<cmd>Trouble diagnostics toggle<cr>",              desc = "Diagnostics (Trouble)", },
+        { "<leader>xx", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Buffer Diagnostics (Trouble)", },
+        { "<leader>cs", "<cmd>Trouble symbols toggle focus=false<cr>",      desc = "Symbols (Trouble)", },
         {
             "<leader>cl",
             "<cmd>Trouble lsp toggle focus=false win.position=bottom<cr>",
             desc = "LSP Definitions / references / ... (Trouble)",
         },
-        {
-            "<leader>xL",
-            "<cmd>Trouble loclist toggle<cr>",
-            desc = "Location List (Trouble)",
-        },
-        {
-            "<leader>xQ",
-            "<cmd>Trouble qflist toggle<cr>",
-            desc = "Quickfix List (Trouble)",
-        },
+        { "<leader>xL", "<cmd>Trouble loclist toggle<cr>", desc = "Location List (Trouble)", },
+        { "<leader>xQ", "<cmd>Trouble qflist toggle<cr>",  desc = "Quickfix List (Trouble)", },
     }
 end
 

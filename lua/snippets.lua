@@ -1,7 +1,7 @@
 local M = {}
-local lua_snippet = require("luasnip")
+local lua_snippet = require "luasnip"
 -- local extras = require("luasnip.extras")
-local fmt = require("luasnip.extras.fmt").fmt
+local fmt = require "luasnip.extras.fmt".fmt
 
 local snippet = lua_snippet.snippet
 -- local text = lua_snippet.text_node
@@ -9,7 +9,7 @@ local insert = lua_snippet.insert_node
 -- local rep = extras.rep
 
 lua_snippet.add_snippets("cpp", {
-    snippet("//!<", fmt([[//!< {}]], { insert(1) })),
+    snippet("//!<", fmt([[//!< {}]], { insert(1), })),
     snippet(
         "doxfun",
         fmt(
@@ -45,11 +45,7 @@ lua_snippet.add_snippets("cpp", {
  * {}
  */
             ]],
-            {
-                insert(1, "class name"),
-                insert(2, "brief description"),
-                insert(3, "description"),
-            }
+            { insert(1, "class name"), insert(2, "brief description"), insert(3, "description"), }
         )
     ),
     snippet("cling", fmt(
@@ -58,18 +54,18 @@ lua_snippet.add_snippets("cpp", {
 #endif
             ]], {}
     )),
-    snippet("has-cxx-17", fmt(
+    snippet("has-cxx-standard", fmt(
         [[
-#ifdef HAS_CXX_17
+#ifdef HAS_CPP_STANDARD_{}
 #else
 #endif
-            ]], {}
+            ]], { insert(1, "23"), }
     )),
 })
 
 lua_snippet.add_snippets("markdown", {
-    snippet("$$", fmt([[@f${}@f$]], { insert(1, "content") })),
-    snippet("refeq", fmt([[@f$\ref{{eq:{}}}@f$]], { insert(1, "label") })),
+    snippet("$$", fmt([[@f${}@f$]], { insert(1, "content"), })),
+    snippet("refeq", fmt([[@f$\ref{{eq:{}}}@f$]], { insert(1, "label"), })),
 })
 
 lua_snippet.add_snippets("cmake", {
@@ -88,10 +84,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 add_executable(main main.cpp)
 target_link_libraries(main PRIVATE {})
         ]],
-            {
-                insert(1, "project_name"),
-                insert(2, "dependencies"),
-            }
+            { insert(1, "project_name"), insert(2, "dependencies"), }
         )
     ),
 })
@@ -104,9 +97,7 @@ lua_snippet.add_snippets("tex", {
 \begin{{frame}}[t]{{{}}}
 \end{{frame}}
             ]],
-            {
-                insert(1, "frame title"),
-            }
+            { insert(1, "frame title"), }
         )
     ),
     snippet(
@@ -131,13 +122,11 @@ lua_snippet.add_snippets("tex", {
     \includegraphics[width = \textwidth]{{{}}}
 \end{{figure}}
         ]],
-            {
-                insert(1, "image"),
-            }
+            { insert(1, "image"), }
         )
     ),
 })
 
-require("keymapping").snippet()
+require "keymapping".snippet()
 
 return M

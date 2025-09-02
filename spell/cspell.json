@@ -28,6 +28,10 @@
     "Ncluster",
     "Nhitmin",
     "stdrng",
-    "CXXSTANDARD"
+    "CXXSTANDARD",
+    "allspill",
+    "onspill",
+    "fairroot",
+    "inited"
   ]
 }

@@ -60,6 +60,7 @@ M.SetSemHi = function()
         ['@lsp.mod.defaultLibrary'] = '@type.builtin',
         ['@lsp.typemod.type.defaultLibrary'] = '@type.builtin',
         ['@lsp.typemod.class.defaultLibrary'] = '@type.builtin',
+        ['@lsp.typemod.namespace.defaultLibrary'] = '@type.builtin',
         -- ['@lsp.typemod.variable.definition'] = '@type.definition',
         --     ['@lsp.type.namespace'] = '@namespace',
         --     ['@lsp.type.type'] = '@type',

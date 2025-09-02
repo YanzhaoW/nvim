@@ -118,10 +118,10 @@ require "lazy".setup {
     },
 
     --bufferline
-    {
-        "romgrk/barbar.nvim",
-        keys = require "keymapping".barbar,
-    },
+    -- {
+    --     "romgrk/barbar.nvim",
+    --     keys = require "keymapping".barbar,
+    -- },
 
     --snippet
     {
