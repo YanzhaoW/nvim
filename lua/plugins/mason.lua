@@ -52,7 +52,7 @@ require("mason-tool-installer").setup({
 	-- doing lazy loading.
 	integrations = {
 		["mason-lspconfig"] = true,
-		["mason-null-ls"] = false,
+		["mason-null-ls"] = true,
 		["mason-nvim-dap"] = false,
 	},
 })

@@ -32,6 +32,11 @@
     "allspill",
     "onspill",
     "fairroot",
-    "inited"
+    "inited",
+    "gtest",
+    "chrono",
+    "nowide",
+    "iostreams",
+    "charconv"
   ]
 }
