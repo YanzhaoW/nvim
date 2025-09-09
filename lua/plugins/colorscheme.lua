@@ -1,12 +1,12 @@
 --theme:
 local M = {}
 
-require('onedark').setup {
+require 'onedark'.setup {
     style = 'darker',
     transparent = true,
     diagnostics = {
         darker = true,
-        undercurl = true
+        undercurl = true,
     },
     code_style = {
         comments = 'italic',
@@ -21,13 +21,13 @@ require('onedark').setup {
     },
 }
 
-require('kanagawa').setup({
+require 'kanagawa'.setup {
     compile = false,  -- enable compiling the colorscheme
     undercurl = true, -- enable undercurls
-    commentStyle = { italic = true },
+    commentStyle = { italic = true, },
     functionStyle = {},
-    keywordStyle = { italic = true },
-    statementStyle = { bold = true },
+    keywordStyle = { italic = true, },
+    statementStyle = { bold = true, },
     typeStyle = {},
     transparent = true,    -- do not set background color
     dimInactive = false,   -- dim inactive window `:h hl-NormalNC`
@@ -35,23 +35,20 @@ require('kanagawa').setup({
     colors = {             -- add/modify theme and palette colors
         palette = {},
         theme = {
-            all = {
-                float = { bg = "none", },
-                ui = { bg_gutter = "none", },
-            }
+            all = { float = { bg = "none", }, ui = { bg_gutter = "none", }, },
         },
     },
     theme = "wave",    -- Load "wave" theme when 'background' option is not set
     background = {     -- map the value of 'background' option to a theme
         dark = "wave", -- try "dragon" !
-        light = "lotus"
-    },
-})
+        light = "lotus", },
+}
 
 
 M.SetSemHi = function()
     local links = {
         ['@lsp.mod.globalScope'] = '@lsp.typemod.variable.global',
+        ['@lsp.type.concept'] = '@type',
         ['@lsp.typemod.variable.fileScope'] = '@lsp.typemod.variable.global',
         ['@lsp.typemod.class.globalScope'] = '@lsp.type.class.cpp',
         ['@lsp.typemod.namespace.globalScope'] = '@lsp.type.namespace',
@@ -61,6 +58,7 @@ M.SetSemHi = function()
         ['@lsp.typemod.type.defaultLibrary'] = '@type.builtin',
         ['@lsp.typemod.class.defaultLibrary'] = '@type.builtin',
         ['@lsp.typemod.namespace.defaultLibrary'] = '@type.builtin',
+        ['@lsp.typemod.concept.globalScope'] = '@lsp.type.concept',
         -- ['@lsp.typemod.variable.definition'] = '@type.definition',
         --     ['@lsp.type.namespace'] = '@namespace',
         --     ['@lsp.type.type'] = '@type',
@@ -86,10 +84,10 @@ M.SetSemHi = function()
     --     vim.api.nvim_set_hl(0, group, {})
     -- end
     for newgroup, oldgroup in pairs(links) do
-        vim.api.nvim_set_hl(0, newgroup, { link = oldgroup, default = true })
+        vim.api.nvim_set_hl(0, newgroup, { link = oldgroup, default = true, })
     end
-    vim.api.nvim_set_hl(0, '@lsp.mod.readonly', { italic = true })
-    vim.api.nvim_set_hl(0, '@lsp.typemod.variable.declaration', { bold = 50 })
+    vim.api.nvim_set_hl(0, '@lsp.mod.readonly', { italic = true, })
+    vim.api.nvim_set_hl(0, '@lsp.typemod.variable.declaration', { bold = 50, })
     -- vim.api.nvim_set_hl(0, '@lsp.typemod.variable.fileScope', { fg='Orange' })
     -- vim.api.nvim_set_hl(0, '@lsp.typemod.function.classScope', { fg = 'Purple' })
     -- vim.api.nvim_set_hl(0, '@lsp.typemod.class.classScope', { fg = 'Purple' })

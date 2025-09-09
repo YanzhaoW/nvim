@@ -39,16 +39,7 @@ vim.api.nvim_create_user_command("InlayToggle", function()
 end, {})
 
 vim.api.nvim_create_autocmd({ "filetype", }, {
-    pattern = {
-        "cpp",
-        "python",
-        "lua",
-        "cmake",
-        "tex",
-        "typescript",
-        "javascript",
-        "typescriptreact",
-    },
+    pattern = { "cpp", "python", "lua", "cmake", "tex", "typescript", "javascript", "typescriptreact", },
     callback = function(event)
         vim.g.cmp_disable_enable_toggle = true
         -- make script
@@ -64,17 +55,7 @@ vim.api.nvim_create_autocmd({ "filetype", }, {
 })
 
 vim.api.nvim_create_autocmd({ "filetype", }, {
-    pattern = {
-        "cpp",
-        "python",
-        "lua",
-        "cmake",
-        "tex",
-        "typescript",
-        "javascript",
-        "typescriptreact",
-        "markdown",
-    },
+    pattern = { "cpp", "python", "lua", "cmake", "tex", "typescript", "javascript", "typescriptreact", "markdown", },
     callback = function(args)
         -- local nvim_ts = require("nvim-treesitter")
         -- local parsers = nvim_ts.get_installed()
@@ -91,9 +72,7 @@ vim.api.nvim_create_autocmd({ "filetype", }, {
 })
 
 vim.api.nvim_create_autocmd("ColorScheme",
-    {
-        callback = require "plugins.colorscheme".SetSemHi,
-    })
+    { callback = require "plugins.colorscheme".SetSemHi, })
 
 vim.api.nvim_create_autocmd("QuitPre", {
     callback = function()
@@ -101,7 +80,7 @@ vim.api.nvim_create_autocmd("QuitPre", {
         local wins = vim.api.nvim_list_wins()
         for _, w in ipairs(wins) do
             local bufname = vim.api.nvim_buf_get_name(vim.api
-            .nvim_win_get_buf(w))
+                .nvim_win_get_buf(w))
             if bufname:match "NvimTree_" ~= nil then
                 table.insert(invalid_win, w)
             end
@@ -116,9 +95,7 @@ vim.api.nvim_create_autocmd("QuitPre", {
 })
 
 local my_augroup = vim.api.nvim_create_augroup("mygroup",
-    {
-        clear = true,
-    })
+    { clear = true, })
 vim.api.nvim_create_autocmd("FileType", {
     pattern = { "text", "tex", "markdown", "rst", }, -- disable spellchecking for these filetypes
     -- command = "setlocal spell spelllang=en_us,de_de | set spellcapcheck= | syntax spell toplevel",
@@ -148,16 +125,10 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("BufRead",
-    {
-        pattern = { "*.icc", },
-        command = "setlocal filetype=cpp",
-    })
+    { pattern = { "*.icc", "*.cppm", }, command = "setlocal filetype=cpp", })
 
 vim.api.nvim_create_autocmd("BufRead",
-    {
-        pattern = { "*.mac", },
-        command = "setlocal filetype=bash",
-    })
+    { pattern = { "*.mac", }, command = "setlocal filetype=bash", })
 
 vim.api.nvim_create_autocmd("User", {
     pattern = { "TelescopePreviewerLoaded", }, -- disable spellchecking for these filetypes
