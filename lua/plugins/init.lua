@@ -116,6 +116,10 @@ require "lazy".setup {
             "stevearc/oil.nvim",
         },
     },
+    -- {
+    --     "schrieveslaach/sonarlint.nvim",
+    --     url = "https://gitlab.com/schrieveslaach/sonarlint.nvim",
+    -- },
 
     --bufferline
     -- {

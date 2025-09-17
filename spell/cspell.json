@@ -37,6 +37,14 @@
     "chrono",
     "nowide",
     "iostreams",
-    "charconv"
+    "charconv",
+    "coro",
+    "receiv",
+    "cista",
+    "deser",
+    "dependee"
+  ],
+  "words": [
+    "ADDRE"
   ]
 }

@@ -60,7 +60,7 @@ vim.keymap.set("n", "k", [[v:count ? 'k' : 'gk']],
 --     { noremap = true, silent = true, })
 
 --centering cursor when go to positions
-local native_key_binings = { "n", "N", "*", "#", "g*", "g#", "<C-o>", "<Tab>", "{", "}", }
+local native_key_binings = { "n", "N", "*", "#", "g*", "g#", "<C-o>", "<Tab>", }
 for _, key_bind in ipairs(native_key_binings) do
     vim.keymap.set("n", key_bind, key_bind .. "zz",
         { noremap = true, silent = true, })
@@ -188,7 +188,7 @@ function M.snacks()
             "gd",
             function()
                 Snacks.picker
-                    .lsp_definitions()
+                    .lsp_definitions { jump = { reuse_win = false, }, }
             end,
             desc = "Goto Definition",
         },
@@ -196,7 +196,7 @@ function M.snacks()
             "gD",
             function()
                 Snacks.picker
-                    .lsp_declarations()
+                    .lsp_declarations { jump = { reuse_win = false, }, }
             end,
             desc = "Goto Declaration",
         },
@@ -204,7 +204,7 @@ function M.snacks()
             "gr",
             function()
                 Snacks.picker
-                    .lsp_references()
+                    .lsp_references { jump = { reuse_win = false, }, }
             end,
             nowait = true,
             desc = "References",
@@ -213,7 +213,7 @@ function M.snacks()
             "gi",
             function()
                 Snacks.picker
-                    .lsp_implementations()
+                    .lsp_implementations { jump = { reuse_win = false, }, }
             end,
             desc = "Goto Implementation",
         },

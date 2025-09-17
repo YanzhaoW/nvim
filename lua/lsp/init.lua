@@ -19,6 +19,7 @@ require("lsp/yamlls")
 require("lsp/cmake")
 require("lsp/python")
 require("lsp/fortls")
+require("lsp/sonarlint")
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
     virtual_text = false,
