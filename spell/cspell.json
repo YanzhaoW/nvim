@@ -42,7 +42,13 @@
     "receiv",
     "cista",
     "deser",
-    "dependee"
+    "dependee",
+    "matmul",
+    "optim",
+    "LBFGS",
+    "numel",
+    "BFGS",
+    "chisquared"
   ],
   "words": [
     "ADDRE"
