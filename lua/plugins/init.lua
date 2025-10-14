@@ -64,6 +64,8 @@ require "lazy".setup {
 
     "nvim-lua/lsp-status.nvim",
 
+    "luukvbaal/statuscol.nvim",
+
     "neovim/nvim-lspconfig",
 
     "tamago324/nlsp-settings.nvim",

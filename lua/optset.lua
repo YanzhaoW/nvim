@@ -19,8 +19,10 @@ vim.opt.pumheight = 15
 vim.opt.clipboard = "unnamedplus"
 vim.opt.ignorecase = true
 vim.opt.relativenumber = true
+vim.opt.numberwidth = 2
 vim.opt.spelloptions = "noplainbuffer"
 vim.opt.signcolumn = "yes"
+
 vim.diagnostic.config {
     virtual_text = false,
     float = { show_header = true, source = 'always', border = 'rounded', focusable = false, },
