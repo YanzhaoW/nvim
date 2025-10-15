@@ -51,13 +51,13 @@ M.SetSemHi = function()
         ['@lsp.type.concept'] = '@type',
         ['@lsp.typemod.variable.fileScope'] = '@lsp.typemod.variable.global',
         ['@lsp.typemod.class.globalScope'] = '@lsp.type.class.cpp',
-        ['@lsp.typemod.namespace.globalScope'] = '@lsp.type.namespace',
-        ['@lsp.typemod.type.deduced'] = '@lsp.type.type',
         ['@lsp.typemod.class.deduced'] = '@lsp.type.type',
+        ['@lsp.typemod.namespace.globalScope'] = '@lsp.type.namespace',
+        -- ['@lsp.typemod.namespace.defaultLibrary'] = '@type.builtin',
+        ['@lsp.typemod.type.deduced'] = '@lsp.type.type',
         ['@lsp.mod.defaultLibrary'] = '@type.builtin',
         ['@lsp.typemod.type.defaultLibrary'] = '@type.builtin',
         ['@lsp.typemod.class.defaultLibrary'] = '@type.builtin',
-        ['@lsp.typemod.namespace.defaultLibrary'] = '@type.builtin',
         ['@lsp.typemod.concept.globalScope'] = '@lsp.type.concept',
         -- ['@lsp.typemod.variable.definition'] = '@type.definition',
         --     ['@lsp.type.namespace'] = '@namespace',
@@ -86,7 +86,7 @@ M.SetSemHi = function()
     for newgroup, oldgroup in pairs(links) do
         vim.api.nvim_set_hl(0, newgroup, { link = oldgroup, default = true, })
     end
-    vim.api.nvim_set_hl(0, '@lsp.mod.readonly', { italic = true, })
+    vim.api.nvim_set_hl(0, '@lsp.mod.readonly.cpp', { italic = true, })
     vim.api.nvim_set_hl(0, '@lsp.typemod.variable.declaration', { bold = 50, })
     -- vim.api.nvim_set_hl(0, '@lsp.typemod.variable.fileScope', { fg='Orange' })
     -- vim.api.nvim_set_hl(0, '@lsp.typemod.function.classScope', { fg = 'Purple' })

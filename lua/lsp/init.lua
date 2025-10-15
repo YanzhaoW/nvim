@@ -3,7 +3,7 @@ local capabilities = require("lsp.capability")
 require("mason-lspconfig").setup({
     automatic_enable = true,
     -- ensure_installed = { "lua_ls", "yamlls", "cmake", "pyright", "clangd", "esbonio", "ltex_plus", "cspell_ls", "fortls" },
-    ensure_installed = { "lua_ls", "yamlls", "cmake", "pyright", "esbonio", "ltex_plus", "cspell_ls", "fortls" },
+    ensure_installed = { "lua_ls", "yamlls", "cmake", "pyright", "esbonio", "ltex_plus", "fortls" },
 })
 
 vim.lsp.config("*", {
