@@ -173,16 +173,24 @@ vim.api.nvim_create_autocmd({ "TextYankPost", }, {
     end,
 })
 
--- vim.api.nvim_create_autocmd("LspTokenUpdate", {
---     pattern = { "*.cpp", "*.hpp", "*.cxx", "*.h", },
---     callback = function(args)
---         local token = args.data.token
---         if token.type == "namespace" and token.modifiers.defaultLibrary then
---             vim.lsp.semantic_tokens.highlight_token(
---                 token, args.buf, args.data.client_id, "@lsp.typemod.namespace.defaultLibrary.cpp")
---         end
---     end,
--- })
+vim.api.nvim_create_autocmd("LspTokenUpdate", {
+    pattern = { "*.cpp", "*.hpp", "*.cxx", "*.h", },
+    callback = function(args)
+        local token = args.data.token
+        -- print("type: " .. token.type)
+        -- for key, val in pairs(token.modifiers) do
+        --     print("key: " .. key.. "val: " .. tostring(val))
+        -- end
+        if token.type == "class" and token.modifiers.defaultLibrary then
+            vim.lsp.semantic_tokens.highlight_token(
+                token, args.buf, args.data.client_id, "@lsp.typemod.class.defaultLibrary")
+        end
+        if token.type == "namespace" and token.modifiers.defaultLibrary then
+            vim.lsp.semantic_tokens.highlight_token(
+                token, args.buf, args.data.client_id, "@lsp.typemod.namespace.defaultLibrary")
+        end
+    end,
+})
 
 -- vim.api.nvim_create_augroup('AutoFormatting', { clear = true })
 -- vim.api.nvim_create_autocmd('BufWritePre', {

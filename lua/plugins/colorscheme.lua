@@ -48,17 +48,24 @@ require 'kanagawa'.setup {
 M.SetSemHi = function()
     local links = {
         ['@lsp.mod.globalScope'] = '@lsp.typemod.variable.global',
+        ['@lsp.mod.deduced'] = '@lsp.type.type',
         ['@lsp.type.concept'] = '@type',
-        ['@lsp.typemod.variable.fileScope'] = '@lsp.typemod.variable.global',
-        ['@lsp.typemod.class.globalScope'] = '@lsp.type.class.cpp',
-        ['@lsp.typemod.class.deduced'] = '@lsp.type.type',
-        ['@lsp.typemod.namespace.globalScope'] = '@lsp.type.namespace',
+        -- ['@lsp.typemod.class.globalScope'] = '@lsp.type.class.cpp',
         -- ['@lsp.typemod.namespace.defaultLibrary'] = '@type.builtin',
-        ['@lsp.typemod.type.deduced'] = '@lsp.type.type',
         ['@lsp.mod.defaultLibrary'] = '@type.builtin',
-        ['@lsp.typemod.type.defaultLibrary'] = '@type.builtin',
+
+        ['@lsp.typemod.variable.fileScope'] = '@lsp.typemod.variable.global',
+
+        -- ['@lsp.typemod.class.deduced'] = '@lsp.type.type',
+        ['@lsp.typemod.class.globalScope'] = '@lsp.type.type', -- high priority
         ['@lsp.typemod.class.defaultLibrary'] = '@type.builtin',
+
+        ['@lsp.typemod.namespace.globalScope'] = '@lsp.type.namespace',
+        ['@lsp.typemod.namespace.defaultLibrary'] = '@type.builtin',
+        ['@lsp.typemod.type.defaultLibrary'] = '@type.builtin',
         ['@lsp.typemod.concept.globalScope'] = '@lsp.type.concept',
+        ['@lsp.typemod.enumMember.readonly'] = '@lsp.type.enumMember',
+        ['@lsp.typemod.macro.globalScope'] = '@lsp.type.macro',
         -- ['@lsp.typemod.variable.definition'] = '@type.definition',
         --     ['@lsp.type.namespace'] = '@namespace',
         --     ['@lsp.type.type'] = '@type',
