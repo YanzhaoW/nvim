@@ -48,11 +48,15 @@
     "LBFGS",
     "numel",
     "BFGS",
-    "chisquared"
+    "chisquared",
+    "Yaxis",
+    "barplot",
+    "depender"
   ],
   "words": [
     "ADDRE",
     "inputpar",
-    "outputpar"
+    "outputpar",
+    "Squence"
   ]
 }

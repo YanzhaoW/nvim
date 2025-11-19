@@ -189,6 +189,10 @@ vim.api.nvim_create_autocmd("LspTokenUpdate", {
             vim.lsp.semantic_tokens.highlight_token(
                 token, args.buf, args.data.client_id, "@lsp.typemod.namespace.defaultLibrary")
         end
+        if token.type == "enum" and token.modifiers.globalScope then
+            vim.lsp.semantic_tokens.highlight_token(
+                token, args.buf, args.data.client_id, "@lsp.mod.globalScope")
+        end
     end,
 })
 
