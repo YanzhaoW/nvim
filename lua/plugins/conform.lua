@@ -15,9 +15,11 @@ require("conform").setup({
         cpp = { "clang-format" },
         tex = { "latexindent" },
         bib = { "latexindent" },
+        -- rst = { lsp_format = "fallback" },
         rst = { "docstrfmt", lsp_format = "fallback" },
     },
 })
+vim.o.formatexpr = "v:lua.require('conform').formatexpr({'timeout_ms':2000})"
 
 require("conform").formatters.prettier = {
     ft_parsers = {
