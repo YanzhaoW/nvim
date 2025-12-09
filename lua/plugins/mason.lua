@@ -8,7 +8,7 @@ require("mason-tool-installer").setup({
 		"black",
 		"beautysh",
 		-- "docstrfmt",
-		"cmakelang",
+		-- "cmakelang",
 		-- "htmlbeautifier",
 		"isort",
 		"latexindent",

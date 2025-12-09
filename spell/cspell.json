@@ -51,7 +51,9 @@
     "chisquared",
     "Yaxis",
     "barplot",
-    "depender"
+    "depender",
+    "corun",
+    "IWYU"
   ],
   "words": [
     "ADDRE",
