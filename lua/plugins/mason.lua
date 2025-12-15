@@ -14,7 +14,6 @@ require("mason-tool-installer").setup({
 		"latexindent",
 		"prettier",
 		"pylint",
-		"stylua",
 	},
 
 	-- if set to true this will check each tool for updates. If updates

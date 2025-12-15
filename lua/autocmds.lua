@@ -55,7 +55,7 @@ vim.api.nvim_create_autocmd({ "filetype", }, {
 })
 
 vim.api.nvim_create_autocmd({ "filetype", }, {
-    pattern = { "cpp", "python", "lua", "cmake", "tex", "typescript", "javascript", "typescriptreact", "markdown", },
+    pattern = { "cpp", "python", "lua",  "tex", "typescript", "javascript", "typescriptreact", "markdown", },
     callback = function(args)
         -- local nvim_ts = require("nvim-treesitter")
         -- local parsers = nvim_ts.get_installed()

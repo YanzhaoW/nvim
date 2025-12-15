@@ -44,6 +44,10 @@ require 'kanagawa'.setup {
         light = "lotus", },
 }
 
+require "gruvbox".setup
+{ contrast = "hard", transparent_mode = true, }
+
+
 
 M.SetSemHi = function()
     local links = {
@@ -95,6 +99,7 @@ M.SetSemHi = function()
     end
     vim.api.nvim_set_hl(0, '@lsp.mod.readonly.cpp', { italic = true, })
     vim.api.nvim_set_hl(0, '@lsp.typemod.variable.declaration', { bold = 50, })
+    vim.api.nvim_set_hl(0, "lualine_c_insert", { link = "lualine_c_normal", })
     -- vim.api.nvim_set_hl(0, '@lsp.typemod.variable.fileScope', { fg='Orange' })
     -- vim.api.nvim_set_hl(0, '@lsp.typemod.function.classScope', { fg = 'Purple' })
     -- vim.api.nvim_set_hl(0, '@lsp.typemod.class.classScope', { fg = 'Purple' })

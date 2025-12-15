@@ -23,6 +23,9 @@ local narrow_window_condition = function()
     return vim.api.nvim_win_get_width(0) > 200
 end
 
+local gruvbox_theme = require'lualine.themes.gruvbox'
+gruvbox_theme.insert.c.bg = '#3C3836'
+gruvbox_theme.insert.c.fg = '#A89984'
 
 require 'lualine'.setup {
     extensions = {},
@@ -47,7 +50,7 @@ require 'lualine'.setup {
             left = "",
             right = "",
         },
-        theme = "onedark",
+        theme = "gruvbox",
     },
     sections = {
         lualine_a = { "mode", },
@@ -60,7 +63,8 @@ require 'lualine'.setup {
                 colored = true,
                 update_in_insert = true,
             }, },
-        lualine_c = { "filename", { symbols.get, cond = narrow_window_condition, }, },
+        lualine_c = { "filename", },
+        -- lualine_c = { "filename" --[[ { symbols.get, cond = narrow_window_condition, }, ]]  },
         -- lualine_c = {{"require'lsp-status'.status()"}},
         -- lualine_x = { get_server_names, "encoding", "fileformat", "filetype" },
         -- lualine_x = { get_server_names, "filetype" },

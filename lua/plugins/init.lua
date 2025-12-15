@@ -16,6 +16,10 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 require "lazy".setup {
+    ui = {
+        border = "double",
+    },
+    install = { colorscheme = { "habamax", }, },
     -- My plugins here
     "tpope/vim-surround",
 
@@ -34,7 +38,7 @@ require "lazy".setup {
 
     "jacksonhvisuals/nvim-treesitter-cpp-tools",
 
-    { "dstein64/vim-startuptime", lazy = true,                          cmd = { "StartupTime", }, },
+    { "dstein64/vim-startuptime", lazy = true,    cmd = { "StartupTime", }, },
 
     "ethanholz/nvim-lastplace",
 
@@ -46,17 +50,19 @@ require "lazy".setup {
     --colorscheme:
     "navarasu/onedark.nvim",
 
+    { "ellisonleao/gruvbox.nvim", priority = 1000, },
+
     "rebelot/kanagawa.nvim",
 
     -- git plugins:
     "tpope/vim-fugitive",
 
-    { "lewis6991/gitsigns.nvim",  keys = require "keymapping".gitsigns, },
+    { "lewis6991/gitsigns.nvim", keys = require "keymapping".gitsigns, },
 
     -- lsp plugins
     "nvimtools/none-ls.nvim",
 
-    { "mason-org/mason.nvim",  opts = { PATH = "prepend", }, },
+    { "mason-org/mason.nvim",    opts = { PATH = "prepend", }, },
 
     "WhoIsSethDaniel/mason-tool-installer.nvim",
 
@@ -70,20 +76,20 @@ require "lazy".setup {
 
     "tamago324/nlsp-settings.nvim",
 
-    { "stevearc/conform.nvim", keys = require "keymapping".conform, },
+    { "stevearc/conform.nvim",     keys = require "keymapping".conform, },
 
     "p00f/clangd_extensions.nvim",
     -- 'mfussenegger/nvim-lint',
 
     -- misc
-    { "akinsho/git-conflict.nvim", opts = {},                         version = "*", },
+    { "akinsho/git-conflict.nvim", opts = {},                           version = "*", },
     {
         "ahmedkhalf/project.nvim",
         opts = { detection_methods = { "pattern", "lsp", }, },
         name = "project_nvim",
     },
 
-    { "lewis6991/hover.nvim",      keys = require "keymapping".hover, },
+    { "lewis6991/hover.nvim", keys = require "keymapping".hover, },
 
     {
         "folke/snacks.nvim",
@@ -121,12 +127,6 @@ require "lazy".setup {
     -- {
     --     "schrieveslaach/sonarlint.nvim",
     --     url = "https://gitlab.com/schrieveslaach/sonarlint.nvim",
-    -- },
-
-    --bufferline
-    -- {
-    --     "romgrk/barbar.nvim",
-    --     keys = require "keymapping".barbar,
     -- },
 
     --snippet

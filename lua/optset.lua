@@ -53,18 +53,14 @@ end
 if os.getenv "TMUX" ~= nil then
     vim.g.clipboard = {
         name = "tmux clipboard",
-        copy = {
-            ["+"] = { "tmux", "load-buffer", "-", },
-            ["*"] = { "tmux", "load-buffer", "-", },
-        },
-        paste = {
-            ["+"] = { "tmux", "save-buffer", "-", },
-            ["*"] = { "tmux", "save-buffer", "-", },
-        },
+        copy = { ["+"] = { "tmux", "load-buffer", "-", }, ["*"] = { "tmux", "load-buffer", "-", }, },
+        paste = { ["+"] = { "tmux", "save-buffer", "-", }, ["*"] = { "tmux", "save-buffer", "-", }, },
         cache_enabled = true,
     }
 end
 
 -- vim.cmd("colorscheme onedark")
 -- require 'plugs.colorscheme'.SetSemHi()
-vim.cmd "colorscheme kanagawa-wave"
+-- vim.cmd "colorscheme kanagawa-wave"
+vim.cmd "colorscheme gruvbox"
+vim.api.nvim_set_hl(0, "lualine_c_insert", { link = "lualine_c_normal", force = true, })
