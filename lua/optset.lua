@@ -61,6 +61,5 @@ end
 
 -- vim.cmd("colorscheme onedark")
 -- require 'plugs.colorscheme'.SetSemHi()
--- vim.cmd "colorscheme kanagawa-wave"
-vim.cmd "colorscheme gruvbox"
-vim.api.nvim_set_hl(0, "lualine_c_insert", { link = "lualine_c_normal", force = true, })
+vim.cmd "colorscheme kanagawa-wave"
+-- vim.cmd "colorscheme gruvbox"
