@@ -53,7 +53,8 @@
     "barplot",
     "depender",
     "corun",
-    "IWYU"
+    "IWYU",
+    "basepar"
   ],
   "words": [
     "ADDRE",

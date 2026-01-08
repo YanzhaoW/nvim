@@ -78,7 +78,7 @@ require "lazy".setup {
 
     { "stevearc/conform.nvim",     keys = require "keymapping".conform, },
 
-    "p00f/clangd_extensions.nvim",
+    -- "p00f/clangd_extensions.nvim",
     -- 'mfussenegger/nvim-lint',
 
     -- misc

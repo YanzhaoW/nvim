@@ -28,8 +28,8 @@ vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true, silent = true, })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { noremap = true, silent = true, })
 vim.keymap.set("n", "<C-Left>", "2<C-w>>", { noremap = true, silent = true, })
 vim.keymap.set("n", "<C-Right>", "2<C-w><", { noremap = true, silent = true, })
-vim.keymap.set("n", "<C-Up>", "<C-w>-", { noremap = true, silent = true, })
-vim.keymap.set("n", "<C-Down>", "<C-w>+", { noremap = true, silent = true, })
+vim.keymap.set("n", "<C-Up>", "<C-w>+", { noremap = true, silent = true, })
+vim.keymap.set("n", "<C-Down>", "<C-w>-", { noremap = true, silent = true, })
 vim.keymap.set("n", "<leader>*", ":noh<Enter>", { noremap = true, silent = true, })
 vim.keymap.set("n", "<leader>ll", "g_", { noremap = true, silent = true, })
 
@@ -280,10 +280,10 @@ function M.lsp(client, bufnr)
             ":call v:lua.bufferCopy(0)<CR>",
             { noremap = true, silent = true, })
         vim.keymap.set("n", "<leader>oo",
-            ":ClangdSwitchSourceHeader<CR>",
+            ":LspClangdSwitchSourceHeader<CR>",
             { noremap = true, silent = true, })
-        vim.keymap.set("n", "<leader>oh", ":ClangdTypeHierarchy<CR>",
-            { noremap = true, silent = true, })
+        -- vim.keymap.set("n", "<leader>oh", ":ClangdTypeHierarchy<CR>",
+        --     { noremap = true, silent = true, })
     end
     --     vim.keymap.set('n', '<space>fm', function() vim.lsp.buf.format({ async = true }) end, opts)
     -- end
