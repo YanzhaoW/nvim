@@ -22,13 +22,14 @@ local builtin = require "statuscol.builtin"
 
 require "statuscol".setup {
     segments = {
-        { sign = { namespace = { "diagnostic", }, maxwidth = 1, auto = false, }, },
+        { sign = { name = { "Dap.*", }, namespace = { "diagnostic", }, maxwidth = 1, auto = false, }, },
         { sign = {
             namespace = { "gitsigns", },
             colwidth = 1,
             auto = true,
             wrap = true,
         }, },
-        { text = { builtin.lnumfunc, " ", }, condition = { true, builtin.not_empty, }, sign = { maxwidth = 1, colwidth = 1, }, },
+        -- { sign = { name = { "Dap.*", }, maxwidth = 1, auto = true, }, },
+        { text = { builtin.lnumfunc, " ", },                                                          condition = { true, builtin.not_empty, }, sign = { maxwidth = 1, colwidth = 1, }, },
     },
 }

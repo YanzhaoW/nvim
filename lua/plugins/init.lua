@@ -38,7 +38,7 @@ require "lazy".setup {
 
     "jacksonhvisuals/nvim-treesitter-cpp-tools",
 
-    { "dstein64/vim-startuptime", lazy = true,    cmd = { "StartupTime", }, },
+    { "dstein64/vim-startuptime", lazy = true,     cmd = { "StartupTime", }, },
 
     "ethanholz/nvim-lastplace",
 
@@ -129,6 +129,10 @@ require "lazy".setup {
     --     url = "https://gitlab.com/schrieveslaach/sonarlint.nvim",
     -- },
 
+    -- debugger
+    'mfussenegger/nvim-dap',
+    { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio", }, },
+
     --snippet
     {
         "L3MON4D3/LuaSnip",
@@ -186,3 +190,4 @@ require "plugins.oil"
 require "plugins.conform"
 require "plugins.cpp_tools"
 require "plugins.lualine"
+require "plugins.debugger"

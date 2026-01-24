@@ -189,6 +189,42 @@ function M.todo()
     }
 end
 
+-- debugger:
+
+vim.keymap.set("n", "<leader>du", function()
+    require "dapui".toggle()
+end, { noremap = true, silent = true, desc = "Toggle debugger ui", })
+
+local debugger_keys = {
+    {
+        "<leader>dB",
+        function() require "dap".set_breakpoint(vim.fn.input 'Breakpoint condition: ') end,
+        desc = "Breakpoint Condition",
+    },
+    { "<C-b>", function() require "dap".toggle_breakpoint() end,             desc = "Toggle Breakpoint", },
+    { "<leader>dc", function() require "dap".continue() end,                      desc = "Run/Continue", },
+    { "<leader>da", function() require "dap".continue { before = get_args, } end, desc = "Run with Args", },
+    { "<leader>dC", function() require "dap".run_to_cursor() end,                 desc = "Run to Cursor", },
+    { "<leader>dg", function() require "dap".goto_() end,                         desc = "Go to Line (No Execute)", },
+    { "<leader>di", function() require "dap".step_into() end,                     desc = "Step Into", },
+    { "<leader>dj", function() require "dap".down() end,                          desc = "Down", },
+    { "<leader>dk", function() require "dap".up() end,                            desc = "Up", },
+    { "<leader>dl", function() require "dap".run_last() end,                      desc = "Run Last", },
+    { "<leader>do", function() require "dap".step_out() end,                      desc = "Step Out", },
+    { "<C-]>", function() require "dap".step_over() end,                     desc = "Step Over", },
+    { "<leader>dP", function() require "dap".pause() end,                         desc = "Pause", },
+    { "<leader>dr", function() require "dap".repl.toggle() end,                   desc = "Toggle REPL", },
+    { "<leader>ds", function() require "dap".session() end,                       desc = "Session", },
+    { "<leader>dt", function() require "dap".terminate() end,                     desc = "Terminate", },
+    { "<leader>dw", function() require "dap.ui.widgets".hover() end,              desc = "Widgets", },
+}
+
+for _, value in ipairs(debugger_keys)
+do
+    vim.keymap.set("n", value[1], value[2], { noremap = true, silent = true, desc = value[3], })
+end
+
+
 -- snippets
 function M.snippet()
     local ls = require "luasnip"
@@ -294,7 +330,11 @@ end
 
 function M.conform()
     return {
-        { "<leader>fm", function() require "conform".format { bufnr = 0, } end, desc = "Code formatting using conform", },
+        {
+            "<leader>fm",
+            function() require "conform".format { lsp_format = "first", } end,
+            desc = "Code formatting using conform",
+        },
     }
 end
 
