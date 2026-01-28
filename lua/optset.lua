@@ -27,6 +27,7 @@ vim.diagnostic.config {
     virtual_text = false,
     float = { show_header = true, source = 'always', border = 'rounded', focusable = true, },
 }
+vim.lsp.set_log_level("OFF")
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1

@@ -16,9 +16,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 require "lazy".setup {
-    ui = {
-        border = "double",
-    },
+    ui = { border = "double", },
     install = { colorscheme = { "habamax", }, },
     -- My plugins here
     "tpope/vim-surround",
@@ -29,23 +27,15 @@ require "lazy".setup {
 
     "nvim-lualine/lualine.nvim",
 
-    {
-        "nvim-treesitter/nvim-treesitter",
-        lazy = false,
-        branch = "main",
-        build = ":TSUpdate",
-    },
+    { "nvim-treesitter/nvim-treesitter", lazy = false, branch = "main",          build = ":TSUpdate", },
 
     "jacksonhvisuals/nvim-treesitter-cpp-tools",
 
-    { "dstein64/vim-startuptime", lazy = true,     cmd = { "StartupTime", }, },
+    { "dstein64/vim-startuptime",        lazy = true,  cmd = { "StartupTime", }, },
 
     "ethanholz/nvim-lastplace",
 
-    {
-        "ojroques/nvim-osc52",
-        opts = { max_length = 0, silent = true, trim = false, },
-    },
+    { "ojroques/nvim-osc52",      opts = { max_length = 0, silent = true, trim = false, }, },
 
     --colorscheme:
     "navarasu/onedark.nvim",
@@ -60,7 +50,9 @@ require "lazy".setup {
     { "lewis6991/gitsigns.nvim", keys = require "keymapping".gitsigns, },
 
     -- lsp plugins
-    "nvimtools/none-ls.nvim",
+    -- "nvimtools/none-ls.nvim",
+    "mfussenegger/nvim-lint",
+    -- "Civitasv/cmake-tools.nvim",
 
     { "mason-org/mason.nvim",    opts = { PATH = "prepend", }, },
 
@@ -74,6 +66,8 @@ require "lazy".setup {
 
     "neovim/nvim-lspconfig",
 
+    -- 'akinsho/toggleterm.nvim',
+
     "tamago324/nlsp-settings.nvim",
 
     { "stevearc/conform.nvim",     keys = require "keymapping".conform, },
@@ -82,21 +76,12 @@ require "lazy".setup {
     -- 'mfussenegger/nvim-lint',
 
     -- misc
-    { "akinsho/git-conflict.nvim", opts = {},                           version = "*", },
-    {
-        "ahmedkhalf/project.nvim",
-        opts = { detection_methods = { "pattern", "lsp", }, },
-        name = "project_nvim",
-    },
+    { "akinsho/git-conflict.nvim", opts = {},                                             version = "*", },
+    { "ahmedkhalf/project.nvim",   opts = { detection_methods = { "pattern", "lsp", }, }, name = "project_nvim", },
 
-    { "lewis6991/hover.nvim", keys = require "keymapping".hover, },
+    { "lewis6991/hover.nvim",      keys = require "keymapping".hover, },
 
-    {
-        "folke/snacks.nvim",
-        priority = 1000,
-        lazy = false,
-        keys = require "keymapping".snacks,
-    },
+    { "folke/snacks.nvim",         priority = 1000,                                       lazy = false,          keys = require "keymapping".snacks, },
 
     {
         "folke/trouble.nvim",
@@ -113,24 +98,17 @@ require "lazy".setup {
         keys = require "keymapping".todo,
         opts = {},
     },
-    {
+    { "stevearc/oil.nvim",    dependencies = { "nvim-tree/nvim-web-devicons", },                    keys = require "keymapping".oil, },
+    { "refractalize/oil-git-status.nvim", dependencies = {
         "stevearc/oil.nvim",
-        dependencies = { "nvim-tree/nvim-web-devicons", },
-        keys = require "keymapping".oil,
-    },
-    {
-        "refractalize/oil-git-status.nvim",
-        dependencies = {
-            "stevearc/oil.nvim",
-        },
-    },
+    }, },
     -- {
     --     "schrieveslaach/sonarlint.nvim",
     --     url = "https://gitlab.com/schrieveslaach/sonarlint.nvim",
     -- },
 
     -- debugger
-    'mfussenegger/nvim-dap',
+    "mfussenegger/nvim-dap",
     { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio", }, },
 
     --snippet
@@ -139,10 +117,7 @@ require "lazy".setup {
         -- follow latest release.
         version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
         build = "make install_jsregexp",
-        dependencies = {
-            "rafamadriz/friendly-snippets",
-            "benfowler/telescope-luasnip.nvim",
-        },
+        dependencies = { "rafamadriz/friendly-snippets", "benfowler/telescope-luasnip.nvim", },
         config = function(_, opts)
             if opts then
                 require "luasnip".config.setup(opts)
@@ -151,8 +126,7 @@ require "lazy".setup {
                 require("luasnip.loaders.from_" .. type).lazy_load()
             end, { "vscode", "snipmate", "lua", })
             -- friendly-snippets - enable standardized comments snippets
-            require "luasnip".filetype_extend("typescript",
-                { "tsdoc", })
+            require "luasnip".filetype_extend("typescript", { "tsdoc", })
             require "luasnip".filetype_extend("lua", { "luadoc", })
             require "luasnip".filetype_extend("python", { "pydoc", })
             require "luasnip".filetype_extend("cpp", { "cppdoc", })
@@ -173,7 +147,6 @@ require "lazy".setup {
         },
     },
 }
-
 
 -- load plugin settings:
 require "plugins.snacks_config"
