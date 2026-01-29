@@ -22,6 +22,7 @@ vim.opt.relativenumber = true
 vim.opt.numberwidth = 2
 vim.opt.spelloptions = "noplainbuffer"
 vim.opt.signcolumn = "yes"
+vim.opt.spellfile = vim.fs.abspath("~/.config/nvim/spell/en.utf-8.add")
 
 vim.diagnostic.config {
     virtual_text = false,

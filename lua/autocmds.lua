@@ -55,7 +55,8 @@ vim.api.nvim_create_autocmd({ "filetype", }, {
 })
 
 vim.api.nvim_create_autocmd({ "filetype", }, {
-    pattern = { "cpp", "python", "lua",  "tex", "typescript", "javascript", "typescriptreact", "markdown", },
+    -- pattern = { "cpp", "python", "lua",  "tex", "typescript", "javascript", "typescriptreact", "markdown", },
+    pattern = { "cpp", "python", "lua", "tex", "typescript", "javascript", "typescriptreact", },
     callback = function(args)
         -- local nvim_ts = require("nvim-treesitter")
         -- local parsers = nvim_ts.get_installed()
@@ -97,7 +98,8 @@ vim.api.nvim_create_autocmd("QuitPre", {
 local my_augroup = vim.api.nvim_create_augroup("mygroup",
     { clear = true, })
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "text", "tex", "markdown", "rst", }, -- disable spellchecking for these filetypes
+    -- pattern = { "text", "tex", "markdown", "rst", }, -- disable spellchecking for these filetypes
+    pattern = { "text", "tex", "rst", },  -- disable spellchecking for these filetypes
     -- command = "setlocal spell spelllang=en_us,de_de | set spellcapcheck= | syntax spell toplevel",
     command =
     "setlocal spell spelllang=en_us | set spellcapcheck= | syntax spell toplevel",
