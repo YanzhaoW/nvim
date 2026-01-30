@@ -22,13 +22,13 @@ vim.opt.relativenumber = true
 vim.opt.numberwidth = 2
 vim.opt.spelloptions = "noplainbuffer"
 vim.opt.signcolumn = "yes"
-vim.opt.spellfile = vim.fs.abspath("~/.config/nvim/spell/en.utf-8.add")
+vim.opt.spellfile = vim.fs.abspath "~/.config/nvim/spell/en.utf-8.add"
 
 vim.diagnostic.config {
     virtual_text = false,
     float = { show_header = true, source = 'always', border = 'rounded', focusable = true, },
 }
-vim.lsp.set_log_level("OFF")
+vim.lsp.set_log_level "OFF"
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -52,7 +52,10 @@ for type, icon in pairs(signs) do
     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "", })
 end
 
-if os.getenv "TMUX" ~= nil then
+
+print("os: " .. vim.uv.os_uname().sysname)
+
+if os.getenv "TMUX" ~= nil and vim.uv.os_uname() ~= 'Darwin' then
     vim.g.clipboard = {
         name = "tmux clipboard",
         copy = { ["+"] = { "tmux", "load-buffer", "-", }, ["*"] = { "tmux", "load-buffer", "-", }, },
