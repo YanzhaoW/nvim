@@ -53,14 +53,17 @@ for type, icon in pairs(signs) do
 end
 
 
-if os.getenv "TMUX" ~= nil and vim.uv.os_uname().sysname ~= 'Darwin' then
-    vim.g.clipboard = "tmux"
-    -- vim.g.clipboard = {
-    --     name = "tmux clipboard",
-    --     copy = { ["+"] = { "tmux", "load-buffer", "-", }, ["*"] = { "tmux", "load-buffer", "-", }, },
-    --     paste = { ["+"] = { "tmux", "save-buffer", "-", }, ["*"] = { "tmux", "save-buffer", "-", }, },
-    --     cache_enabled = true,
-    -- }
+if vim.uv.os_uname().sysname ~= 'Darwin' then
+    if os.getenv "TMUX" ~= nil then
+        vim.g.clipboard = {
+            name = "tmux clipboard",
+            copy = { ["+"] = { "tmux", "load-buffer", "-", }, ["*"] = { "tmux", "load-buffer", "-", }, },
+            paste = { ["+"] = { "tmux", "save-buffer", "-", }, ["*"] = { "tmux", "save-buffer", "-", }, },
+            cache_enabled = true,
+        }
+    else
+        vim.g.clipboard = "osc52"
+    end
 end
 
 -- vim.cmd("colorscheme onedark")
