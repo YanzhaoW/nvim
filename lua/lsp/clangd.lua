@@ -7,7 +7,7 @@ vim.lsp.config.clangd = {
         "--clang-tidy",
         "--all-scopes-completion",
         "--header-insertion-decorators",
-        "--experimental-modules-support", -- this breaks the single file
+        -- "--experimental-modules-support", -- this breaks the single file
         -- "--debug-modules-builder",
         -- "--log=verbose",
         "--pch-storage=memory",
