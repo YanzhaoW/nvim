@@ -57,7 +57,9 @@
     "basepar",
     "veronika",
     "geant",
-    "tacquila"
+    "tacquila",
+    "Eigen",
+    "colwise"
   ],
   "words": [
     "ADDRE",
