@@ -9,8 +9,8 @@ dap.set_log_level 'TRACE'
 dap.adapters.gdb = {
     type = "executable",
     command = "gdb",
-    -- args = { "--interpreter=dap", "--eval-command", "set print pretty on", },
-    args = { "--interpreter=dap", },
+    args = { "--interpreter=dap", "--eval-command", "set print pretty on", },
+    -- args = { "--interpreter=dap", },
 }
 
 dap.adapters.lldb = { type = 'executable', command = 'lldb-dap', name = 'lldb', }

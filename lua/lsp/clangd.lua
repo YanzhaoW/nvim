@@ -23,7 +23,7 @@ vim.lsp.config.clangd = {
         fallbackFlags = { "-std=c++23", },
     },
     -- on_attach = function(client, bufn) client.server_capabilities.semanticTokensProvider = nil end,
-    root_markers = { ".clangd", ".git", "compile_commands.json", },
+    root_markers = { ".clangd", ".git", "compile_commands.json", "conanfile.py", "CMakePresets.json" },
     single_file_support = true,
 }
 vim.lsp.enable "clangd"
