@@ -59,12 +59,14 @@
     "geant",
     "tacquila",
     "Eigen",
-    "colwise"
+    "colwise",
+    "STREQ"
   ],
   "words": [
     "ADDRE",
     "inputpar",
     "outputpar",
-    "Squence"
+    "Squence",
+    "xtensor"
   ]
 }
