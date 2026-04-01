@@ -43,6 +43,8 @@ vim.cmd "cnoreabbrev <expr> w\\ (getcmdtype()==':' && getcmdline()==# 'w\\')? 'w
 vim.filetype.add { pattern = { [".*/.*%.sshconfig"] = "sshconfig", }, }
 vim.deprecate = function() end
 
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded', })
+
 vim.g._ts_force_sync_parsing = true
 
 -- change lsp signs:

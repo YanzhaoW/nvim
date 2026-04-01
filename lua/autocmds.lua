@@ -1,25 +1,3 @@
--- local gitsigns = require'gitsigns'
-
--- local function clangformat()
---     for _, value in ipairs(gitsigns.get_hunks()) do
---         local start = value.added.start
---         local count = value.added.count
---         pcall(vim.fn["clang_format#replace"], start, start + count)
---     end
--- end
-
--- local autoformat = vim.api.nvim_create_augroup("autoformat", { clear = true })
-
--- vim.api.nvim_create_autocmd(
---     { "BufWritePre" },
---     {
---         group = autoformat,
---         callback = function()
---             vim.lsp.buf.format({ async = false })
---         end,
---     }
--- )
-
 -- cmp:
 local cmp_toggle = function()
     if vim.g.cmp_disable_enable_toggle == true then
@@ -99,7 +77,7 @@ local my_augroup = vim.api.nvim_create_augroup("mygroup",
     { clear = true, })
 vim.api.nvim_create_autocmd("FileType", {
     -- pattern = { "text", "tex", "markdown", "rst", }, -- disable spellchecking for these filetypes
-    pattern = { "text", "tex", "rst", },  -- disable spellchecking for these filetypes
+    pattern = { "text", "tex", "rst", }, -- disable spellchecking for these filetypes
     -- command = "setlocal spell spelllang=en_us,de_de | set spellcapcheck= | syntax spell toplevel",
     command =
     "setlocal spell spelllang=en_us | set spellcapcheck= | syntax spell toplevel",

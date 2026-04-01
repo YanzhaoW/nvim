@@ -202,9 +202,9 @@ local debugger_keys = {
         desc = "Breakpoint Condition",
     },
     { "<C-b>",      function() require "dap".toggle_breakpoint() end, desc = "Toggle Breakpoint", },
-    { "<Down>",      function() require "dap".step_over() end,         desc = "Step Over", },
-    { "<Right>",      function() require "dap".step_into() end,         desc = "Step Into", },
-    { "<Left>",      function() require "dap".step_out() end,          desc = "Step Out", },
+    { "<Down>",     function() require "dap".step_over() end,         desc = "Step Over", },
+    { "<Right>",    function() require "dap".step_into() end,         desc = "Step Into", },
+    { "<Left>",     function() require "dap".step_out() end,          desc = "Step Out", },
     { "<leader>dc", function() require "dap".continue() end,          desc = "Run/Continue", },
     -- { "<leader>da", function() require "dap".continue { before = get_args, } end, desc = "Run with Args", },
     { "<leader>dC", function() require "dap".run_to_cursor() end,     desc = "Run to Cursor", },
@@ -294,7 +294,7 @@ function M.lsp(client, bufnr)
     local opts = { noremap = true, silent = true, buffer = bufnr, }
     -- vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
     -- vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-    -- vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+    vim.keymap.set("n", "K", function() vim.lsp.buf.hover { border = "rounded", } end, opts)
     -- vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
     -- vim.keymap.set('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
     -- vim.keymap.set('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
@@ -340,24 +340,6 @@ end
 
 function M.oil()
     return { { "-", "<CMD>Oil<CR>", desc = "Open parent directory", }, }
-end
-
-function M.hover()
-    return {
-        {
-            "K",
-            function()
-                local api = vim.api
-                local hover_win = vim.b.hover_preview
-                if hover_win and api.nvim_win_is_valid(hover_win) then
-                    api.nvim_set_current_win(hover_win)
-                else
-                    require "hover".hover()
-                end
-            end,
-            { desc = "hover.nvim", },
-        },
-    }
 end
 
 function M.trouble()

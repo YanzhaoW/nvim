@@ -79,7 +79,7 @@ require "lazy".setup {
     { "akinsho/git-conflict.nvim", opts = {},                                             version = "*", },
     { "ahmedkhalf/project.nvim",   opts = { detection_methods = { "pattern", "lsp", }, }, name = "project_nvim", },
 
-    { "lewis6991/hover.nvim",      keys = require "keymapping".hover, },
+    -- { "lewis6991/hover.nvim",      keys = require "keymapping".hover, },
 
     { "folke/snacks.nvim",         priority = 1000,                                       lazy = false,          keys = require "keymapping".snacks, },
 
@@ -110,6 +110,19 @@ require "lazy".setup {
     -- debugger
     "mfussenegger/nvim-dap",
     { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio", }, },
+
+    -- -- testing
+    -- {
+    --     "nvim-neotest/neotest",
+    --     dependencies = {
+    --         "nvim-neotest/nvim-nio",
+    --         "nvim-lua/plenary.nvim",
+    --         "antoinemadec/FixCursorHold.nvim",
+    --         "nvim-treesitter/nvim-treesitter",
+    --         "orjangj/neotest-ctest",
+    --         "alfaix/neotest-gtest",
+    --     },
+    -- },
 
     --snippet
     {
@@ -164,3 +177,4 @@ require "plugins.conform"
 require "plugins.cpp_tools"
 require "plugins.lualine"
 require "plugins.debugger"
+-- require "plugins.neo_test"
