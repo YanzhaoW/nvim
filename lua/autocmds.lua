@@ -175,11 +175,3 @@ vim.api.nvim_create_autocmd("LspTokenUpdate", {
         end
     end,
 })
-
--- vim.api.nvim_create_augroup('AutoFormatting', { clear = true })
--- vim.api.nvim_create_autocmd('BufWritePre', {
---     group = 'AutoFormatting',
---     callback = function()
---         vim.lsp.buf.format({ async = false })
---     end,
--- })
