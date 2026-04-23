@@ -76,12 +76,12 @@ require "lazy".setup {
     -- 'mfussenegger/nvim-lint',
 
     -- misc
-    { "akinsho/git-conflict.nvim", opts = {},                                             version = "*", },
-    { "ahmedkhalf/project.nvim",   opts = { detection_methods = { "pattern", "lsp", }, }, name = "project_nvim", },
+    { "akinsho/git-conflict.nvim", opts = {},                                                                                                    version = "*", },
+    { "ahmedkhalf/project.nvim",   opts = { detection_methods = { "pattern", "lsp", }, patterns = { "CMakePresets.json", "conanfile.py", ".git", }, }, name = "project_nvim", },
 
     -- { "lewis6991/hover.nvim",      keys = require "keymapping".hover, },
 
-    { "folke/snacks.nvim",         priority = 1000,                                       lazy = false,          keys = require "keymapping".snacks, },
+    { "folke/snacks.nvim",         priority = 1000,                                                                                              lazy = false,          keys = require "keymapping".snacks, },
 
     {
         "folke/trouble.nvim",

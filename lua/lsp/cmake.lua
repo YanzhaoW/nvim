@@ -3,6 +3,6 @@ vim.lsp.config.cmake = {
     filetypes = { "cmake", },
     init_options = { buildDirectory = "build", },
     single_file_support = true,
-    root_markers = { "CMakePresets.json", ".clangd", ".git", "compile_commands.json", ".cmake-format", "conanfile.py", },
+    root_markers = { "CMakePresets.json", "conanfile.py", ".clangd", ".git", "compile_commands.json", ".cmake-format", },
 }
 vim.lsp.enable "cmake"
