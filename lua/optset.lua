@@ -27,6 +27,14 @@ vim.opt.spellfile = vim.fs.abspath "~/.config/nvim/spell/en.utf-8.add"
 vim.diagnostic.config {
     virtual_text = false,
     float = { show_header = true, source = 'always', border = 'rounded', focusable = true, },
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = " ",
+            [vim.diagnostic.severity.WARN]  = " ",
+            [vim.diagnostic.severity.HINT]  = " ",
+            [vim.diagnostic.severity.INFO]  = " ",
+        },
+    },
 }
 vim.lsp.set_log_level "OFF"
 
@@ -44,14 +52,6 @@ vim.filetype.add { pattern = { [".*/.*%.sshconfig"] = "sshconfig", }, }
 vim.deprecate = function() end
 
 vim.g._ts_force_sync_parsing = true
-
--- change lsp signs:
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " ", }
-for type, icon in pairs(signs) do
-    local hl = "DiagnosticSign" .. type
-    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "", })
-end
-
 
 if vim.uv.os_uname().sysname ~= 'Darwin' then
     if os.getenv "TMUX" ~= nil then
