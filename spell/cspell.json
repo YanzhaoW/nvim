@@ -60,13 +60,24 @@
     "tacquila",
     "Eigen",
     "colwise",
-    "STREQ"
+    "STREQ",
+    "postcat",
+    "koeln",
+    "mdspan",
+    "bugprone",
+    "chisq",
+    "decomp",
+    "selfadjoint",
+    "ldlt"
   ],
   "words": [
     "ADDRE",
     "inputpar",
     "outputpar",
     "Squence",
-    "xtensor"
+    "xtensor",
+    "postqueue",
+    "worldwideweb",
+    "whois"
   ]
 }

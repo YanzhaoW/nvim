@@ -105,7 +105,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("BufRead",
-    { pattern = { "*.icc", "*.cppm", }, command = "setlocal filetype=cpp", })
+    { pattern = { "*.icc", "*.cppm", "*.inc", }, command = "setlocal filetype=cpp", })
 
 vim.api.nvim_create_autocmd("BufRead",
     { pattern = { "*.mac", }, command = "setlocal filetype=bash", })
