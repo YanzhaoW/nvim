@@ -33,8 +33,8 @@ vim.keymap.set("n", "<C-Down>", "<C-w>-", { noremap = true, silent = true, })
 vim.keymap.set("n", "<leader>*", ":noh<Enter>", { noremap = true, silent = true, })
 vim.keymap.set("n", "<leader>ll", "g_", { noremap = true, silent = true, })
 
-vim.keymap.set("n", "j", [[v:count ? 'j' : 'gj']], { noremap = true, silent = true, expr = true, })
-vim.keymap.set("n", "k", [[v:count ? 'k' : 'gk']], { noremap = true, silent = true, expr = true, })
+vim.keymap.set({ "n", "v", }, "j", [[v:count ? 'j' : 'gj']], { noremap = true, silent = true, expr = true, })
+vim.keymap.set({ "n", "v", }, "k", [[v:count ? 'k' : 'gk']], { noremap = true, silent = true, expr = true, })
 -- moving one line down in text wrapping
 -- vim.keymap.set('n', '<leader>w', ':w<Enter>', { noremap = true, silent = true })
 -- vim.keymap.set('n', '<leader>q', ':q<Enter>', { noremap = true, silent = true })

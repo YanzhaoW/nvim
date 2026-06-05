@@ -145,3 +145,6 @@ googletest
 ctest
 Eigen
 PascalCase
+constexpr
+ps
+clusterisation

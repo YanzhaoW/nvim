@@ -13,6 +13,7 @@
 require 'lint'.linters_by_ft = {
     -- markdown = {'vale'},
     cmake = { 'cmake_lint', },
+    cpp = { 'cppcheck', },
 }
 
 vim.api.nvim_create_autocmd({ "BufWritePost", }, {
