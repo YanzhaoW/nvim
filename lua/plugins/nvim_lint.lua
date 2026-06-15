@@ -9,12 +9,15 @@
 -- }
 -- null_ls.setup({ sources = sources })
 
+local lint = require 'lint'
 
-require 'lint'.linters_by_ft = {
+lint.linters_by_ft = {
     -- markdown = {'vale'},
     cmake = { 'cmake_lint', },
     -- cpp = { 'cppcheck', },
 }
+
+lint.linters.cmake_lint.args = { "--disable", }
 
 vim.api.nvim_create_autocmd({ "BufWritePost", }, {
     callback = function()
