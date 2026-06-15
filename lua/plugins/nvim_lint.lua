@@ -13,7 +13,7 @@
 require 'lint'.linters_by_ft = {
     -- markdown = {'vale'},
     cmake = { 'cmake_lint', },
-    cpp = { 'cppcheck', },
+    -- cpp = { 'cppcheck', },
 }
 
 vim.api.nvim_create_autocmd({ "BufWritePost", }, {
@@ -27,3 +27,20 @@ vim.api.nvim_create_autocmd({ "BufWritePost", }, {
         -- require "lint".try_lint "cspell"
     end,
 })
+
+local cppcheck = require 'lint'.linters.cppcheck
+
+cppcheck.append_fname = false
+cppcheck.args = {
+    "--enable=warning,style,performance,information",
+    "--language=c++",
+    "--inline-suppr",
+    "--quiet",
+    "--project=build/compile_commands.json",
+    "--cppcheck-build-dir=build/.cppcheck-cache",
+    "--output-format=sarif",
+    -- "--output-file=cppcheck.sarif",
+    -- "--template={file}:{line}:{column}: [{id}] {severity}: {message}",
+}
+cppcheck.stream = "stderr"
+cppcheck.parser = require "lint.parser".for_sarif { source = "cppcheck", }

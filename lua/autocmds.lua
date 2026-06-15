@@ -51,7 +51,12 @@ vim.api.nvim_create_autocmd({ "filetype", }, {
 })
 
 vim.api.nvim_create_autocmd("ColorScheme",
-    { callback = require "plugins.colorscheme".SetSemHi, })
+    {
+        callback = function()
+            require "plugins.colorscheme".SetSemHi()
+            vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#666666", bg = "NONE", })
+        end,
+    })
 
 vim.api.nvim_create_autocmd("QuitPre", {
     callback = function()
@@ -150,6 +155,25 @@ vim.api.nvim_create_autocmd({ "TextYankPost", }, {
         if event.operator == "y" and event.regname == "" then
             require "osc52".copy_register '"'
         end
+    end,
+})
+
+-- auto folds
+_G.fold_on_dox_comments = function()
+    local line = vim.fn.getline(vim.v.lnum)
+    if line:match "^%s*/%*%*%s*$" then
+        return ">1"
+    elseif line:match "^%s*%*/%s*$" then
+        return "<1"
+    end
+    return "="
+end
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "cpp", },
+    callback = function()
+        vim.opt.foldmethod = "expr"
+        vim.o.foldexpr = 'v:lua.fold_on_dox_comments()'
     end,
 })
 

@@ -51,6 +51,12 @@ vim.cmd "cnoreabbrev <expr> w\\ (getcmdtype()==':' && getcmdline()==# 'w\\')? 'w
 vim.filetype.add { pattern = { [".*/.*%.sshconfig"] = "sshconfig", }, }
 vim.deprecate = function() end
 
+-- vim.opt.laststatus = 2
+vim.opt.fillchars:append {
+    vert = "┆", -- vertical split
+    horiz = "┄", -- horizontal split
+}
+
 vim.g._ts_force_sync_parsing = true
 
 if vim.uv.os_uname().sysname ~= 'Darwin' then
