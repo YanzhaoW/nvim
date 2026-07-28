@@ -26,6 +26,7 @@ vim.opt.spellfile = vim.fs.abspath "~/.config/nvim/spell/en.utf-8.add"
 
 vim.diagnostic.config {
     virtual_text = false,
+    virtual_lines = false,
     float = { show_header = true, source = 'always', border = 'rounded', focusable = true, },
     signs = {
         text = {

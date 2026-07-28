@@ -66,6 +66,20 @@ lua_snippet.add_snippets("cpp", {
 lua_snippet.add_snippets("markdown", {
     snippet("$$", fmt([[@f${}@f$]], { insert(1, "content"), })),
     snippet("refeq", fmt([[@f$\ref{{eq:{}}}@f$]], { insert(1, "label"), })),
+    snippet("equation", fmt([[
+<!-- prettier-ignore-start -->
+\f{{equation}}{{
+    {}
+\f}}
+<!-- prettier-ignore-end -->
+]], { insert(1, "equation"), })),
+    snippet("align", fmt([[
+<!-- prettier-ignore-start -->
+\f{{align}}{{
+    {}
+\f}}
+<!-- prettier-ignore-end -->
+]], { insert(1, "equation"), })),
 })
 
 lua_snippet.add_snippets("cmake", {

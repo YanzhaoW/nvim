@@ -50,6 +50,13 @@ vim.api.nvim_create_autocmd({ "filetype", }, {
     end,
 })
 
+vim.api.nvim_create_autocmd({ "filetype", }, {
+    pattern = { "markdown", "cmake", },
+    callback = function()
+        vim.treesitter.stop()
+    end,
+})
+
 vim.api.nvim_create_autocmd("ColorScheme",
     {
         callback = function()
@@ -196,6 +203,16 @@ vim.api.nvim_create_autocmd("LspTokenUpdate", {
         if token.type == "enum" and token.modifiers.globalScope then
             vim.lsp.semantic_tokens.highlight_token(
                 token, args.buf, args.data.client_id, "@lsp.mod.globalScope")
+        end
+    end,
+})
+
+vim.api.nvim_create_autocmd("DiagnosticChanged", {
+    callback = function(args)
+        local count = #vim.diagnostic.get(args.buf)
+        if count > 50 then
+            vim.diagnostic.enable(false, { bufnr = args.buf, })
+            vim.notify("Disabled diagnostics in this buffer: " .. count .. " diagnostics")
         end
     end,
 })

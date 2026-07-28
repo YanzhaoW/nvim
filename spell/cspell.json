@@ -68,7 +68,9 @@
     "chisq",
     "decomp",
     "selfadjoint",
-    "ldlt"
+    "ldlt",
+    "moodycamel",
+    "ctre"
   ],
   "words": [
     "ADDRE",
