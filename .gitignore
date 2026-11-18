@@ -1,6 +1,7 @@
 /*
 !init.vim
 !spell/
+!after
 spell/*.spl
 spell/*.sug
 !.gitignore
