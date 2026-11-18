@@ -62,3 +62,5 @@ require "conform".formatters.docstrfmt = {
 }
 
 require "conform".formatters.black = { args = { "--stdin-filename", "$FILENAME", "--quiet", "--line-length=79", "-", }, }
+
+require "conform".formatters.latexindent = { prepend_args = { "-l", "-y=indentPreamble: 1", }, }

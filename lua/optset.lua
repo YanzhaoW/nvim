@@ -37,7 +37,7 @@ vim.diagnostic.config {
         },
     },
 }
-vim.lsp.set_log_level "OFF"
+vim.lsp.log.set_level "ERROR"
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1

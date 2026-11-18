@@ -70,7 +70,13 @@
     "selfadjoint",
     "ldlt",
     "moodycamel",
-    "ctre"
+    "ctre",
+    "cxxopts",
+    "setwarnf",
+    "capnproto",
+    "capnp",
+    "linalg",
+    "odrpack"
   ],
   "words": [
     "ADDRE",
@@ -80,6 +86,11 @@
     "xtensor",
     "postqueue",
     "worldwideweb",
-    "whois"
+    "whois",
+    "xdata",
+    "ydata",
+    "eigvals",
+    "printoptions",
+    "floatmode"
   ]
 }

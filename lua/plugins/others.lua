@@ -30,7 +30,7 @@ require "statuscol".setup {
             wrap = true,
         }, },
         -- { sign = { name = { "Dap.*", }, maxwidth = 1, auto = true, }, },
-        { text = { builtin.lnumfunc, " ", }, condition = { true, builtin.not_empty, }, sign = { maxwidth = 1, colwidth = 1, }, },
+        { text = { builtin.lnumfunc, " ", },                                                          condition = { true, builtin.not_empty, }, sign = { maxwidth = 1, colwidth = 1, }, },
     },
 }
 

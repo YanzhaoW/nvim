@@ -1,7 +1,7 @@
 vim.lsp.config.cmake = {
     cmd = { "cmake-language-server", },
     filetypes = { "cmake", },
-    init_options = { buildDirectory = "build", },
+    init_options = { buildDirectory = "", },
     single_file_support = true,
     root_markers = { "CMakePresets.json", "conanfile.py", ".clangd", ".git", "compile_commands.json", ".cmake-format", },
 }

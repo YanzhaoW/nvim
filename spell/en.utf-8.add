@@ -152,3 +152,8 @@ descirbed
 srs-contorl
 config
 GaussNewton
+Choleskey
+eigen
+linalg
+CALIFA
+TAMEX

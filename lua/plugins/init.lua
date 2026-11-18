@@ -54,7 +54,7 @@ require "lazy".setup {
     "mfussenegger/nvim-lint",
     -- "Civitasv/cmake-tools.nvim",
 
-    { "mason-org/mason.nvim",    opts = { PATH = "prepend", }, },
+    { "mason-org/mason.nvim",    opts = { PATH = "append", }, },
 
     "WhoIsSethDaniel/mason-tool-installer.nvim",
 
@@ -161,6 +161,9 @@ require "lazy".setup {
             "L3MON4D3/LuaSnip",
         },
     },
+
+    -- latex
+    require "plugins.vimtex"
 }
 
 -- load plugin settings:

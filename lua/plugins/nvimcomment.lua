@@ -1,6 +1,9 @@
-require('Comment').setup({
-    ignore = '^$'
-})
+require 'Comment'.setup {
+    ignore = '^$',
+    pre_hook = function()
+        return vim.bo.commentstring
+    end,
+}
 
 -- vim.cmd([[
 -- augroup set_commentstring

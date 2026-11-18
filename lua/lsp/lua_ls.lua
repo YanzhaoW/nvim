@@ -3,7 +3,7 @@ vim.lsp.config.lua_ls = {
     filetypes = { "lua" },
     settings = {
         Lua = {
-            diagnostics = { globals = { "vim" }, },
+            diagnostics = { globals = { "vim", "tex", "token" }, },
             format = {
                 enable = true,
                 defaultConfig = {

@@ -1,3 +1,5 @@
+local build_dir = vim.fn.getcwd() .. "/build"
+
 vim.lsp.config.clangd = {
     filetypes = { "c", "cpp", "objc", "objcpp", "cuda", },
     cmd = {
@@ -6,13 +8,15 @@ vim.lsp.config.clangd = {
         "--background-index",
         "--clang-tidy",
         "--all-scopes-completion",
+        "--log=error",
         "--header-insertion-decorators",
-        -- "--experimental-modules-support", -- this breaks the single file
+        "--experimental-modules-support", -- this breaks the single file
         -- "--debug-modules-builder",
-        -- "--log=verbose",
+        string.format("--compile-commands-dir=%s", build_dir),
+        "--log=verbose",
         "--pch-storage=memory",
         "--completion-style=bundled",
-        "--cross-file-rename",
+        -- "--cross-file-rename",
         "--header-insertion=iwyu",
     },
     init_options = {
@@ -23,7 +27,7 @@ vim.lsp.config.clangd = {
         fallbackFlags = { "-std=c++23", },
     },
     -- on_attach = function(client, bufn) client.server_capabilities.semanticTokensProvider = nil end,
-    root_markers = { ".clangd", ".git", "compile_commands.json", "conanfile.py", "CMakePresets.json" },
+    root_markers = { ".clangd", ".git", "conanfile.py", "CMakePresets.json", },
     single_file_support = true,
 }
 vim.lsp.enable "clangd"

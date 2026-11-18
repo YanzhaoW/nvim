@@ -1,7 +1,7 @@
 local capabilities = require("lsp.capability")
 
 require("mason-lspconfig").setup({
-    automatic_enable = true,
+    automatic_enable = false,
     -- ensure_installed = { "lua_ls", "yamlls", "cmake", "pyright", "clangd", "esbonio", "ltex_plus", "cspell_ls", "fortls" },
     ensure_installed = { "lua_ls", "yamlls", "cmake", "pyright", "esbonio", "ltex_plus", "fortls" },
 })
@@ -20,8 +20,9 @@ require("lsp/cmake")
 require("lsp/python")
 require("lsp/fortls")
 require("lsp/sonarlint")
+require("lsp/clice")
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-    virtual_text = false,
-    signs = true,
-})
+-- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+--     virtual_text = false,
+--     signs = true,
+-- })

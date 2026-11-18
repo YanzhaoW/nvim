@@ -25,9 +25,24 @@ dap.configurations.cpp = {
         end,
         cwd = '${workspaceFolder}',
         stopOnEntry = false,
-        args = {},
+        args = function()
+            local input = vim.fn.input 'Program options: '
+            return vim.split(input, '%s+', { trimempty = true, })
+        end,
     },
 }
+
+dap.adapters.cmake = {
+    type = "pipe",
+    pipe = "${pipe}",
+    executable = { command = "cmake", args = { "--debugger", "--debugger-pipe", "${pipe}", "-S", ".", "-B", "build", }, },
+}
+
+dap.configurations.cmake = { {
+    name = "Debug CMake configure",
+    type = "cmake",
+    request = "launch",
+}, }
 
 dap.adapters.python = function(cb, config)
     if config.request == 'attach' then
@@ -84,6 +99,10 @@ dap.configurations.python = {
             end
         end,
         console = "integratedTerminal",
+        args = function()
+            local input = vim.fn.input 'Program options: '
+            return vim.split(input, '%s+', { trimempty = true, })
+        end,
     },
 }
 

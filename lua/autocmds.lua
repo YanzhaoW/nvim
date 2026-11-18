@@ -33,19 +33,8 @@ vim.api.nvim_create_autocmd({ "filetype", }, {
 })
 
 vim.api.nvim_create_autocmd({ "filetype", }, {
-    -- pattern = { "cpp", "python", "lua",  "tex", "typescript", "javascript", "typescriptreact", "markdown", },
-    pattern = { "cpp", "python", "lua", "tex", "typescript", "javascript", "typescriptreact", },
+    pattern = { "cpp", "python", "lua", "typescript", "javascript", "typescriptreact", },
     callback = function(args)
-        -- local nvim_ts = require("nvim-treesitter")
-        -- local parsers = nvim_ts.get_installed()
-        -- local filetype = args.match
-        -- for _, parser in ipairs(parsers) do
-        -- 	if filetype == parser then
-        -- 		vim.treesitter.start()
-        --               return true
-        -- 	end
-        -- end
-        -- require("nvim-treesitter").install({ filetype })
         vim.treesitter.start()
     end,
 })
@@ -216,3 +205,7 @@ vim.api.nvim_create_autocmd("DiagnosticChanged", {
         end
     end,
 })
+
+vim.api.nvim_create_user_command("LspLog", function()
+    vim.cmd.tabnew(vim.lsp.log.get_filename())
+end, { desc = "Get Lsp log", })

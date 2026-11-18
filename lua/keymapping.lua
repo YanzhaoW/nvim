@@ -302,6 +302,11 @@ function M.lsp(client, bufnr)
     -- vim.keymap.set('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
     -- vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, opts)
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+    -- vim.keymap.set("n", "ga", function()
+    --     local row = vim.api.nvim_win_get_cursor(0)[1]
+    --     local line = vim.api.nvim_get_current_line()
+    --     vim.lsp.buf.code_action { apply = true, range = { start = { row, 0, }, ["end"] = { row, #line, }, }, }
+    -- end, opts)
     vim.keymap.set("n", "ga", function()
         vim.lsp.buf.code_action { apply = true, }
     end, opts)
@@ -326,6 +331,16 @@ function M.lsp(client, bufnr)
     -- if client.name == 'cmake' then
     --     vim.keymap.set('n', '<space>fm', '<cmd>FormatWrite<cr>', opts)
     -- end
+end
+
+function M.vimtex()
+    vim.keymap.set("n", "<leader>lv", "<cmd>VimtexView<CR>", { desc = "Vimtex: viewtex pdf file", })
+    vim.keymap.set("n", "<leader>le", "<cmd>VimtexErrors<CR>", { desc = "Vimtex: show vimtex errors", })
+    vim.keymap.set("n", "<leader>lo", "<cmd>VimtexCompileOutput<CR>", { desc = "Vimtex: Compile with output", })
+    vim.keymap.set("n", "<leader>ll", "<cmd>VimtexCompile<CR>", { desc = "Vimtex: Compile the tex file", })
+    vim.keymap.set("n", "<localleader>lt", function()
+        return require "vimtex.snacks".toc()
+    end)
 end
 
 function M.conform()
