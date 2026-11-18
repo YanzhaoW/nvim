@@ -25,13 +25,15 @@ require "lazy".setup {
 
     "nvim-tree/nvim-web-devicons",
 
+    { "catppuccin/nvim",                 name = "catppuccin", priority = 1000, },
+
     "nvim-lualine/lualine.nvim",
 
-    { "nvim-treesitter/nvim-treesitter", lazy = false, branch = "main",          build = ":TSUpdate", },
+    { "nvim-treesitter/nvim-treesitter", lazy = false,        branch = "main", build = ":TSUpdate", },
 
     "jacksonhvisuals/nvim-treesitter-cpp-tools",
 
-    { "dstein64/vim-startuptime",        lazy = true,  cmd = { "StartupTime", }, },
+    { "dstein64/vim-startuptime", lazy = true,                                             cmd = { "StartupTime", }, },
 
     "ethanholz/nvim-lastplace",
 
@@ -47,14 +49,14 @@ require "lazy".setup {
     -- git plugins:
     "tpope/vim-fugitive",
 
-    { "lewis6991/gitsigns.nvim", keys = require "keymapping".gitsigns, },
+    { "lewis6991/gitsigns.nvim",  keys = require "keymapping".gitsigns, },
 
     -- lsp plugins
     -- "nvimtools/none-ls.nvim",
     "mfussenegger/nvim-lint",
     -- "Civitasv/cmake-tools.nvim",
 
-    { "mason-org/mason.nvim",    opts = { PATH = "append", }, },
+    { "mason-org/mason.nvim",        opts = { PATH = "append", }, },
 
     "WhoIsSethDaniel/mason-tool-installer.nvim",
 
@@ -72,18 +74,18 @@ require "lazy".setup {
 
     "tamago324/nlsp-settings.nvim",
 
-    { "stevearc/conform.nvim",       keys = require "keymapping".conform, },
+    { "stevearc/conform.nvim",     keys = require "keymapping".conform, },
 
     -- "p00f/clangd_extensions.nvim",
     -- 'mfussenegger/nvim-lint',
 
     -- misc
-    { "akinsho/git-conflict.nvim",   opts = {},                                                                                                          version = "*", },
-    { "ahmedkhalf/project.nvim",     opts = { detection_methods = { "pattern", "lsp", }, patterns = { "CMakePresets.json", "conanfile.py", ".git", }, }, name = "project_nvim", },
+    { "akinsho/git-conflict.nvim", opts = {},                                                                                                          version = "*", },
+    { "ahmedkhalf/project.nvim",   opts = { detection_methods = { "pattern", "lsp", }, patterns = { "CMakePresets.json", "conanfile.py", ".git", }, }, name = "project_nvim", },
 
     -- { "lewis6991/hover.nvim",      keys = require "keymapping".hover, },
 
-    { "folke/snacks.nvim",           priority = 1000,                                                                                                    lazy = false,          keys = require "keymapping".snacks, },
+    { "folke/snacks.nvim",         priority = 1000,                                                                                                    lazy = false,          keys = require "keymapping".snacks, },
 
     {
         "folke/trouble.nvim",
@@ -126,6 +128,23 @@ require "lazy".setup {
     --     },
     -- },
 
+
+    {
+        "folke/lazydev.nvim",
+        ft = "lua",
+        dependencies = {
+            "LelouchHe/xmake-luals-addon",
+        },
+        opts = {
+            library = {
+                {
+                    path = "xmake-luals-addon/library",
+                    files = { "xmake.lua", },
+                },
+            },
+        },
+    },
+
     --snippet
     {
         "L3MON4D3/LuaSnip",
@@ -163,7 +182,7 @@ require "lazy".setup {
     },
 
     -- latex
-    require "plugins.vimtex"
+    require "plugins.vimtex",
 }
 
 -- load plugin settings:
